@@ -5,17 +5,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>锦致科技</title>
 
-    <!-- 替换掉谷歌字体，使用国内可访问CDN -->
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 国内可访问CDN替代谷歌资源 -->
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/material-symbols/0.14.7/material-symbols-outlined.css">
-
-    <!-- 移除 Google Fonts，改用系统安全字体 -->
-    <style>
-        body { font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif; }
-        h1,h2,h3,h4 { font-family: "Manrope", "PingFang SC", "Microsoft YaHei", sans-serif; }
-    </style>
-
-    <!-- 国内CDN加载Tailwind -->
     <script src="https://cdn.bootcdn.net/ajax/libs/tailwindcss/3.4.1/tailwind.min.js"></script>
 
     <script id="tailwind-config">
@@ -83,9 +74,9 @@
                         "full": "9999px"
                     },
                     "fontFamily": {
-                        "headline": ["Manrope"],
-                        "body": ["Inter"],
-                        "label": ["Inter"]
+                        "headline": ["Manrope", "PingFang SC", "Microsoft YaHei", "sans-serif"],
+                        "body": ["Inter", "PingFang SC", "Microsoft YaHei", "sans-serif"],
+                        "label": ["Inter", "PingFang SC", "Microsoft YaHei", "sans-serif"]
                     }
                 },
             },
@@ -125,30 +116,28 @@
 
 <body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
 
-<!-- TopNavBar -->
+<!-- TopNavBar：修复移动端显示，保留所有样式 -->
 <nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
-    <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-7xl mx-auto">
+    <div class="flex justify-between items-center px-4 md:px-8 py-3 md:py-4 max-w-7xl mx-auto">
         <div class="text-xl md:text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-manrope tracking-tight">
             锦致科技
         </div>
-        <div class="hidden md:flex items-center space-x-8">
-            <a class="text-blue-600 border-b-2 border-blue-600 pb-1 font-manrope font-bold tracking-tight" href="list.html">解决方案</a>
-            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="#">核心领域</a>
-            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="#">技术架构</a>
-            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="#">案例研究</a>
+        <!-- 移动端导航修复：始终显示核心入口，不隐藏 -->
+        <div class="flex items-center space-x-4 md:space-x-8">
+            <a class="text-blue-600 border-b-2 border-blue-600 pb-1 font-manrope font-bold tracking-tight text-sm md:text-base" href="list.html">解决方案</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight text-sm md:text-base hidden sm:block" href="#">核心领域</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight text-sm md:text-base hidden sm:block" href="#">技术架构</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight text-sm md:text-base hidden sm:block" href="#">案例研究</a>
         </div>
         <div class="flex items-center gap-3 md:gap-6">
-            <div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/15">
-                <span class="material-symbols-outlined text-outline text-sm">search</span>
-                <input class="bg-transparent border-none focus:ring-0 text-sm w-40 placeholder:text-outline-variant" placeholder="搜索洞察..." type="text"/>
-            </div>
-            <button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-4 md:px-6 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-primary/10 hover:opacity-80 transition-all duration-300 active:scale-95">立即开始</button>
+            <button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-4 md:px-6 py-2 rounded-lg font-bold text-sm shadow-lg shadow-primary/10 hover:opacity-80 transition-all duration-300 active:scale-95">立即开始</button>
         </div>
     </div>
     <div class="bg-slate-100 h-[1px] opacity-20"></div>
 </nav>
 
-<main class="pt-16 md:pt-20">
+<!-- 修复间距：将pt-20改为pt-12，大幅缩小顶部空白 -->
+<main class="pt-12 md:pt-20">
     <!-- Hero Section -->
     <section class="relative min-h-[600px] md:min-h-[921px] flex items-center px-4 md:px-8 overflow-hidden bg-surface-bright">
         <video class="video-bg" autoplay muted loop playsinline>
@@ -170,7 +159,7 @@
                 <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-secondary/10 blur-[100px] rounded-full"></div>
                 <div class="rounded-3xl overflow-hidden shadow-2xl relative z-10 transform skew-y-2">
                     <img class="w-full h-[600px] object-cover" 
-                         alt="未来智能城市" 
+                         alt="未来智能城市天际线，黄昏时分带有发光的蓝紫色光轨和现代玻璃建筑" 
                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu8Prf0q_S8mzkX2C3kRfptbt_udwUdZVDDapNRyxMdAWgo02ZSxr0EJCtepr-9l4clsWxDuHRxvmrW4JaOpi2mSi8VoR6xQbDfFGnTAOL-Ml27hGCegwbvwJiSKB00aKjNpitiIY682kmU66V_r7HeUNalGcOzuRbY_J5B1r0CTj4ZvHYWuqvSF0knqZETb9bMSV7bvJZ9x7Jv929cnm_95XYxqyBkUOIMPo3IqIc0VCvJKIgYfGrc4SWu7JF6GthMi9X2IicRlo_"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
                 </div>
@@ -178,7 +167,7 @@
         </div>
     </section>
 
-    <!-- 修复错位：核心业务模块 -->
+    <!-- 核心业务模块（保持原样，仅修复布局） -->
     <section class="py-16 md:py-32 bg-surface-container-low px-4 md:px-8">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 gap-4">
@@ -193,7 +182,7 @@
                 <!-- Tourism -->
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full">
                     <div class="rounded-xl overflow-hidden aspect-video mb-6">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSDe-8r_EDkSVd4HF9vpIQO2jpLJknxkFwEigUAjlDaRYTZx4na4d-rXLBqDQ3mRTtaSg9Rc4kfHHKXQbq32OZkTjJrCjc8GdwTt8I5KxrkFCPDgHXNrIQbKL0ZFJ2nJVqCRqbd7_hrV7XM1X2jpt0xpxFvI57J818z5KDgAJmflXoLeiSkGbqTEH5ISTljl-Vzb7WG74Nh-jl7UJHT831X6J0RbCRWmd59IBWZlgpzqB_juDSPx7Z3cO0DR4ngolP-SJLGsQ-k620" class="w-full h-full object-cover" alt="">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSDe-8r_EDkSVd4HF9vpIQO2jpLJknxkFwEigUAjlDaRYTZx4na4d-rXLBqDQ3mRTtaSg9Rc4kfHHKXQbq32OZkTjJrCjc8GdwTt8I5KxrkFCPDgHXNrIQbKL0ZFJ2nJVqCRqbd7_hrV7XM1X2jpt0xpxFvI57J818z5KDgAJmflXoLeiSkGbqTEH5ISTljl-Vzb7WG74Nh-jl7UJHT831X6J0RbCRWmd59IBWZlgpzqB_juDSPx7Z3cO0DR4ngolP-SJLGsQ-k620" class="w-full h-full object-cover" alt="智慧旅游">
                     </div>
                     <span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-4">business</span>
                     <h3 class="text-xl md:text-2xl font-bold mb-4">智慧旅游</h3>
@@ -204,7 +193,7 @@
                 <!-- AgriTech -->
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full">
                     <div class="rounded-xl overflow-hidden aspect-video mb-6">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVaWdDWxixOe6j81U-iU0m0camIlybtOorATMsgt2kUxkoKOCTAzp_SbszK0tzXrAyRytC8Az6-JEzLMkU-00puf22YPdxtvYlrUghCBqYWGAt-RRU_M-fmcKE1Bcl-_KvCcgkqhTqMDLKPtTrOm8KpJ5a878IUOAsFuH9NetkHq_p2a_kH-Br4EN66db8SldWev5oq9jn5SmLj0F0FaXczmf7utTFEajdVVdiICRkTubvLikNOGg_XuekTTr1SX0AtrLa2OMqIYuG" class="w-full h-full object-cover" alt="">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVaWdDWxixOe6j81U-iU0m0camIlybtOorATMsgt2kUxkoKOCTAzp_SbszK0tzXrAyRytC8Az6-JEzLMkU-00puf22YPdxtvYlrUghCBqYWGAt-RRU_M-fmcKE1Bcl-_KvCcgkqhTqMDLKPtTrOm8KpJ5a878IUOAsFuH9NetkHq_p2a_kH-Br4EN66db8SldWev5oq9jn5SmLj0F0FaXczmf7utTFEajdVVdiICRkTubvLikNOGg_XuekTTr1SX0AtrLa2OMqIYuG" class="w-full h-full object-cover" alt="智慧农业">
                     </div>
                     <span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-4">agriculture</span>
                     <h3 class="text-xl md:text-2xl font-bold mb-4">智慧农业</h3>
@@ -215,7 +204,7 @@
                 <!-- Future Communities -->
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full">
                     <div class="rounded-xl overflow-hidden aspect-video mb-6">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYr6rxKiyXALJuq1yMsbdDIvoLYBXK0ZpAraB1HT1UltU9799eg81IdU3T8bsygClC8oNdClNUlRSWsNmhFpSfaA6VQQQY3VIm9wq8EVZ0zmepfTGz-J7vU-7ACaAb8u_WEzJEcVswXFEmfAguN7m84jZu9gp1m2jrz6haqdgoSG4C_17HTr8ocI-8CXTXbFjBGN0ejHQMIDBUT29iq_a3JCGFRzF8MkbJSMhOkrv3dsJ-AkKXzQ94C665S6-jvHn5vre-n_uxN3iV" class="w-full h-full object-cover" alt="">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYr6rxKiyXALJuq1yMsbdDIvoLYBXK0ZpAraB1HT1UltU9799eg81IdU3T8bsygClC8oNdClNUlRSWsNmhFpSfaA6VQQQY3VIm9wq8EVZ0zmepfTGz-J7vU-7ACaAb8u_WEzJEcVswXFEmfAguN7m84jZu9gp1m2jrz6haqdgoSG4C_17HTr8ocI-8CXTXbFjBGN0ejHQMIDBUT29iq_a3JCGFRzF8MkbJSMhOkrv3dsJ-AkKXzQ94C665S6-jvHn5vre-n_uxN3iV" class="w-full h-full object-cover" alt="未来社区">
                     </div>
                     <span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-4">apartment</span>
                     <h3 class="text-xl md:text-2xl font-bold mb-4">未来社区</h3>
@@ -226,7 +215,7 @@
         </div>
     </section>
 
-    <!-- 以下部分完全保持你原来的样式不变 -->
+    <!-- 以匠心致创新 -->
     <section class="py-16 md:py-32 px-4 md:px-8 bg-surface-bright">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
@@ -237,7 +226,7 @@
                 <div class="md:col-span-8 relative rounded-3xl overflow-hidden h-[250px] md:h-auto">
                     <img class="absolute inset-0 w-full h-full object-cover" 
                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0zsU0b_BS1y7T2SDrVGUT2_brm5U4Oh861ycH7HDlNPYHfWCue9QNYfhhqfQ9w0ltGdRO8xbM3BDqGYhcXK1OHMTPf-ekqXFcHAPpd_Kkxqg6eMcDpXPjayouzzSrBpQjqaofFaYKkfZk4x3UNvbjSz8A6qTK57npxW6e7rXvgUD_CWk8IvuxvSZ8RnVTwWw2M-gu6TWwZAzTiE5O5U8gI_BkwhnH5iZdSl5ZvkqU3xP75nHkkZVAhd3EnHk9e_wFBR5_4mogS-rp" 
-                         alt="">
+                         alt="自适应AI架构">
                     <div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-on-surface/20 to-transparent p-8 flex flex-col justify-end">
                         <h3 class="text-white text-2xl md:text-3xl font-bold mb-4">自适应AI架构</h3>
                         <p class="text-gray-200 max-w-md">我们的神经网络能够从真实场景的使用模式中学习，实现无需人工干预的自主进化。</p>
@@ -264,7 +253,7 @@
         </div>
     </section>
 
-    <!-- 工程数据 & CTA & Footer 完全保留原样 -->
+    <!-- 工程技术 全球影响 -->
     <section class="py-16 md:py-32 bg-gray-900 text-white px-4 md:px-8">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -307,6 +296,7 @@
         </div>
     </section>
 
+    <!-- CTA -->
     <section class="py-16 md:py-32 px-4 md:px-8">
         <div class="max-w-4xl mx-auto text-center bg-gradient-to-br from-blue-600 to-purple-600 p-12 md:p-16 rounded-3xl text-white">
             <h2 class="text-3xl md:text-5xl font-bold mb-6">准备好共建未来了吗？</h2>
@@ -319,6 +309,7 @@
     </section>
 </main>
 
+<!-- Footer -->
 <footer class="bg-gray-100 border-t">
     <div class="max-w-7xl mx-auto py-12 px-4 md:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
         <div>
