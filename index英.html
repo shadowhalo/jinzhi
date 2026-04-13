@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>锦致科技</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 导航栏（置顶，样式重构） -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="logo">锦致科技</div>
+      
+      <div class="nav-links-wrapper">
+        <a href="#" class="nav-link active">Solutions</a>
+        <a href="#" class="nav-link">Sectors</a>
+        <a href="#" class="nav-link">Technology</a>
+        <a href="#" class="nav-link">Case Studies</a>
+      </div>
+      
+      <div class="nav-actions">
+        <div class="search-box">
+          <span class="material-symbols-outlined search-icon">search</span>
+          <input type="text" placeholder="Search insights..." class="search-input">
+        </div>
+        <button class="btn-primary nav-btn">Get Started</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 视频背景（全程显示，从顶部开始） -->
+  <div class="video-bg">
+    <video id="bgVideo" playsinline muted loop>
+      <source src="bg_city.mp4">
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <main>
+    <!-- Hero Section（头部，视频背景之上） -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-left">
+            <div class="badge">The Luminous Architect</div>
+            <h1 class="animate-fade-rise">
+              Bridging <span class="gradient-text">Digital Intelligence</span> with Human Life.
+            </h1>
+            <p class="animate-fade-rise-delay">
+              We engineer ecosystems where smart infrastructure serves the community. From sustainable agriculture to seamless urban tourism, we design the invisible architecture of tomorrow.
+            </p>
+            <div class="hero-buttons animate-fade-rise-delay-2">
+              <button class="btn-primary btn-large">Explore Solutions</button>
+              <button class="btn-secondary btn-large">Watch Vision</button>
+            </div>
+          </div>
+          <div class="hero-right">
+            <div class="hero-image-card">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu8Prf0q_S8mzkX2C3kRfptbt_udwUdZVDDapNRyxMdAWgo02ZSxr0EJCtepr-9l4clsWxDuHRxvmrW4JaOpi2mSi8VoR6xQbDfFGnTAOL-Ml27hGCegwbvwJiSKB00aKjNpitiIY682kmU66V_r7HeUNalGcOzuRbY_J5B1r0CTj4ZvHYWuqvSF0knqZETb9bMSV7bvJZ9x7Jv929cnm_95XYxqyBkUOIMPo3IqIc0VCvJKIgYfGrc4SWu7JF6GthMi9X2IicRlo_" alt="">
+              <div class="img-gradient"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ecosystems（视频背景之上） -->
+    <section class="ecosystem">
+      <div class="container">
+        <div class="eco-header">
+          <div>
+            <span class="section-tag">Core Verticals</span>
+            <h2>Integrated Ecosystems</h2>
+          </div>
+          <p>Our technology adapts to the specific rhythms of different industries, ensuring progress never compromises the human experience.</p>
+        </div>
+
+        <div class="eco-grid">
+          <div class="eco-card">
+            <div class="card-img"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSDe-8r_EDkSVd4HF9vpIQO2jpLJknxkFwEigUAjlDaRYTZx4na4d-rXLBqDQ3mRTtaSg9Rc4kfHHKXQbq32OZkTjJrCjc8GdwTt8I5KxrkFCPDgHXNrIQbKL0ZFJ2nJVqCRqbd7_hrV7XM1X2jpt0xpxFvI57J818z5KDgAJmflXoLeiSkGbqTEH5ISTljl-Vzb7WG74Nh-jl7UJHT831X6J0RbCRWmd59IBWZlgpzqB_juDSPx7Z3cO0DR4ngolP-SJLGsQ-k620" alt=""></div>
+            <span class="material-symbols-outlined icon">luggage</span>
+            <h3>Smart Tourism</h3>
+            <p>Enhancing destination management through real-time visitor flow analysis and personalized digital concierges.</p>
+            <a class="card-link">Learn more <span class="material-symbols-outlined">arrow_forward</span></a>
+          </div>
+
+          <div class="eco-card">
+            <div class="card-img"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVaWdDWxixOe6j81U-iU0m0camIlybtOorATMsgt2kUxkoKOCTAzp_SbszK0tzXrAyRytC8Az6-JEzLMkU-00puf22YPdxtvYlrUghCBqYWGAt-RRU_M-fmcKE1Bcl-_KvCcgkqhTqMDLKPtTrOm8KpJ5a878IUOAsFuH9NetkHq_p2a_kH-Br4EN66db8SldWev5oq9jn5SmLj0F0FaXczmf7utTFEajdVVdiICRkTubvLikNOGg_XuekTTr1SX0AtrLa2OMqIYuG" alt=""></div>
+            <span class="material-symbols-outlined icon">agriculture</span>
+            <h3>Precision Agriculture</h3>
+            <p>Optimizing yields with AI-driven soil health monitoring and automated irrigation networks.</p>
+            <a class="card-link">Learn more <span class="material-symbols-outlined">arrow_forward</span></a>
+          </div>
+
+          <div class="eco-card">
+            <div class="card-img"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYr6rxKiyXALJuq1yMsbdDIvoLYBXK0ZpAraB1HT1UltU9799eg81IdU3T8bsygClC8oNdClNUlRSWsNmhFpSfaA6VQQQY3VIm9wq8EVZ0zmepfTGz-J7vU-7ACaAb8u_WEzJEcVswXFEmfAguN7m84jZu9gp1m2jrz6haqdgoSG4C_17HTr8ocI-8CXTXbFjBGN0ejHQMIDBUT29iq_a3JCGFRzF8MkbJSMhOkrv3dsJ-AkKXzQ94C665S6-jvHn5vre-n_uxN3iV" alt=""></div>
+            <span class="material-symbols-outlined icon">diversity_3</span>
+            <h3>Future Communities</h3>
+            <p>Designing neighborhoods with integrated renewable energy and intelligent social spaces.</p>
+            <a class="card-link">Learn more <span class="material-symbols-outlined">arrow_forward</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bento Grid -->
+    <section class="bento">
+      <div class="container">
+        <div class="bento-header">
+          <h2>Innovation with Intention</h2>
+          <p>We don't just build tech; we build tools that empower human potential through sophisticated, intuitive engineering.</p>
+        </div>
+        <div class="bento-grid">
+          <div class="bento-large">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0zsU0b_BS1y7T2SDrVGUT2_brm5U4Oh861ycH7HDlNPYHfWCue9QNYfhhqfQ9w0ltGdRO8xbM3BDqGYhcXK1OHMTPf-ekqXFcHAPpd_Kkxqg6eMcDpXPjayouzzSrBpQjqaofFaYKkfZk4x3UNvbjSz8A6qTK57npxW6e7rXvgUD_CWk8IvuxvSZ8RnVTwWw2M-gu6TWwZAzTiE5O5U8gI_BkwhnH5iZdSl5ZvkqU3xP75nHkkZVAhd3EnHk9e_wFBR5_4mogS-rp" alt="">
+            <div class="bento-overlay">
+              <h3>Adaptive AI Architectures</h3>
+              <p>Our neural networks learn from real-world usage patterns to evolve and improve without human intervention.</p>
+            </div>
+          </div>
+          <div class="bento-small blue">
+            <span class="material-symbols-outlined">energy_savings_leaf</span>
+            <div>
+              <h4>Sustainable Core</h4>
+              <p>Every line of code is optimized for energy efficiency, reducing the digital carbon footprint.</p>
+            </div>
+          </div>
+          <div class="bento-small white">
+            <div class="flex items-center gap-2 text-secondary">
+              <span class="material-symbols-outlined">security</span>
+              <span class="badge-sm">Security First</span>
+            </div>
+            <div>
+              <h4>Zero-Trust Framework</h4>
+              <p>Deeply embedded encryption protecting every node in the StruxureAI mesh.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Section -->
+    <section class="data dark">
+      <div class="data-gradient"></div>
+      <div class="container">
+        <div class="data-grid">
+          <div>
+            <h2>Engineering Global Impact</h2>
+            <div class="stats-grid">
+              <div><div class="num">40%</div><div class="label">Energy Reduction</div></div>
+              <div><div class="num">1.2M</div><div class="label">Daily Active Nodes</div></div>
+              <div><div class="num">24/7</div><div class="label">Real-Time Monitoring</div></div>
+              <div><div class="num">0.5ms</div><div class="label">Edge Latency</div></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <h4>Live Network Pulse</h4>
+              <span class="status"><span class="dot"></span> Optimal Performance</span>
+            </div>
+            <div class="bars">
+              <div class="bar-item"><div class="text">System Load</div><div class="bar"><div class="fill" style="width:22%"></div></div></div>
+              <div class="bar-item"><div class="text">Global Bandwidth</div><div class="bar"><div class="fill" style="width:84%"></div></div></div>
+              <div class="bar-item"><div class="text">AI Efficiency</div><div class="bar"><div class="fill" style="width:99%"></div></div></div>
+            </div>
+            <button class="panel-btn">Download Engineering Whitepaper</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="cta-card">
+        <div class="cta-bg"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsTT3XepYOBORbtWsJY5S4VTs6UFUKAFDiTn2Iya-AVCDNI95ijmRprKwLjSRknejPcmRLGdLiWPhT_mUBmCArHpRyHj49H-mn2jsTid9X_sm3pEztzbQeNLWXo0Pf60kdrkrP0zvNcBQuCmhvHOQyUomVc5VpTKymJfh-Gn-h7EgFxnoe1Vl_8jA6hsALzRa3tjZvAtdurs09naCvInH3g3Zm0n0K2YcN0cxnh2yCn9Pna7qt0LI4tZD7ZoArGOU5IC_UYx4QzKI1" alt=""></div>
+        <div class="cta-content">
+          <h2>Ready to architect the future?</h2>
+          <p>Join the leading organizations using StruxureAI to build more resilient, human-centered infrastructure.</p>
+          <div class="cta-buttons">
+            <button class="white-btn">Contact Our Architects</button>
+            <button class="outline-btn">Schedule a Demo</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-logo">StruxureAI</div>
+        <p>Engineering a luminous future through intelligent infrastructure and human-centric design.</p>
+        <div class="socials">
+          <span class="material-symbols-outlined">language</span>
+          <span class="material-symbols-outlined">hub</span>
+          <span class="material-symbols-outlined">public</span>
+        </div>
+      </div>
+      <div>
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="#">Smart Tourism</a></li>
+          <li><a href="#">AgriTech Systems</a></li>
+          <li><a href="#">Urban Mobility</a></li>
+          <li><a href="#">Renewable Grid</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Methodology</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Newsroom</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="#">Whitepapers</a></li>
+          <li><a href="#">API Documentation</a></li>
+          <li><a href="#">Sustainability Report</a></li>
+          <li><a href="#">Partnerships</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div>© 2024 StruxureAI. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

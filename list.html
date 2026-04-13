@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solutions | StruxureAI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 复用原有导航栏 -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="logo">StruxureAI</div>
+      <div class="nav-links-wrapper">
+        <a href="#" class="nav-link active">Solutions</a>
+        <a href="#" class="nav-link">Sectors</a>
+        <a href="#" class="nav-link">Technology</a>
+        <a href="#" class="nav-link">Case Studies</a>
+      </div>
+      <div class="nav-actions">
+        <div class="search-box">
+          <span class="material-symbols-outlined search-icon">search</span>
+          <input type="text" placeholder="Search solutions..." class="search-input">
+        </div>
+        <button class="btn-primary nav-btn">Get Started</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 视频背景（轻量化，保持风格统一） -->
+  <div class="video-bg">
+    <video id="bgVideo" playsinline muted loop>
+      <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_083109_283f3553-e28f-428b-a723-d639c617eb2b.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <main>
+    <!-- 页面头部（面包屑+标题） -->
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumbs">
+          <a href="index.html">Home</a>
+          <span class="material-symbols-outlined">chevron_right</span>
+          <span class="active">Solutions</span>
+        </div>
+        <h1>Intelligent Infrastructure Solutions</h1>
+        <p>Engineered to empower human-centric ecosystems across industries</p>
+      </div>
+    </section>
+
+    <!-- 筛选栏 -->
+    <section class="filters">
+      <div class="container">
+        <div class="filter-wrapper">
+          <!-- 分类筛选 -->
+          <div class="filter-group">
+            <label>Industry</label>
+            <select class="filter-select">
+              <option value="all">All Industries</option>
+              <option value="tourism">Smart Tourism</option>
+              <option value="agriculture">Precision Agriculture</option>
+              <option value="community">Future Communities</option>
+              <option value="mobility">Urban Mobility</option>
+            </select>
+          </div>
+          
+          <!-- 技术类型筛选 -->
+          <div class="filter-group">
+            <label>Technology</label>
+            <select class="filter-select">
+              <option value="all">All Technologies</option>
+              <option value="ai">AI & Machine Learning</option>
+              <option value="iot">IoT & Sensors</option>
+              <option value="analytics">Data Analytics</option>
+              <option value="automation">Automation</option>
+            </select>
+          </div>
+          
+          <!-- 排序 -->
+          <div class="filter-group">
+            <label>Sort By</label>
+            <select class="filter-select">
+              <option value="featured">Featured</option>
+              <option value="newest">Newest First</option>
+              <option value="popular">Most Popular</option>
+            </select>
+          </div>
+          
+          <!-- 视图切换 -->
+          <div class="view-toggle">
+            <button class="view-btn active" data-view="grid">
+              <span class="material-symbols-outlined">grid_view</span>
+            </button>
+            <button class="view-btn" data-view="list">
+              <span class="material-symbols-outlined">view_list</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 解决方案列表 -->
+    <section class="solutions-grid">
+      <div class="container">
+        <!-- 网格视图（默认） -->
+        <div class="grid-view">
+          <!-- 解决方案卡片1 -->
+          <a href="solution-detail.html" class="solution-card">
+            <div class="card-img">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSDe-8r_EDkSVd4HF9vpIQO2jpLJknxkFwEigUAjlDaRYTZx4na4d-rXLBqDQ3mRTtaSg9Rc4kfHHKXQbq32OZkTjJrCjc8GdwTt8I5KxrkFCPDgHXNrIQbKL0ZFJ2nJVqCRqbd7_hrV7XM1X2jpt0xpxFvI57J818z5KDgAJmflXoLeiSkGbqTEH5ISTljl-Vzb7WG74Nh-jl7UJHT831X6J0RbCRWmd59IBWZlgpzqB_juDSPx7Z3cO0DR4ngolP-SJLGsQ-k620" alt="Smart Tourism">
+              <div class="card-badge">Tourism</div>
+            </div>
+            <div class="card-content">
+              <h3>Smart Destination Management</h3>
+              <p>Real-time visitor flow analysis and personalized digital concierges for sustainable tourism ecosystems.</p>
+              <div class="card-meta">
+                <span class="tech-tag">AI Analytics</span>
+                <span class="tech-tag">IoT</span>
+              </div>
+              <div class="card-cta">
+                Learn more <span class="material-symbols-outlined">arrow_forward</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 解决方案卡片2 -->
+          <a href="solution-detail.html" class="solution-card">
+            <div class="card-img">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVaWdDWxixOe6j81U-iU0m0camIlybtOorATMsgt2kUxkoKOCTAzp_SbszK0tzXrAyRytC8Az6-JEzLMkU-00puf22YPdxtvYlrUghCBqYWGAt-RRU_M-fmcKE1Bcl-_KvCcgkqhTqMDLKPtTrOm8KpJ5a878IUOAsFuH9NetkHq_p2a_kH-Br4EN66db8SldWev5oq9jn5SmLj0F0FaXczmf7utTFEajdVVdiICRkTubvLikNOGg_XuekTTr1SX0AtrLa2OMqIYuG" alt="Precision Agriculture">
+              <div class="card-badge">Agriculture</div>
+            </div>
+            <div class="card-content">
+              <h3>AI-Powered Crop Optimization</h3>
+              <p>Soil health monitoring and automated irrigation networks to maximize yields while reducing resource waste.</p>
+              <div class="card-meta">
+                <span class="tech-tag">Machine Learning</span>
+                <span class="tech-tag">Automation</span>
+              </div>
+              <div class="card-cta">
+                Learn more <span class="material-symbols-outlined">arrow_forward</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 解决方案卡片3 -->
+          <a href="solution-detail.html" class="solution-card">
+            <div class="card-img">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYr6rxKiyXALJuq1yMsbdDIvoLYBXK0ZpAraB1HT1UltU9799eg81IdU3T8bsygClC8oNdClNUlRSWsNmhFpSfaA6VQQQY3VIm9wq8EVZ0zmepfTGz-J7vU-7ACaAb8u_WEzJEcVswXFEmfAguN7m84jZu9gp1m2jrz6haqdgoSG4C_17HTr8ocI-8CXTXbFjBGN0ejHQMIDBUT29iq_a3JCGFRzF8MkbJSMhOkrv3dsJ-AkKXzQ94C665S6-jvHn5vre-n_uxN3iV" alt="Future Communities">
+              <div class="card-badge">Communities</div>
+            </div>
+            <div class="card-content">
+              <h3>Intelligent Neighborhood Design</h3>
+              <p>Integrated renewable energy systems and social space optimization for sustainable urban living.</p>
+              <div class="card-meta">
+                <span class="tech-tag">IoT</span>
+                <span class="tech-tag">Data Analytics</span>
+              </div>
+              <div class="card-cta">
+                Learn more <span class="material-symbols-outlined">arrow_forward</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 解决方案卡片4 -->
+          <a href="solution-detail.html" class="solution-card">
+            <div class="card-img">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0zsU0b_BS1y7T2SDrVGUT2_brm5U4Oh861ycH7HDlNPYHfWCue9QNYfhhqfQ9w0ltGdRO8xbM3BDqGYhcXK1OHMTPf-ekqXFcHAPpd_Kkxqg6eMcDpXPjayouzzSrBpQjqaofFaYKkfZk4x3UNvbjSz8A6qTK57npxW6e7rXvgUD_CWk8IvuxvSZ8RnVTwWw2M-gu6TWwZAzTiE5O5U8gI_BkwhnH5iZdSl5ZvkqU3xP75nHkkZVAhd3EnHk9e_wFBR5_4mogS-rp" alt="Urban Mobility">
+              <div class="card-badge">Mobility</div>
+            </div>
+            <div class="card-content">
+              <h3>Adaptive Traffic Management</h3>
+              <p>Real-time traffic flow analysis and signal optimization to reduce congestion and emissions.</p>
+              <div class="card-meta">
+                <span class="tech-tag">AI</span>
+                <span class="tech-tag">IoT</span>
+              </div>
+              <div class="card-cta">
+                Learn more <span class="material-symbols-outlined">arrow_forward</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- 列表视图（默认隐藏） -->
+        <div class="list-view hidden">
+          <!-- 列表项1 -->
+          <div class="solution-list-item">
+            <div class="list-img">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSDe-8r_EDkSVd4HF9vpIQO2jpLJknxkFwEigUAjlDaRYTZx4na4d-rXLBqDQ3mRTtaSg9Rc4kfHHKXQbq32OZkTjJrCjc8GdwTt8I5KxrkFCPDgHXNrIQbKL0ZFJ2nJVqCRqbd7_hrV7XM1X2jpt0xpxFvI57J818z5KDgAJmflXoLeiSkGbqTEH5ISTljl-Vzb7WG74Nh-jl7UJHT831X6J0RbCRWmd59IBWZlgpzqB_juDSPx7Z3cO0DR4ngolP-SJLGsQ-k620" alt="Smart Tourism">
+            </div>
+            <div class="list-content">
+              <div class="list-header">
+                <h3>Smart Destination Management</h3>
+                <span class="list-badge">Tourism</span>
+              </div>
+              <p>Real-time visitor flow analysis and personalized digital concierges for sustainable tourism ecosystems. Our AI-powered platform helps destinations balance economic growth with environmental preservation, creating seamless experiences for visitors while protecting local communities.</p>
+              <div class="list-meta">
+                <span class="tech-tag">AI Analytics</span>
+                <span class="tech-tag">IoT</span>
+                <a href="solution-detail.html" class="list-cta">Learn more <span class="material-symbols-outlined">arrow_forward</span></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 列表项2 -->
+          <div class="solution-list-item">
+            <div class="list-img">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVaWdDWxixOe6j81U-iU0m0camIlybtOorATMsgt2kUxkoKOCTAzp_SbszK0tzXrAyRytC8Az6-JEzLMkU-00puf22YPdxtvYlrUghCBqYWGAt-RRU_M-fmcKE1Bcl-_KvCcgkqhTqMDLKPtTrOm8KpJ5a878IUOAsFuH9NetkHq_p2a_kH-Br4EN66db8SldWev5oq9jn5SmLj0F0FaXczmf7utTFEajdVVdiICRkTubvLikNOGg_XuekTTr1SX0AtrLa2OMqIYuG" alt="Precision Agriculture">
+            </div>
+            <div class="list-content">
+              <div class="list-header">
+                <h3>AI-Powered Crop Optimization</h3>
+                <span class="list-badge">Agriculture</span>
+              </div>
+              <p>Soil health monitoring and automated irrigation networks to maximize yields while reducing resource waste. Our system combines satellite imagery, ground sensors, and machine learning to deliver precise recommendations for every square meter of farmland.</p>
+              <div class="list-meta">
+                <span class="tech-tag">Machine Learning</span>
+                <span class="tech-tag">Automation</span>
+                <a href="solution-detail.html" class="list-cta">Learn more <span class="material-symbols-outlined">arrow_forward</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 分页 -->
+        <div class="pagination">
+          <button class="page-btn disabled">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 底部CTA -->
+    <section class="cta">
+      <div class="cta-card">
+        <div class="cta-bg"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsTT3XepYOBORbtWsJY5S4VTs6UFUKAFDiTn2Iya-AVCDNI95ijmRprKwLjSRknejPcmRLGdLiWPhT_mUBmCArHpRyHj49H-mn2jsTid9X_sm3pEztzbQeNLWXo0Pf60kdrkrP0zvNcBQuCmhvHOQyUomVc5VpTKymJfh-Gn-h7EgFxnoe1Vl_8jA6hsALzRa3tjZvAtdurs09naCvInH3g3Zm0n0K2YcN0cxnh2yCn9Pna7qt0LI4tZD7ZoArGOU5IC_UYx4QzKI1" alt=""></div>
+        <div class="cta-content">
+          <h2>Ready to implement intelligent solutions?</h2>
+          <p>Contact our team to discuss how StruxureAI can transform your industry ecosystem.</p>
+          <div class="cta-buttons">
+            <button class="white-btn">Contact Our Architects</button>
+            <button class="outline-btn">Schedule a Demo</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 复用原有页脚 -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-logo">StruxureAI</div>
+        <p>Engineering a luminous future through intelligent infrastructure and human-centric design.</p>
+        <div class="socials">
+          <span class="material-symbols-outlined">language</span>
+          <span class="material-symbols-outlined">hub</span>
+          <span class="material-symbols-outlined">public</span>
+        </div>
+      </div>
+      <div>
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="#">Smart Tourism</a></li>
+          <li><a href="#">AgriTech Systems</a></li>
+          <li><a href="#">Urban Mobility</a></li>
+          <li><a href="#">Renewable Grid</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Methodology</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Newsroom</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="#">Whitepapers</a></li>
+          <li><a href="#">API Documentation</a></li>
+          <li><a href="#">Sustainability Report</a></li>
+          <li><a href="#">Partnerships</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div>© 2024 StruxureAI. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <!-- 列表页专属脚本 -->
+  <script>
+    // 视图切换
+    const viewBtns = document.querySelectorAll('.view-btn');
+    const gridView = document.querySelector('.grid-view');
+    const listView = document.querySelector('.list-view');
+
+    viewBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // 移除所有激活状态
+        viewBtns.forEach(b => b.classList.remove('active'));
+        // 添加当前激活状态
+        btn.classList.add('active');
+        
+        // 切换视图
+        const view = btn.dataset.view;
+        if (view === 'grid') {
+          gridView.classList.remove('hidden');
+          listView.classList.add('hidden');
+        } else {
+          gridView.classList.add('hidden');
+          listView.classList.remove('hidden');
+        }
+      });
+    });
+
+    // 分页按钮交互
+    const pageBtns = document.querySelectorAll('.page-btn');
+    pageBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (!btn.classList.contains('disabled')) {
+          pageBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
