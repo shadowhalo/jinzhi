@@ -90,18 +90,23 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
         }
+        /* 核心修改：将视频改为浏览器背景固定 */
         .video-bg {
-            position: absolute;
+            position: fixed; /* 从absolute改为fixed */
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw; /* 改为视口宽度 */
+            height: 100vh; /* 改为视口高度 */
             object-fit: cover;
-            z-index: 0;
+            z-index: -1; /* 层级改为-1，确保在所有内容下方 */
+        }
+        /* 新增：给第一个section加背景透明，避免遮挡视频 */
+        .hero-section {
+            background: transparent !important;
         }
         @media (max-width: 768px) {
             main {
-                padding-top: 160px !important;
+                padding-top: 80px !important; /* 修复：从160px改为80px，减少移动端空白 */
             }
         }
         html {
@@ -139,10 +144,12 @@
         </div>
     </nav>
 
-    <button id="close-btn" onclick="closeMenu()" class="hidden fixed top-4 right-6 z-[999] w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-lg outline-none">
+    <button id="close-btn" onclick="closeMenu()" class="hidden fixed top-4 right-6 z-[200] w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-lg outline-none">
         <span class="material-symbols-outlined text-slate-900 text-3xl">close</span>
     </button>
-<div id="mobile-drawer" class="fixed inset-y-0 right-0 w-64 bg-white shadow-2xl z-[150] transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+
+    <!-- 仅保留一组移动端抽屉（删除所有重复的） -->
+    <div id="mobile-drawer" class="fixed inset-y-0 right-0 w-64 bg-white shadow-2xl z-[150] transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
         <div class="p-8 pt-24 flex flex-col space-y-8">
             <a class="text-xl font-bold text-blue-600" href="list.html">解决方案</a>
             <a class="text-xl font-bold text-slate-700" href="#">核心领域</a>
@@ -151,67 +158,12 @@
         </div>
     </div>
 
+    <!-- 仅保留一组遮罩层（删除所有重复的） -->
     <div id="menu-overlay" onclick="closeMenu()" class="fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-[140] md:hidden"></div>
-
-<div id="mobile-drawer" class="fixed inset-y-0 right-0 w-64 bg-white shadow-2xl z-[150] transform translate-x-full opacity-0 transition-all duration-500 ease-in-out md:hidden">
-    <div class="p-8 pt-24 flex flex-col h-full bg-white">
-        <div class="flex flex-col space-y-8">
-            <a class="text-xl font-bold text-blue-600" href="list.html">解决方案</a>
-            <a class="text-xl font-bold text-slate-700" href="#">核心领域</a>
-            <a class="text-xl font-bold text-slate-700" href="#">技术架构</a>
-            <a class="text-xl font-bold text-slate-700" href="#">案例研究</a>
-        </div>
-    </div>
-</div>
-
-<div id="menu-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-500 z-[140] md:hidden"></div>
-
-<div id="mobile-drawer" class="fixed inset-y-0 right-0 w-64 bg-white shadow-2xl z-[110] transform translate-x-full opacity-0 transition-all duration-500 ease-in-out md:hidden">
-    <div class="p-8 pt-24 flex flex-col h-full bg-white">
-        <div class="flex flex-col space-y-8">
-            <a class="text-xl font-bold text-blue-600" href="list.html">解决方案</a>
-            <a class="text-xl font-bold text-slate-700" href="#">核心领域</a>
-            <a class="text-xl font-bold text-slate-700" href="#">技术架构</a>
-            <a class="text-xl font-bold text-slate-700" href="#">案例研究</a>
-        </div>
-    </div>
-</div>
-
-<div id="menu-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-500 z-[100] md:hidden"></div>
-
-<div id="mobile-drawer" class="fixed inset-y-0 right-0 w-64 bg-white/95 backdrop-blur-lg shadow-2xl z-[100] transform translate-x-full opacity-0 transition-all duration-500 ease-in-out md:hidden">
-    <div class="p-8 pt-24 flex flex-col h-full">
-        <div class="flex flex-col space-y-8">
-            <a class="text-xl font-bold text-blue-600" href="list.html">解决方案</a>
-            <a class="text-xl font-bold text-slate-700" href="#">核心领域</a>
-            <a class="text-xl font-bold text-slate-700" href="#">技术架构</a>
-            <a class="text-xl font-bold text-slate-700" href="#">案例研究</a>
-        </div>
-    </div>
-</div>
-
-<div id="menu-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-slate-900/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-500 z-[90] md:hidden"></div>
-
-<div id="mobile-drawer" class="fixed inset-y-0 right-0 w-64 bg-white shadow-2xl z-[101] transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
-    <div class="p-6 flex flex-col h-full bg-white">
-        <div class="flex justify-end mb-8">
-            <button onclick="toggleMobileMenu()" class="text-slate-900 p-2">
-                <span class="material-symbols-outlined text-3xl">close</span>
-            </button>
-        </div>
-        <div class="flex flex-col space-y-6">
-            <a class="text-lg font-bold text-blue-600" href="list.html">解决方案</a>
-            <a class="text-lg font-bold text-slate-700" href="#">核心领域</a>
-            <a class="text-lg font-bold text-slate-700" href="#">技术架构</a>
-            <a class="text-lg font-bold text-slate-700" href="#">案例研究</a>
-        </div>
-    </div>
-</div>
-
-<div id="menu-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 z-[99] md:hidden"></div>
     
     <main class="pt-20">
-        <section class="relative min-h-[921px] flex items-center px-8 overflow-hidden bg-surface-bright">
+        <!-- 核心修改：给第一个section添加hero-section类 -->
+        <section class="hero-section relative min-h-[921px] flex items-center px-8 overflow-hidden bg-surface-bright">
             <video class="video-bg" autoplay muted loop playsinline>
                 <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_083109_283f3553-e28f-428b-a723-d639c617eb2b.mp4" type="video/mp4">
                 你的浏览器不支持视频播放
@@ -290,7 +242,6 @@
             </div>
         </section>
         
-        <!-- 👇 这里是核心修复区域：图片错位、排版错乱 -->
         <section class="py-32 px-8 bg-surface-bright">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-20">
@@ -298,7 +249,6 @@
                     <p class="text-on-surface-variant max-w-2xl mx-auto text-lg">我们不仅在构建技术，更是在打造通过精密的直觉工程赋能人类潜力的工具。</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-                    <!-- 修复：去掉固定行高，使用 aspect 比例保证图片不变形、不错位 -->
                     <div class="md:col-span-8 relative rounded-3xl overflow-hidden group aspect-[16/9]">
                         <img class="absolute inset-0 w-full h-full object-cover" 
                              alt="女工程师在干净的高科技实验室环境中使用全息显示器工作" 
@@ -474,31 +424,41 @@
             </div>
         </div>
     </footer>
+
 <script>
-        const drawer = document.getElementById('mobile-drawer');
-        const overlay = document.getElementById('menu-overlay');
-        const menuBtn = document.getElementById('menu-toggle-btn');
-        const closeBtn = document.getElementById('close-btn');
+    const drawer = document.getElementById('mobile-drawer');
+    const overlay = document.getElementById('menu-overlay');
+    const menuBtn = document.getElementById('menu-toggle-btn');
+    const closeBtn = document.getElementById('close-btn');
 
-        function openMenu() {
-            drawer.classList.remove('translate-x-full');
-            overlay.classList.remove('opacity-0', 'pointer-events-none');
-            overlay.classList.add('opacity-100');
-            
-            menuBtn.classList.add('hidden'); // 隐藏三横
-            closeBtn.classList.remove('hidden'); // 显示 X
-            document.body.style.overflow = 'hidden';
-        }
+    function openMenu() {
+        drawer.classList.remove('translate-x-full');
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        overlay.classList.add('opacity-100');
+        
+        menuBtn.classList.add('hidden'); // 隐藏三横
+        closeBtn.classList.remove('hidden'); // 显示 X
+        document.body.style.overflow = 'hidden';
+    }
 
-        function closeMenu() {
-            drawer.classList.add('translate-x-full');
-            overlay.classList.add('opacity-0', 'pointer-events-none');
-            overlay.classList.remove('opacity-100');
-            
-            menuBtn.classList.remove('hidden'); // 显示三横
-            closeBtn.classList.add('hidden'); // 隐藏 X
-            document.body.style.overflow = '';
+    function closeMenu() {
+        drawer.classList.add('translate-x-full');
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+        overlay.classList.remove('opacity-100');
+        
+        menuBtn.classList.remove('hidden'); // 显示三横
+        closeBtn.classList.add('hidden'); // 隐藏 X
+        document.body.style.overflow = '';
+    }
+
+    // 补全缺失的toggleMobileMenu函数（避免JS报错）
+    function toggleMobileMenu() {
+        if (drawer.classList.contains('translate-x-full')) {
+            openMenu();
+        } else {
+            closeMenu();
         }
-    </script>
+    }
+</script>
 </body>
 </html>
