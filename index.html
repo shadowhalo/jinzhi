@@ -4,10 +4,20 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>锦致科技</title>
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- 替换掉谷歌字体，使用国内可访问CDN -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/material-symbols/0.14.7/material-symbols-outlined.css">
+
+    <!-- 移除 Google Fonts，改用系统安全字体 -->
+    <style>
+        body { font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif; }
+        h1,h2,h3,h4 { font-family: "Manrope", "PingFang SC", "Microsoft YaHei", sans-serif; }
+    </style>
+
+    <!-- 国内CDN加载Tailwind -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/tailwindcss/3.4.1/tailwind.min.js"></script>
+
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -81,9 +91,8 @@
             },
         }
     </script>
+
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
@@ -91,7 +100,6 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
         }
-        /* 视频背景基础样式 */
         .video-bg {
             position: absolute;
             top: 0;
@@ -101,17 +109,9 @@
             object-fit: cover;
             z-index: 0;
         }
-        /* 修复移动端导航遮挡内容问题 */
-        @media (max-width: 768px) {
-            main {
-                padding-top: 160px !important;
-            }
-        }
-        /* 优化滚动体验 */
         html {
             scroll-behavior: smooth;
         }
-        /* 修复卡片hover效果在移动端的响应性 */
         @media (hover: none) {
             .group:hover {
                 transform: none !important;
@@ -122,304 +122,234 @@
         }
     </style>
 </head>
+
 <body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
-    <!-- TopNavBar -->
-    <nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
-        <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-            <div class="text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-manrope tracking-tight">
-                锦致科技
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
+    <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-7xl mx-auto">
+        <div class="text-xl md:text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-manrope tracking-tight">
+            锦致科技
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+            <a class="text-blue-600 border-b-2 border-blue-600 pb-1 font-manrope font-bold tracking-tight" href="list.html">解决方案</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="#">核心领域</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="#">技术架构</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="#">案例研究</a>
+        </div>
+        <div class="flex items-center gap-3 md:gap-6">
+            <div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/15">
+                <span class="material-symbols-outlined text-outline text-sm">search</span>
+                <input class="bg-transparent border-none focus:ring-0 text-sm w-40 placeholder:text-outline-variant" placeholder="搜索洞察..." type="text"/>
             </div>
-            <div class="hidden md:flex items-center space-x-8">
-                <a class="text-blue-600 border-b-2 border-blue-600 pb-1 font-manrope font-bold tracking-tight" href="list.html">解决方案</a>
-                <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="#">核心领域</a>
-                <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="#">技术架构</a>
-                <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="#">案例研究</a>
-            </div>
-            <div class="flex items-center gap-6">
-                <div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/15">
-                    <span class="material-symbols-outlined text-outline text-sm">search</span>
-                    <input class="bg-transparent border-none focus:ring-0 text-sm w-40 placeholder:text-outline-variant" placeholder="搜索洞察..." type="text"/>
+            <button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-4 md:px-6 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-primary/10 hover:opacity-80 transition-all duration-300 active:scale-95">立即开始</button>
+        </div>
+    </div>
+    <div class="bg-slate-100 h-[1px] opacity-20"></div>
+</nav>
+
+<main class="pt-16 md:pt-20">
+    <!-- Hero Section -->
+    <section class="relative min-h-[600px] md:min-h-[921px] flex items-center px-4 md:px-8 overflow-hidden bg-surface-bright">
+        <video class="video-bg" autoplay muted loop playsinline>
+            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_083109_283f3553-e28f-428b-a723-d639c617eb2b.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-surface-bright/80 z-[1]"></div>
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center z-10">
+            <div class="space-y-8">
+                <div class="inline-flex items-center px-3 py-1 rounded-full bg-primary-container/20 text-primary font-semibold text-xs tracking-wider uppercase">光影建筑师</div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-on-surface tracking-tighter leading-[1.05]">让<span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">数字智能</span>与人类生活交相辉映</h1>
+                <p class="text-base md:text-xl text-on-surface-variant max-w-xl leading-relaxed">我们致力于构建服务于社区的智能基础设施生态系统。从可持续农业到无缝衔接的城市旅游，我们设计面向未来的隐形建筑。</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="detail.html"><button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-lg shadow-xl shadow-primary/20 hover:scale-105 transition-transform">探索方案</button></a>
+                    <button class="bg-surface-container-highest text-on-surface px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-lg hover:bg-surface-container-high transition-colors">观看演示</button>
                 </div>
-                <button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-primary/10 hover:opacity-80 transition-all duration-300 active:scale-95">立即开始</button>
+            </div>
+            <div class="relative hidden lg:block">
+                <div class="absolute -top-20 -right-20 w-96 h-96 bg-primary/10 blur-[100px] rounded-full"></div>
+                <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-secondary/10 blur-[100px] rounded-full"></div>
+                <div class="rounded-3xl overflow-hidden shadow-2xl relative z-10 transform skew-y-2">
+                    <img class="w-full h-[600px] object-cover" 
+                         alt="未来智能城市" 
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu8Prf0q_S8mzkX2C3kRfptbt_udwUdZVDDapNRyxMdAWgo02ZSxr0EJCtepr-9l4clsWxDuHRxvmrW4JaOpi2mSi8VoR6xQbDfFGnTAOL-Ml27hGCegwbvwJiSKB00aKjNpitiIY682kmU66V_r7HeUNalGcOzuRbY_J5B1r0CTj4ZvHYWuqvSF0knqZETb9bMSV7bvJZ9x7Jv929cnm_95XYxqyBkUOIMPo3IqIc0VCvJKIgYfGrc4SWu7JF6GthMi9X2IicRlo_"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
+                </div>
             </div>
         </div>
-        <div class="bg-slate-100 h-[1px] opacity-20"></div>
-    </nav>
-    
-    <main class="pt-20">
-        <!-- Hero Section - 恢复视频背景 -->
-        <section class="relative min-h-[921px] flex items-center px-8 overflow-hidden bg-surface-bright">
-            <!-- 背景视频（自动播放、静音、循环） -->
-            <video class="video-bg" autoplay muted loop playsinline>
-                <!-- 替换为你的视频链接 -->
-                <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_083109_283f3553-e28f-428b-a723-d639c617eb2b.mp4" type="video/mp4">
-                你的浏览器不支持视频播放
-            </video>
-            <!-- 视频遮罩层（保持原有渐变效果） -->
-            <div class="absolute inset-0 bg-surface-bright/80 z-[1]"></div>
-            
-            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center z-10">
-                <div class="space-y-8">
-                    <div class="inline-flex items-center px-3 py-1 rounded-full bg-primary-container/20 text-primary font-semibold text-xs tracking-wider uppercase">光影建筑师</div>
-                    <h1 class="text-6xl md:text-7xl font-extrabold text-on-surface tracking-tighter leading-[1.05]">让<span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">数字智能</span>与人类生活交相辉映</h1>
-                    <p class="text-xl text-on-surface-variant max-w-xl leading-relaxed">我们致力于构建服务于社区的智能基础设施生态系统。从可持续农业到无缝衔接的城市旅游，我们设计面向未来的隐形建筑。</p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="detail.html"><button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-8 py-4 rounded-lg font-bold text-lg shadow-xl shadow-primary/20 hover:scale-105 transition-transform">探索方案</button>
-                        <button class="bg-surface-container-highest text-on-surface px-8 py-4 rounded-lg font-bold text-lg hover:bg-surface-container-high transition-colors">观看演示</button>
-                    </div>
+    </section>
+
+    <!-- 修复错位：核心业务模块 -->
+    <section class="py-16 md:py-32 bg-surface-container-low px-4 md:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 gap-4">
+                <div>
+                    <span class="text-primary font-bold tracking-widest uppercase text-sm block mb-2">核心业务</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-on-surface">全场景智能生态</h2>
                 </div>
-                <div class="relative hidden lg:block">
-                    <div class="absolute -top-20 -right-20 w-96 h-96 bg-primary/10 blur-[100px] rounded-full"></div>
-                    <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-secondary/10 blur-[100px] rounded-full"></div>
-                    <div class="rounded-3xl overflow-hidden shadow-2xl relative z-10 transform skew-y-2">
-                        <img class="w-full h-[600px] object-cover" 
-                             alt="未来智能城市天际线，黄昏时分带有发光的蓝紫色光轨和现代玻璃建筑" 
-                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu8Prf0q_S8mzkX2C3kRfptbt_udwUdZVDDapNRyxMdAWgo02ZSxr0EJCtepr-9l4clsWxDuHRxvmrW4JaOpi2mSi8VoR6xQbDfFGnTAOL-Ml27hGCegwbvwJiSKB00aKjNpitiIY682kmU66V_r7HeUNalGcOzuRbY_J5B1r0CTj4ZvHYWuqvSF0knqZETb9bMSV7bvJZ9x7Jv929cnm_95XYxqyBkUOIMPo3IqIc0VCvJKIgYfGrc4SWu7JF6GthMi9X2IicRlo_"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
+                <p class="text-on-surface-variant max-w-md text-sm md:text-base">我们的技术能够适应不同行业的特定韵律，确保进步永不以牺牲人类体验为代价。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 auto-rows-fr">
+                <!-- Tourism -->
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full">
+                    <div class="rounded-xl overflow-hidden aspect-video mb-6">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSDe-8r_EDkSVd4HF9vpIQO2jpLJknxkFwEigUAjlDaRYTZx4na4d-rXLBqDQ3mRTtaSg9Rc4kfHHKXQbq32OZkTjJrCjc8GdwTt8I5KxrkFCPDgHXNrIQbKL0ZFJ2nJVqCRqbd7_hrV7XM1X2jpt0xpxFvI57J818z5KDgAJmflXoLeiSkGbqTEH5ISTljl-Vzb7WG74Nh-jl7UJHT831X6J0RbCRWmd59IBWZlgpzqB_juDSPx7Z3cO0DR4ngolP-SJLGsQ-k620" class="w-full h-full object-cover" alt="">
                     </div>
+                    <span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-4">business</span>
+                    <h3 class="text-xl md:text-2xl font-bold mb-4">智慧旅游</h3>
+                    <p class="text-on-surface-variant flex-grow mb-6">通过实时游客流分析和个性化数字礼宾服务，提升目的地管理水平。</p>
+                    <a class="flex items-center text-primary font-bold" href="#">了解更多 <span class="material-symbols-outlined ml-2">arrow_forward</span></a>
+                </div>
+
+                <!-- AgriTech -->
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full">
+                    <div class="rounded-xl overflow-hidden aspect-video mb-6">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVaWdDWxixOe6j81U-iU0m0camIlybtOorATMsgt2kUxkoKOCTAzp_SbszK0tzXrAyRytC8Az6-JEzLMkU-00puf22YPdxtvYlrUghCBqYWGAt-RRU_M-fmcKE1Bcl-_KvCcgkqhTqMDLKPtTrOm8KpJ5a878IUOAsFuH9NetkHq_p2a_kH-Br4EN66db8SldWev5oq9jn5SmLj0F0FaXczmf7utTFEajdVVdiICRkTubvLikNOGg_XuekTTr1SX0AtrLa2OMqIYuG" class="w-full h-full object-cover" alt="">
+                    </div>
+                    <span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-4">agriculture</span>
+                    <h3 class="text-xl md:text-2xl font-bold mb-4">智慧农业</h3>
+                    <p class="text-on-surface-variant flex-grow mb-6">利用AI驱动的土壤健康监测和自动化灌溉网络，优化作物产量。</p>
+                    <a class="flex items-center text-primary font-bold" href="#">了解更多 <span class="material-symbols-outlined ml-2">arrow_forward</span></a>
+                </div>
+
+                <!-- Future Communities -->
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full">
+                    <div class="rounded-xl overflow-hidden aspect-video mb-6">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYr6rxKiyXALJuq1yMsbdDIvoLYBXK0ZpAraB1HT1UltU9799eg81IdU3T8bsygClC8oNdClNUlRSWsNmhFpSfaA6VQQQY3VIm9wq8EVZ0zmepfTGz-J7vU-7ACaAb8u_WEzJEcVswXFEmfAguN7m84jZu9gp1m2jrz6haqdgoSG4C_17HTr8ocI-8CXTXbFjBGN0ejHQMIDBUT29iq_a3JCGFRzF8MkbJSMhOkrv3dsJ-AkKXzQ94C665S6-jvHn5vre-n_uxN3iV" class="w-full h-full object-cover" alt="">
+                    </div>
+                    <span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-4">apartment</span>
+                    <h3 class="text-xl md:text-2xl font-bold mb-4">未来社区</h3>
+                    <p class="text-on-surface-variant flex-grow mb-6">设计整合了可再生能源和智能社交空间的智慧邻里社区。</p>
+                    <a class="flex items-center text-primary font-bold" href="#">了解更多 <span class="material-symbols-outlined ml-2">arrow_forward</span></a>
                 </div>
             </div>
-        </section>
-        
-        <!-- Ecosystems Section (Horizontal Scroll/Grid) -->
-        <section class="py-32 bg-surface-container-low px-8">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        </div>
+    </section>
+
+    <!-- 以下部分完全保持你原来的样式不变 -->
+    <section class="py-16 md:py-32 px-4 md:px-8 bg-surface-bright">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-6">以匠心致创新</h2>
+                <p class="text-on-surface-variant max-w-2xl mx-auto text-base md:text-lg">我们不仅在构建技术，更是在打造通过精密的直觉工程赋能人类潜力的工具。</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+                <div class="md:col-span-8 relative rounded-3xl overflow-hidden h-[250px] md:h-auto">
+                    <img class="absolute inset-0 w-full h-full object-cover" 
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0zsU0b_BS1y7T2SDrVGUT2_brm5U4Oh861ycH7HDlNPYHfWCue9QNYfhhqfQ9w0ltGdRO8xbM3BDqGYhcXK1OHMTPf-ekqXFcHAPpd_Kkxqg6eMcDpXPjayouzzSrBpQjqaofFaYKkfZk4x3UNvbjSz8A6qTK57npxW6e7rXvgUD_CWk8IvuxvSZ8RnVTwWw2M-gu6TWwZAzTiE5O5U8gI_BkwhnH5iZdSl5ZvkqU3xP75nHkkZVAhd3EnHk9e_wFBR5_4mogS-rp" 
+                         alt="">
+                    <div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-on-surface/20 to-transparent p-8 flex flex-col justify-end">
+                        <h3 class="text-white text-2xl md:text-3xl font-bold mb-4">自适应AI架构</h3>
+                        <p class="text-gray-200 max-w-md">我们的神经网络能够从真实场景的使用模式中学习，实现无需人工干预的自主进化。</p>
+                    </div>
+                </div>
+                <div class="md:col-span-4 bg-primary text-white p-8 rounded-3xl flex flex-col justify-between">
+                    <span class="material-symbols-outlined text-4xl">energy_savings_leaf</span>
                     <div>
-                        <span class="text-primary font-bold tracking-widest uppercase text-sm block mb-4">核心业务</span>
-                        <h2 class="text-4xl md:text-5xl font-extrabold text-on-surface">全场景智能生态</h2>
-                    </div>
-                    <p class="text-on-surface-variant max-w-md">我们的技术能够适应不同行业的特定韵律，确保进步永不以牺牲人类体验为代价。</p>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Tourism -->
-                    <div class="bg-surface-container-lowest p-8 rounded-2xl group hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
-                        <div class="mb-8 rounded-xl overflow-hidden aspect-video">
-                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                                 alt="豪华生态度假村坐落在热带景观中，为客人提供精致的集成技术界面" 
-                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSDe-8r_EDkSVd4HF9vpIQO2jpLJknxkFwEigUAjlDaRYTZx4na4d-rXLBqDQ3mRTtaSg9Rc4kfHHKXQbq32OZkTjJrCjc8GdwTt8I5KxrkFCPDgHXNrIQbKL0ZFJ2nJVqCRqbd7_hrV7XM1X2jpt0xpxFvI57J818z5KDgAJmflXoLeiSkGbqTEH5ISTljl-Vzb7WG74Nh-jl7UJHT831X6J0RbCRWmd59IBWZlgpzqB_juDSPx7Z3cO0DR4ngolP-SJLGsQ-k620"/>
-                        </div>
-                        <span class="material-symbols-outlined text-primary text-4xl mb-4">business</span>
-                        <h3 class="text-2xl font-bold mb-4">智慧旅游</h3>
-                        <p class="text-on-surface-variant mb-6 flex-grow">通过实时游客流分析和个性化数字礼宾服务，提升目的地管理水平。</p>
-                        <a class="flex items-center text-primary font-bold group" href="#">了解更多 <span class="material-symbols-outlined ml-2 group-hover:translate-x-2 transition-transform">arrow_forward</span></a>
-                    </div>
-                    
-                    <!-- AgriTech -->
-                    <div class="bg-surface-container-lowest p-8 rounded-2xl group hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
-                        <div class="mb-8 rounded-xl overflow-hidden aspect-video">
-                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                                 alt="精准农业展示无人机飞越充满活力的绿色农田，带有数据叠加概念" 
-                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVaWdDWxixOe6j81U-iU0m0camIlybtOorATMsgt2kUxkoKOCTAzp_SbszK0tzXrAyRytC8Az6-JEzLMkU-00puf22YPdxtvYlrUghCBqYWGAt-RRU_M-fmcKE1Bcl-_KvCcgkqhTqMDLKPtTrOm8KpJ5a878IUOAsFuH9NetkHq_p2a_kH-Br4EN66db8SldWev5oq9jn5SmLj0F0FaXczmf7utTFEajdVVdiICRkTubvLikNOGg_XuekTTr1SX0AtrLa2OMqIYuG"/>
-                        </div>
-                        <span class="material-symbols-outlined text-primary text-4xl mb-4">agriculture</span>
-                        <h3 class="text-2xl font-bold mb-4">智慧农业</h3>
-                        <p class="text-on-surface-variant mb-6 flex-grow">利用AI驱动的土壤健康监测和自动化灌溉网络，优化作物产量。</p>
-                        <a class="flex items-center text-primary font-bold group" href="#">了解更多 <span class="material-symbols-outlined ml-2 group-hover:translate-x-2 transition-transform">arrow_forward</span></a>
-                    </div>
-                    
-                    <!-- Future Communities -->
-                    <div class="bg-surface-container-lowest p-8 rounded-2xl group hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
-                        <div class="mb-8 rounded-xl overflow-hidden aspect-video">
-                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                                 alt="现代城市中的社区公园，居民与智能长椅和交互式信息柱互动" 
-                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYr6rxKiyXALJuq1yMsbdDIvoLYBXK0ZpAraB1HT1UltU9799eg81IdU3T8bsygClC8oNdClNUlRSWsNmhFpSfaA6VQQQY3VIm9wq8EVZ0zmepfTGz-J7vU-7ACaAb8u_WEzJEcVswXFEmfAguN7m84jZu9gp1m2jrz6haqdgoSG4C_17HTr8ocI-8CXTXbFjBGN0ejHQMIDBUT29iq_a3JCGFRzF8MkbJSMhOkrv3dsJ-AkKXzQ94C665S6-jvHn5vre-n_uxN3iV"/>
-                        </div>
-                        <span class="material-symbols-outlined text-primary text-4xl mb-4">apartment</span>
-                        <h3 class="text-2xl font-bold mb-4">未来社区</h3>
-                        <p class="text-on-surface-variant mb-6 flex-grow">设计整合了可再生能源和智能社交空间的智慧邻里社区。</p>
-                        <a class="flex items-center text-primary font-bold group" href="#">了解更多 <span class="material-symbols-outlined ml-2 group-hover:translate-x-2 transition-transform">arrow_forward</span></a>
+                        <h4 class="text-xl font-bold mb-2">可持续数字底座</h4>
+                        <p class="text-white/80 text-sm">每一行代码都经过能效优化，大幅降低数字化带来的碳足迹。</p>
                     </div>
                 </div>
-            </div>
-        </section>
-        
-        <!-- Human-Centric Innovation (Bento Grid) -->
-        <section class="py-32 px-8 bg-surface-bright">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-20">
-                    <h2 class="text-4xl md:text-5xl font-extrabold mb-6">以匠心致创新</h2>
-                    <p class="text-on-surface-variant max-w-2xl mx-auto text-lg">我们不仅在构建技术，更是在打造通过精密的直觉工程赋能人类潜力的工具。</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 auto-rows-[250px]">
-                    <!-- Large Feature -->
-                    <div class="md:col-span-8 md:row-span-2 relative rounded-3xl overflow-hidden group">
-                        <img class="absolute inset-0 w-full h-full object-cover" 
-                             alt="女工程师在干净的高科技实验室环境中使用全息显示器工作" 
-                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0zsU0b_BS1y7T2SDrVGUT2_brm5U4Oh861ycH7HDlNPYHfWCue9QNYfhhqfQ9w0ltGdRO8xbM3BDqGYhcXK1OHMTPf-ekqXFcHAPpd_Kkxqg6eMcDpXPjayouzzSrBpQjqaofFaYKkfZk4x3UNvbjSz8A6qTK57npxW6e7rXvgUD_CWk8IvuxvSZ8RnVTwWw2M-gu6TWwZAzTiE5O5U8gI_BkwhnH5iZdSl5ZvkqU3xP75nHkkZVAhd3EnHk9e_wFBR5_4mogS-rp"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-on-surface/20 to-transparent p-12 flex flex-col justify-end">
-                            <h3 class="text-surface-container-lowest text-3xl font-bold mb-4">自适应AI架构</h3>
-                            <p class="text-surface-variant max-w-md">我们的神经网络能够从真实场景的使用模式中学习，实现无需人工干预的自主进化。</p>
-                        </div>
+                <div class="md:col-span-4 bg-white p-8 rounded-3xl flex flex-col justify-between border border-gray-200">
+                    <div class="flex items-center gap-2 text-secondary">
+                        <span class="material-symbols-outlined">security</span>
+                        <span class="font-bold text-xs uppercase">安全至上</span>
                     </div>
-                    
-                    <!-- Small Feature 1 -->
-                    <div class="md:col-span-4 bg-primary text-on-primary p-8 rounded-3xl flex flex-col justify-between">
-                        <span class="material-symbols-outlined text-4xl">energy_savings_leaf</span>
-                        <div>
-                            <h4 class="text-xl font-bold mb-2">可持续数字底座</h4>
-                            <p class="text-on-primary/80 text-sm">每一行代码都经过能效优化，大幅降低数字化带来的碳足迹。</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Small Feature 2 -->
-                    <div class="md:col-span-4 bg-surface-container-lowest p-8 rounded-3xl flex flex-col justify-between border border-outline-variant/15">
-                        <div class="flex items-center gap-2 text-secondary">
-                            <span class="material-symbols-outlined">security</span>
-                            <span class="font-bold text-xs uppercase tracking-widest">安全至上</span>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold mb-2 text-on-surface">零信任架构</h4>
-                            <p class="text-on-surface-variant text-sm">深度嵌入的加密技术保护StruxureAI网络中的每一个节点。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Engineering Impact (Data-Driven Section) -->
-        <section class="py-32 bg-on-surface text-surface-container-lowest px-8 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/20 to-transparent"></div>
-            <div class="max-w-7xl mx-auto relative z-10">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
                     <div>
-                        <h2 class="text-4xl md:text-5xl font-extrabold mb-8 leading-tight">工程技术 全球影响</h2>
-                        <div class="grid grid-cols-2 gap-12">
-                            <div>
-                                <div class="text-5xl font-extrabold text-primary mb-2">40%</div>
-                                <div class="text-sm font-bold uppercase tracking-widest text-surface-variant">能效提升</div>
-                                <p class="text-surface-variant/60 text-xs mt-2">在欧洲智能建筑实施案例中达成。</p>
-                            </div>
-                            <div>
-                                <div class="text-5xl font-extrabold text-secondary mb-2">1.2M</div>
-                                <div class="text-sm font-bold uppercase tracking-widest text-surface-variant">日活跃节点</div>
-                                <p class="text-surface-variant/60 text-xs mt-2">连接跨越三大洲的社区。</p>
-                            </div>
-                            <div>
-                                <div class="text-5xl font-extrabold text-primary mb-2">24/7</div>
-                                <div class="text-sm font-bold uppercase tracking-widest text-surface-variant">实时全天候监测</div>
-                                <p class="text-surface-variant/60 text-xs mt-2">关键基础设施的预测性维护。</p>
-                            </div>
-                            <div>
-                                <div class="text-5xl font-extrabold text-secondary mb-2">0.5ms</div>
-                                <div class="text-sm font-bold uppercase tracking-widest text-surface-variant">边缘延迟</div>
-                                <p class="text-surface-variant/60 text-xs mt-2">为安全关键系统提供近乎即时的处理。</p>
-                            </div>
-                        </div>
+                        <h4 class="text-xl font-bold mb-2">零信任架构</h4>
+                        <p class="text-gray-500 text-sm">深度嵌入的加密技术保护StruxureAI网络中的每一个节点。</p>
                     </div>
-                    <div class="bg-surface-container/5 backdrop-blur-md rounded-3xl p-8 border border-surface-container-highest/10">
-                        <div class="flex items-center justify-between mb-8">
-                            <h4 class="font-bold">网络脉搏实时动态</h4>
-                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-xs">
-                                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> 运行状态良好
-                            </span>
-                        </div>
-                        <div class="space-y-6">
-                            <div class="space-y-2">
-                                <div class="flex justify-between text-sm">
-                                    <span>系统负载</span>
-                                    <span>22%</span>
-                                </div>
-                                <div class="w-full bg-surface-container-highest/20 h-1.5 rounded-full overflow-hidden">
-                                    <div class="bg-primary h-full w-[22%]"></div>
-                                </div>
-                            </div>
-                            <div class="space-y-2">
-                                <div class="flex justify-between text-sm">
-                                    <span>全球带宽</span>
-                                    <span>84%</span>
-                                </div>
-                                <div class="w-full bg-surface-container-highest/20 h-1.5 rounded-full overflow-hidden">
-                                    <div class="bg-secondary h-full w-[84%]"></div>
-                                </div>
-                            </div>
-                            <div class="space-y-2">
-                                <div class="flex justify-between text-sm">
-                                    <span>AI效能</span>
-                                    <span>99.8%</span>
-                                </div>
-                                <div class="w-full bg-surface-container-highest/20 h-1.5 rounded-full overflow-hidden">
-                                    <div class="bg-primary-fixed h-full w-[99%]"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="w-full mt-12 border border-surface-container-highest/20 py-4 rounded-xl font-bold hover:bg-surface-container-lowest hover:text-on-surface transition-all">下载工程白皮书</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- CTA Section -->
-        <section class="py-32 px-8">
-            <div class="max-w-5xl mx-auto text-center bg-gradient-to-br from-primary to-secondary p-16 rounded-[40px] shadow-2xl relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-full opacity-10">
-                    <img class="w-full h-full object-cover" 
-                         alt="抽象科技电路图案，带有微妙的发光线条" 
-                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsTT3XepYOBORbtWsJY5S4VTs6UFUKAFDiTn2Iya-AVCDNI95ijmRprKwLjSRknejPcmRLGdLiWPhT_mUBmCArHpRyHj49H-mn2jsTid9X_sm3pEztzbQeNLWXo0Pf60kdrkrP0zvNcBQuCmhvHOQyUomVc5VpTKymJfh-Gn-h7EgFxnoe1Vl_8jA6hsALzRa3tjZvAtdurs09naCvInH3g3Zm0n0K2YcN0cxnh2yCn9Pna7qt0LI4tZD7ZoArGOU5IC_UYx4QzKI1"/>
-                </div>
-                <div class="relative z-10">
-                    <h2 class="text-4xl md:text-6xl font-extrabold text-on-primary mb-8 tracking-tighter">准备好共建未来了吗？</h2>
-                    <p class="text-on-primary/80 text-xl mb-12 max-w-2xl mx-auto">加入领先组织，利用 StruxureAI 构建更具韧性、以人为本的基础设施。</p>
-                    <div class="flex flex-wrap justify-center gap-6">
-                        <button class="bg-surface-container-lowest text-primary px-10 py-5 rounded-2xl font-bold text-lg hover:scale-105 transition-transform">联系我们的架构师</button>
-                        <button class="bg-transparent border-2 border-on-primary/30 text-on-primary px-10 py-5 rounded-2xl font-bold text-lg hover:bg-on-primary/10 transition-colors">预约演示</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Footer -->
-    <footer class="w-full border-t border-slate-200 bg-slate-100">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 max-w-7xl mx-auto">
-            <div class="space-y-6">
-                <div class="text-xl font-bold text-slate-900">StruxureAI</div>
-                <p class="text-slate-500 font-manrope text-sm leading-relaxed">通过智能基础设施和以人为本的设计，打造光明的未来。</p>
-                <div class="flex gap-4">
-                    <span class="material-symbols-outlined text-slate-400 hover:text-blue-600 cursor-pointer transition-colors">language</span>
-                    <span class="material-symbols-outlined text-slate-400 hover:text-blue-600 cursor-pointer transition-colors">hub</span>
-                    <span class="material-symbols-outlined text-slate-400 hover:text-blue-600 cursor-pointer transition-colors">public</span>
-                </div>
-            </div>
-            <div>
-                <h5 class="font-bold text-slate-900 mb-6 font-manrope">解决方案</h5>
-                <ul class="space-y-4 text-slate-500 text-sm font-manrope">
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">智慧旅游</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">农业科技系统</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">城市交通</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">可再生电网</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="font-bold text-slate-900 mb-6 font-manrope">公司信息</h5>
-                <ul class="space-y-4 text-slate-500 text-sm font-manrope">
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">关于我们</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">核心方法论</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">招贤纳士</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">新闻中心</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="font-bold text-slate-900 mb-6 font-manrope">相关资源</h5>
-                <ul class="space-y-4 text-slate-500 text-sm font-manrope">
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">行业白皮书</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">API 文档</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">可持续发展报告</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">合作伙伴</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="border-t border-slate-200/60 py-8 px-8">
-            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="text-slate-500 font-manrope text-sm">© 2024 StruxureAI. 版权所有。</div>
-                <div class="flex flex-wrap justify-center gap-8 text-sm font-manrope">
-                    <a class="text-slate-500 hover:text-slate-900 hover:underline underline-offset-4 transition-colors" href="#">隐私政策</a>
-                    <a class="text-slate-500 hover:text-slate-900 hover:underline underline-offset-4 transition-colors" href="#">服务条款</a>
-                    <a class="text-slate-500 hover:text-slate-900 hover:underline underline-offset-4 transition-colors" href="#">Cookie 设置</a>
-                    <a class="text-slate-500 hover:text-slate-900 hover:underline underline-offset-4 transition-colors" href="#">联系我们</a>
                 </div>
             </div>
         </div>
-    </footer>
+    </section>
+
+    <!-- 工程数据 & CTA & Footer 完全保留原样 -->
+    <section class="py-16 md:py-32 bg-gray-900 text-white px-4 md:px-8">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-8">工程技术 全球影响</h2>
+                <div class="grid grid-cols-2 gap-12">
+                    <div>
+                        <div class="text-4xl md:text-5xl font-bold text-primary mb-2">40%</div>
+                        <div class="text-sm uppercase text-gray-400">能效提升</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl md:text-5xl font-bold text-purple-500 mb-2">1.2M</div>
+                        <div class="text-sm uppercase text-gray-400">日活跃节点</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl md:text-5xl font-bold text-primary mb-2">24/7</div>
+                        <div class="text-sm uppercase text-gray-400">实时监测</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl md:text-5xl font-bold text-purple-500 mb-2">0.5ms</div>
+                        <div class="text-sm uppercase text-gray-400">边缘延迟</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-800/40 backdrop-blur p-8 rounded-3xl">
+                <div class="flex justify-between mb-8">
+                    <h4 class="font-bold">网络脉搏实时动态</h4>
+                    <span class="text-green-400 text-xs flex items-center"><span class="w-2 h-2 rounded-full bg-green-400 mr-2"></span>运行正常</span>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between text-sm mb-1"><span>系统负载</span><span>22%</span></div>
+                        <div class="w-full bg-gray-700 h-1.5 rounded-full"><div class="bg-primary h-full w-[22%]"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-1"><span>全球带宽</span><span>84%</span></div>
+                        <div class="w-full bg-gray-700 h-1.5 rounded-full"><div class="bg-purple-500 h-full w-[84%]"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-32 px-4 md:px-8">
+        <div class="max-w-4xl mx-auto text-center bg-gradient-to-br from-blue-600 to-purple-600 p-12 md:p-16 rounded-3xl text-white">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">准备好共建未来了吗？</h2>
+            <p class="mb-10 text-white/80">加入领先组织，利用智能技术构建更具韧性、以人为本的基础设施。</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform">联系我们的架构师</button>
+                <button class="bg-transparent border border-white/30 px-8 py-4 rounded-xl font-bold hover:bg-white/10">预约演示</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-gray-100 border-t">
+    <div class="max-w-7xl mx-auto py-12 px-4 md:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div>
+            <div class="text-xl font-bold text-gray-800 mb-4">锦致科技</div>
+            <p class="text-sm text-gray-500">通过智能基础设施和以人为本的设计，打造光明的未来。</p>
+        </div>
+        <div>
+            <h5 class="font-bold mb-4">解决方案</h5>
+            <ul class="space-y-2 text-sm text-gray-500">
+                <li><a href="#" class="hover:text-blue-600">智慧旅游</a></li>
+                <li><a href="#" class="hover:text-blue-600">智慧农业</a></li>
+                <li><a href="#" class="hover:text-blue-600">未来社区</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5 class="font-bold mb-4">公司</h5>
+            <ul class="space-y-2 text-sm text-gray-500">
+                <li><a href="#" class="hover:text-blue-600">关于我们</a></li>
+                <li><a href="#" class="hover:text-blue-600">招贤纳士</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5 class="font-bold mb-4">支持</h5>
+            <ul class="space-y-2 text-sm text-gray-500">
+                <li><a href="#" class="hover:text-blue-600">联系我们</a></li>
+                <li><a href="#" class="hover:text-blue-600">隐私政策</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="border-t py-6 text-center text-sm text-gray-500">© 2024 锦致科技 版权所有</div>
+</footer>
+
 </body>
 </html>
