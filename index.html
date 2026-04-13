@@ -1,208 +1,314 @@
 <!DOCTYPE html>
-<html class="light" lang="zh-CN">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>锦致科技</title>
-    <!-- Fonts & Icons：改用国内稳定CDN，保留原始字体名 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-    <!-- 使用BootCDN镜像替代Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://cdn.bootcdn.net/ajax/libs/material-symbols/0.14.7/material-symbols-outlined.css" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "primary-fixed": "#7b9cff",
-                        "surface-bright": "#f5f7f9",
-                        "on-error-container": "#570008",
-                        "secondary-fixed": "#dcc9ff",
-                        "on-secondary-container": "#5b00c7",
-                        "on-primary-fixed-variant": "#00266e",
-                        "secondary-fixed-dim": "#d0b8ff",
-                        "outline": "#747779",
-                        "outline-variant": "#abadaf",
-                        "surface-container-low": "#eef1f3",
-                        "error": "#b31b25",
-                        "error-container": "#fb5151",
-                        "on-background": "#2c2f31",
-                        "tertiary-fixed": "#fe9cf4",
-                        "primary-dim": "#0046bb",
-                        "inverse-primary": "#618bff",
-                        "inverse-surface": "#0b0f10",
-                        "primary": "#0050d4",
-                        "on-tertiary-container": "#661466",
-                        "primary-container": "#7b9cff",
-                        "surface-container": "#e5e9eb",
-                        "on-primary-container": "#001e5a",
-                        "tertiary-dim": "#802d7d",
-                        "tertiary": "#8e3a8a",
-                        "surface-container-lowest": "#ffffff",
-                        "secondary": "#702ae1",
-                        "on-tertiary-fixed-variant": "#711f6f",
-                        "on-tertiary": "#ffeef8",
-                        "surface-dim": "#d0d5d8",
-                        "tertiary-fixed-dim": "#ef8fe5",
-                        "on-surface": "#2c2f31",
-                        "on-secondary-fixed": "#430097",
-                        "primary-fixed-dim": "#658eff",
-                        "surface-tint": "#0050d4",
-                        "on-primary-fixed": "#000000",
-                        "secondary-dim": "#6411d5",
-                        "on-secondary-fixed-variant": "#6514d6",
-                        "error-dim": "#9f0519",
-                        "secondary-container": "#dcc9ff",
-                        "tertiary-container": "#fe9cf4",
-                        "inverse-on-surface": "#9a9d9f",
-                        "surface-container-highest": "#d9dde0",
-                        "surface-variant": "#d9dde0",
-                        "surface-container-high": "#dfe3e6",
-                        "on-error": "#ffefee",
-                        "on-secondary": "#f8f0ff",
-                        "on-tertiary-fixed": "#480049",
-                        "on-primary": "#f1f2ff",
-                        "surface": "#f5f7f9",
-                        "background": "#f5f7f9",
-                        "on-surface-variant": "#595c5e"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "fontFamily": {
-                        "headline": ["Manrope", "PingFang SC", "Microsoft YaHei", sans-serif],
-                        "body": ["Inter", "PingFang SC", "Microsoft YaHei", sans-serif],
-                        "label": ["Inter", "PingFang SC", "Microsoft YaHei", sans-serif]
-                    }
-                },
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#0050d4",
+                    "surface-bright": "#f5f7f9",
+                    "on-surface-variant": "#595c5e",
+                    "inverse-primary": "#618bff",
+                    "on-secondary-container": "#5b00c7",
+                    "on-tertiary-container": "#661466",
+                    "on-primary-container": "#001e5a",
+                    "error-dim": "#9f0519",
+                    "background": "#f5f7f9",
+                    "surface-dim": "#d0d5d8",
+                    "secondary-container": "#dcc9ff",
+                    "on-primary-fixed": "#000000",
+                    "on-secondary-fixed-variant": "#6514d6",
+                    "on-error-container": "#570008",
+                    "inverse-surface": "#0b0f10",
+                    "surface-variant": "#d9dde0",
+                    "surface-container-low": "#eef1f3",
+                    "tertiary-dim": "#802d7d",
+                    "outline-variant": "#abadaf",
+                    "secondary": "#702ae1",
+                    "primary-container": "#7b9cff",
+                    "on-primary-fixed-variant": "#00266e",
+                    "on-tertiary-fixed": "#480049",
+                    "error-container": "#fb5151",
+                    "tertiary-fixed-dim": "#ef8fe5",
+                    "surface-container": "#e5e9eb",
+                    "on-secondary": "#f8f0ff",
+                    "outline": "#747779",
+                    "primary-fixed-dim": "#658eff",
+                    "tertiary-container": "#fe9cf4",
+                    "error": "#b31b25",
+                    "primary-dim": "#0046bb",
+                    "primary-fixed": "#7b9cff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#d9dde0",
+                    "on-primary": "#f1f2ff",
+                    "on-secondary-fixed": "#430097",
+                    "secondary-dim": "#6411d5",
+                    "on-error": "#ffefee",
+                    "on-background": "#2c2f31",
+                    "on-surface": "#2c2f31",
+                    "secondary-fixed": "#dcc9ff",
+                    "tertiary": "#8e3a8a",
+                    "primary": "#0050d4",
+                    "surface": "#f5f7f9",
+                    "tertiary-fixed": "#fe9cf4",
+                    "surface-container-high": "#dfe3e6",
+                    "inverse-on-surface": "#9a9d9f",
+                    "secondary-fixed-dim": "#d0b8ff",
+                    "on-tertiary-fixed-variant": "#711f6f",
+                    "on-tertiary": "#ffeef8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
             }
-        }
+          },
+        },
+      }
     </script>
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-nav {
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-        /* 视频背景基础样式 */
-        .video-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-        }
-        /* 优化滚动体验 */
-        html {
-            scroll-behavior: smooth;
-        }
-        /* 修复卡片hover效果在移动端的响应性 */
-        @media (hover: none) {
-            .group:hover {
-                transform: none !important;
-            }
-            .group:hover .scale-110 {
-                transform: none !important;
-            }
-        }
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f5f7f9; color: #2c2f31; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); }
+        .hero-gradient { background: linear-gradient(135deg, rgba(0, 80, 212, 0.85) 0%, rgba(112, 42, 225, 0.85) 100%); }
+        .partner-logo { filter: grayscale(100%); opacity: 0.6; transition: all 0.3s ease; }
+        .partner-logo:hover { filter: grayscale(0%); opacity: 1; }
     </style>
 </head>
-<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
-
-    <!-- TopNavBar：修复移动端不消失，同时缩小顶部空白 -->
-    <nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
-        <div class="flex justify-between items-center px-4 py-3 md:px-8 md:py-4 max-w-7xl mx-auto">
-            <div class="text-xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-manrope tracking-tight">
-                锦致科技
-            </div>
-            <!-- 移动端修复：确保菜单容器存在，不使用 hidden 完全隐藏 -->
-            <div class="flex items-center space-x-4 md:space-x-8">
-                <a class="text-blue-600 border-b-2 border-blue-600 pb-1 font-manrope font-bold tracking-tight text-sm md:text-base" href="list.html">解决方案</a>
-                <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight text-sm md:text-base hidden sm:block" href="#">核心领域</a>
-                <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight text-sm md:text-base hidden sm:block" href="#">技术架构</a>
-                <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight text-sm md:text-base hidden sm:block" href="#">案例研究</a>
-            </div>
-            <div class="flex items-center gap-3 md:gap-6">
-                <div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/15">
-                    <span class="material-symbols-outlined text-outline text-sm">search</span>
-                    <input class="bg-transparent border-none focus:ring-0 text-sm w-40 placeholder:text-outline-variant" placeholder="搜索洞察..." type="text"/>
-                </div>
-                <button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-4 py-2 md:px-6 md:py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-primary/10 hover:opacity-80 transition-all duration-300 active:scale-95">立即开始</button>
-            </div>
-        </div>
-        <div class="bg-slate-100 h-[1px] opacity-20"></div>
-    </nav>
-    
-    <!-- 修复间距：将 pt-20 改为 pt-12，大幅缩小顶部空白 -->
-    <main class="pt-12 md:pt-20">
-        <!-- Hero Section - 恢复视频背景 -->
-        <section class="relative min-h-[500px] md:min-h-[921px] flex items-center px-4 md:px-8 overflow-hidden bg-surface-bright">
-            <!-- 背景视频 -->
-            <video class="video-bg" autoplay muted loop playsinline>
-                <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_083109_283f3553-e28f-428b-a723-d639c617eb2b.mp4" type="video/mp4">
-                你的浏览器不支持视频播放
-            </video>
-            <div class="absolute inset-0 bg-surface-bright/80 z-[1]"></div>
-            
-            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 md:gap-12 items-center z-10">
-                <div class="space-y-5 md:space-y-8">
-                    <div class="inline-flex items-center px-3 py-1 rounded-full bg-primary-container/20 text-primary font-semibold text-xs tracking-wider uppercase">光影建筑师</div>
-                    <h1 class="text-3xl md:text-6xl lg:text-7xl font-extrabold text-on-surface tracking-tighter leading-[1.05]">让<span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">数字智能</span>与人类生活交相辉映</h1>
-                    <p class="text-base md:text-xl text-on-surface-variant max-w-xl leading-relaxed">我们致力于构建服务于社区的智能基础设施生态系统。从可持续农业到无缝衔接的城市旅游，我们设计面向未来的隐形建筑。</p>
-                    <div class="flex flex-wrap gap-3 md:gap-4">
-                        <a href="detail.html"><button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-5 py-3 md:px-8 md:py-4 rounded-lg font-bold text-base md:text-lg shadow-xl shadow-primary/20 hover:scale-105 transition-transform">探索方案</button></a>
-                        <button class="bg-surface-container-highest text-on-surface px-5 py-3 md:px-8 md:py-4 rounded-lg font-bold text-base md:text-lg hover:bg-surface-container-high transition-colors">观看演示</button>
-                    </div>
-                </div>
-                <div class="relative hidden lg:block">
-                    <div class="absolute -top-20 -right-20 w-96 h-96 bg-primary/10 blur-[100px] rounded-full"></div>
-                    <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-secondary/10 blur-[100px] rounded-full"></div>
-                    <div class="rounded-3xl overflow-hidden shadow-2xl relative z-10 transform skew-y-2">
-                        <img class="w-full h-[600px] object-cover" 
-                             alt="未来智能城市天际线" 
-                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu8Prf0q_S8mzkX2C3kRfptbt_udwUdZVDDapNRyxMdAWgo02ZSxr0EJCtepr-9l4clsWxDuHRxvmrW4JaOpi2mSi8VoR6xQbDfFGnTAOL-Ml27hGCegwbvwJiSKB00aKjNpitiIY682kmU66V_r7HeUNalGcOzuRbY_J5B1r0CTj4ZvHYWuqvSF0knqZETb9bMSV7bvJZ9x7Jv929cnm_95XYxqyBkUOIMPo3IqIc0VCvJKIgYfGrc4SWu7JF6GthMi9X2IicRlo_"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Ecosystems Section (保持原布局，修复错位) -->
-        <section class="py-12 md:py-16 lg:py-32 bg-surface-container-low px-4 md:px-8">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16 gap-4 md:gap-6">
-                    <div>
-                        <span class="text-primary font-bold tracking-widest uppercase text-sm block mb-2 md:mb-4">核心业务</span>
-                        <h2 class="text-2xl md:text-3xl lg:text-5xl font-extrabold text-on-surface">全场景智能生态</h2>
-                    </div>
-                    <p class="text-on-surface-variant max-w-md text-sm md:text-base">我们的技术能够适应不同行业的特定韵律，确保进步永不以牺牲人类体验为代价。</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
-                    <!-- Tourism -->
-                    <div class="bg-surface-container-lowest p-5 md:p-8 rounded-2xl group hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
-                        <div class="mb-4 md:mb-8 rounded-xl overflow-hidden aspect-video">
-                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                                 alt="豪华生态度假村" 
-                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSDe-8r_EDkSVd4HF9vpIQO2jpLJknxkFwEigUAjlDaRYTZx4na4d-rXLBqDQ3mRTtaSg9Rc4kfHHKXQbq32OZkTjJrCjc8GdwTt8I5KxrkFCPDgHXNrIQbKL0ZFJ2nJVqCRqbd7_hrV7XM1X2jpt0xpxFvI57J818z5KDgAJmflXoLeiSkGbqTEH5ISTljl-Vzb7WG74Nh-jl7UJHT831X6J0RbCRWmd59IBWZlgpzqB_juDSPx7Z3cO0DR4ngolP-SJLGsQ-k620"/>
-                        </div>
-                        <span class="material-symbols-outlined text-primary text-2xl md:text-4xl mb-2 md:mb-4">business</span>
-                        <h3 class="text-lg md:text-xl lg:text-2xl font-bold mb-2 md:mb-4">智慧旅游</h3>
-                        <p class="text-on-surface-variant mb-4 md:mb-6 flex-grow text-sm md:text-base">通过实时游客流分析和个性化数字礼宾服务，提升目的地管理水平。</p>
-                        <a class="flex items-center text-primary font-bold text-sm md:text-base group" href="#">了解更多 <span class="material-symbols-outlined ml-2 group-hover:translate-x-2 transition-transform text-sm">arrow_forward</span></a>
-                    </div>
-                    
-                    <!-- AgriTech -->
-                    <div class="bg-surface-container-lowest p-5 md:p-8 rounded-
+<body class="bg-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl">
+<div class="flex justify-between items-center h-20 px-12 max-w-full mx-auto">
+<div class="text-2xl font-black bg-gradient-to-r from-[#2563EB] to-[#702ae1] bg-clip-text text-transparent font-headline">智建系统建设</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-manrope font-bold text-sm tracking-tight text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 pb-1" href="#">首页</a>
+<a class="font-manrope font-bold text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors duration-300" href="#">解决方案</a>
+<a class="font-manrope font-bold text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors duration-300" href="#">工程案例</a>
+<a class="font-manrope font-bold text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors duration-300" href="#">智能硬件</a>
+<a class="font-manrope font-bold text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors duration-300" href="#">关于我们</a>
+<a class="font-manrope font-bold text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors duration-300" href="#">联系我们</a>
+</div>
+<div class="flex items-center space-x-6">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">search</span>
+<button class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2.5 rounded-lg font-headline font-bold text-sm transition-transform active:scale-95 duration-200 ease-in-out shadow-lg shadow-primary/20">预约咨询</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="Ultra-modern futuristic skyscraper with glass facade reflecting blue sky and neon lights at dusk in a high-tech city" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6ylDUkUt8V_r3iCNKq7O04YRubV_J_mLIgIDLzrCcP-IiEHrXSVN1f7y2m1G2aOwTPIum1ZC-4nxVlAFDc8QoJRzDIYxJmnRlazSqbUMoizJEr_0vby3EVI_gc318HIZUMcg4TvENpzZTzEqeNvGNFcSEvFr3qWWztRKZzggBBczjN9cl03pCTtoBY-48wDjoaQlzs93o_qyMAJK-vlhQmalTwkdE2GnUqRHMDeYrnWNf2Wu2_DIyrDlXINbPdqOwJy91swwNelY8"/>
+<div class="absolute inset-0 hero-gradient mix-blend-multiply"></div>
+</div>
+<div class="relative z-10 px-12 max-w-7xl mx-auto text-white">
+<div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-white/20 bg-white/10 backdrop-blur-md">
+<span class="text-xs font-bold uppercase tracking-widest">Digital Future Architect</span>
+</div>
+<h1 class="text-6xl md:text-8xl font-headline font-extrabold tracking-tighter mb-6 leading-tight">
+                重构<span class="text-secondary-fixed">智慧建筑</span><br/>的数字基石
+            </h1>
+<p class="text-xl md:text-2xl text-on-primary/80 max-w-2xl mb-10 font-body leading-relaxed">
+                融合AI底座与大数据中台，为从智慧农业到未来社区的全场景提供深度交互式数字化解决方案。
+            </p>
+<div class="flex gap-4">
+<button class="bg-white text-primary px-8 py-4 rounded-lg font-headline font-bold text-lg hover:bg-surface-container-low transition-colors">探索方案</button>
+<button class="bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-lg font-headline font-bold text-lg backdrop-blur-md hover:bg-white/10 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">play_circle</span> 观看演示
+                </button>
+</div>
+</div>
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+<span class="material-symbols-outlined text-white/50 text-4xl">keyboard_double_arrow_down</span>
+</div>
+</section>
+<!-- Long Axis Scenarios -->
+<section class="py-16 bg-surface-bright">
+<div class="px-12 max-w-7xl mx-auto">
+<div class="flex flex-col items-center mb-12 text-center">
+<h2 class="text-4xl md:text-5xl font-headline font-extrabold text-on-surface mb-4">全场景闭环深度交互</h2>
+<div class="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+</div>
+<!-- Vertical Timeline Flow -->
+<div class="relative">
+<div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-surface-container-high hidden lg:block"></div>
+<!-- Scene 1: Smart Tourism -->
+<div class="relative grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-center">
+<div class="lg:pr-16 text-right order-2 lg:order-1">
+<span class="text-primary font-bold tracking-widest text-sm uppercase mb-2 block">Level 01</span>
+<h3 class="text-3xl font-headline font-bold mb-4 text-on-surface">景区/旅游智慧化</h3>
+<p class="text-on-surface-variant leading-relaxed">智慧导览、数字地图、沉浸式体验、全域旅游监测。构建一体化智慧旅游生态。</p>
+<div class="mt-4 flex justify-end gap-3">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-semibold">智慧导览</span>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-semibold">全域监测</span>
+</div>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary ring-8 ring-primary/10 hidden lg:block z-10"></div>
+<div class="order-1 lg:order-2">
+<div class="rounded-2xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-transform duration-500 aspect-video">
+<img class="w-full h-full object-cover" data-alt="High-tech digital dashboard in a futuristic tourist center showing real-time visitor data and interactive maps" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6ylDUkUt8V_r3iCNKq7O04YRubV_J_mLIgIDLzrCcP-IiEHrXSVN1f7y2m1G2aOwTPIum1ZC-4nxVlAFDc8QoJRzDIYxJmnRlazSqbUMoizJEr_0vby3EVI_gc318HIZUMcg4TvENpzZTzEqeNvGNFcSEvFr3qWWztRKZzggBBczjN9cl03pCTtoBY-48wDjoaQlzs93o_qyMAJK-vlhQmalTwkdE2GnUqRHMDeYrnWNf2Wu2_DIyrDlXINbPdqOwJy91swwNelY8"/>
+</div>
+</div>
+</div>
+<!-- Scene 2: Digital Twin Culture -->
+<div class="relative grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-center">
+<div class="order-2">
+<div class="rounded-2xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-transform duration-500 aspect-video">
+<img class="w-full h-full object-cover" data-alt="Futuristic museum gallery with digital twin holographic projections of artifacts and interactive screens" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTtR1pV1qKo6P2GJvEoCqkQ06HbpxxUF5Rlxk8xjTrfhKz_g4bN4KLS6VrqKMPbmhH_Eud-ESIQ1eu2Po9qYID5phFb7QJSoWdSeB0x20t_rM_mNMrxGZCHupkQXFbdTX4IcaTrq7lm_kxuIDjo1RPAa4f6E0g7tR4YXK9xaFPlfk1-N4_TiBFRpt_wr3jW6CR5gehK1voJbR7KXQ9Vcjc4OmL2zUzcUAu0d8gkHYw0GMvvfWGYdg49xABi1c1ALutjQXSnlXgtp3m"/>
+</div>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-secondary ring-8 ring-secondary/10 hidden lg:block z-10"></div>
+<div class="lg:pl-16 order-1 lg:order-3">
+<span class="text-secondary font-bold tracking-widest text-sm uppercase mb-2 block">Level 02</span>
+<h3 class="text-3xl font-headline font-bold mb-4 text-on-surface">文化场馆/数字孪生</h3>
+<p class="text-on-surface-variant leading-relaxed">数字场馆构建、文物数字化保护、虚实结合科技应用。赋予文化遗产数字新生命。</p>
+<div class="mt-4 flex gap-3">
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-semibold">虚实结合</span>
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-semibold">文物数字保护</span>
+</div>
+</div>
+</div>
+<!-- Scene 3: Digital Village -->
+<div class="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="lg:pr-16 text-right order-2 lg:order-1">
+<span class="text-tertiary font-bold tracking-widest text-sm uppercase mb-2 block">Level 03</span>
+<h3 class="text-3xl font-headline font-bold mb-4 text-on-surface">数字乡村/智慧农业</h3>
+<p class="text-on-surface-variant leading-relaxed">农业智能化生产、乡村数字化治理、生态环境监测。科技赋能乡村振兴与生态文明。</p>
+<div class="mt-4 flex justify-end gap-3">
+<span class="bg-tertiary/10 text-tertiary px-3 py-1 rounded-full text-xs font-semibold">智能生产</span>
+<span class="bg-tertiary/10 text-tertiary px-3 py-1 rounded-full text-xs font-semibold">数字治理</span>
+</div>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-tertiary ring-8 ring-tertiary/10 hidden lg:block z-10"></div>
+<div class="order-1 lg:order-2">
+<div class="rounded-2xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-transform duration-500 aspect-video">
+<img class="w-full h-full object-cover" data-alt="Modern rural landscape with digital monitoring towers and smart farming equipment integrated into lush green fields" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbgxQbcQQLa1yov-xbmwrkdxNlmtW4Zl8CLMbBct5TWiBRXPENFnd05yjY0_afCIfkjoL8sqOEfAUmx0478-QX5jUD-vkd6cmTAw7A0uaN88RfuEhmBhrZ2h1odX1SrPOyoDJciU7kRfoAZM6nb64vKwnvDe_pTguBSY2GGQfhvp7DoNTJJBelTkDpiBpTiEzwSY4Nu5nDSGQXV3FscSvdRoDjaKmH7uJqQWG8W2CxwnEgxaCKFKm6KQEgPsbZcRCdbqU5Fxzwz75Y"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tech Depth: Architecture Section -->
+<section class="py-16 bg-surface-container-low">
+<div class="px-12 max-w-7xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="text-4xl font-headline font-extrabold text-on-surface mb-4">技术底座：双引擎架构</h2>
+<p class="text-on-surface-variant">深层次的技术耦合，为上层应用提供稳健、灵活的数字能力支持</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- AI Engine -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/15 flex flex-col items-start group relative overflow-hidden">
+<div class="w-14 h-14 rounded-xl bg-primary/5 flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="neurology">neurology</span>
+</div>
+<h4 class="text-2xl font-headline font-bold mb-4">AI 算法底座</h4>
+<p class="text-on-surface-variant mb-6 leading-relaxed relative z-10">内置自研深度学习模型，支持计算机视觉、自然语言处理与多维预测分析，实现从“被动接收”到“主动智能”的跨越。</p>
+<ul class="space-y-3 mb-8 w-full relative z-10">
+<li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> 实时行为识别</li>
+<li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> 复杂语义检索</li>
+<li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> 自适应策略优化</li>
+</ul>
+<a class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all relative z-10" href="#">了解详情 <span class="material-symbols-outlined">arrow_forward</span></a>
+<!-- Background Icon -->
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-9xl text-primary/5 select-none pointer-events-none group-hover:scale-110 transition-transform duration-500">neurology</span>
+</div>
+<!-- Big Data Platform -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/15 flex flex-col items-start group relative overflow-hidden">
+<div class="w-14 h-14 rounded-xl bg-secondary/5 flex items-center justify-center mb-6 group-hover:bg-secondary/10 transition-colors">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="database">database</span>
+</div>
+<h4 class="text-2xl font-headline font-bold mb-4">大数据治理中台</h4>
+<p class="text-on-surface-variant mb-6 leading-relaxed relative z-10">全量数据资产采集、清洗与标准化处理，打通数据孤岛。提供高性能分布式存储与流式计算能力。</p>
+<ul class="space-y-3 mb-8 w-full relative z-10">
+<li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-secondary text-sm">check_circle</span> 毫秒级数据响应</li>
+<li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-secondary text-sm">check_circle</span> 统一资源调度管理</li>
+<li class="flex items-center gap-3 text-sm font-medium"><span class="material-symbols-outlined text-secondary text-sm">check_circle</span> 端到端安全加密</li>
+</ul>
+<a class="text-secondary font-bold flex items-center gap-2 group-hover:gap-4 transition-all relative z-10" href="#">查看文档 <span class="material-symbols-outlined">arrow_forward</span></a>
+<!-- Background Icon -->
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-9xl text-secondary/5 select-none pointer-events-none group-hover:scale-110 transition-transform duration-500">database</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Partners Section -->
+<section class="py-20 bg-surface-bright">
+<div class="px-12 max-w-7xl mx-auto">
+<h2 class="text-4xl font-headline font-extrabold text-center mb-16">合作伙伴</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+<!-- Partner Logos Placeholders -->
+<div class="flex items-center justify-center h-24 bg-white rounded-xl shadow-sm border border-outline-variant/10 p-4 hover:shadow-md transition-shadow">
+<img alt="Partner Logo" class="partner-logo max-h-12 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0ugoxtv-JOeTHTLQ5GeMzE72o2FuL9JrijDEBhTtlncConBAy9Xf8vGi2bt_n6XOtQAS_K__qt2ABhyKPFsGsyW8QFeZQJGa-CKVvlmO3blStaK4wnk-6NHKLNFWB04bA3zsD0XIFbivIJOl6FjayuNGQygL6q757XCBvzrWCNM2MRHvgiEzjhGF8hEksJtrEAxQIDxD2c6VINFmIOveWMGzAkQEKO9C01al4vfIVqjQxALrdtpnhKXdKoc877H7ZvgKcVYM7VBhcqE"/>
+</div>
+<div class="flex items-center justify-center h-24 bg-white rounded-xl shadow-sm border border-outline-variant/10 p-4 hover:shadow-md transition-shadow">
+<img alt="Partner Logo" class="partner-logo max-h-12 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0ugoxtv-JOeTHTLQ5GeMzE72o2FuL9JrijDEBhTtlncConBAy9Xf8vGi2bt_n6XOtQAS_K__qt2ABhyKPFsGsyW8QFeZQJGa-CKVvlmO3blStaK4wnk-6NHKLNFWB04bA3zsD0XIFbivIJOl6FjayuNGQygL6q757XCBvzrWCNM2MRHvgiEzjhGF8hEksJtrEAxQIDxD2c6VINFmIOveWMGzAkQEKO9C01al4vfIVqjQxALrdtpnhKXdKoc877H7ZvgKcVYM7VBhcqE"/>
+</div>
+<div class="flex items-center justify-center h-24 bg-white rounded-xl shadow-sm border border-outline-variant/10 p-4 hover:shadow-md transition-shadow">
+<img alt="Partner Logo" class="partner-logo max-h-12 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0ugoxtv-JOeTHTLQ5GeMzE72o2FuL9JrijDEBhTtlncConBAy9Xf8vGi2bt_n6XOtQAS_K__qt2ABhyKPFsGsyW8QFeZQJGa-CKVvlmO3blStaK4wnk-6NHKLNFWB04bA3zsD0XIFbivIJOl6FjayuNGQygL6q757XCBvzrWCNM2MRHvgiEzjhGF8hEksJtrEAxQIDxD2c6VINFmIOveWMGzAkQEKO9C01al4vfIVqjQxALrdtpnhKXdKoc877H7ZvgKcVYM7VBhcqE"/>
+</div>
+<div class="flex items-center justify-center h-24 bg-white rounded-xl shadow-sm border border-outline-variant/10 p-4 hover:shadow-md transition-shadow">
+<img alt="Partner Logo" class="partner-logo max-h-12 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0ugoxtv-JOeTHTLQ5GeMzE72o2FuL9JrijDEBhTtlncConBAy9Xf8vGi2bt_n6XOtQAS_K__qt2ABhyKPFsGsyW8QFeZQJGa-CKVvlmO3blStaK4wnk-6NHKLNFWB04bA3zsD0XIFbivIJOl6FjayuNGQygL6q757XCBvzrWCNM2MRHvgiEzjhGF8hEksJtrEAxQIDxD2c6VINFmIOveWMGzAkQEKO9C01al4vfIVqjQxALrdtpnhKXdKoc877H7ZvgKcVYM7VBhcqE"/>
+</div>
+<div class="flex items-center justify-center h-24 bg-white rounded-xl shadow-sm border border-outline-variant/10 p-4 hover:shadow-md transition-shadow">
+<img alt="Partner Logo" class="partner-logo max-h-12 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0ugoxtv-JOeTHTLQ5GeMzE72o2FuL9JrijDEBhTtlncConBAy9Xf8vGi2bt_n6XOtQAS_K__qt2ABhyKPFsGsyW8QFeZQJGa-CKVvlmO3blStaK4wnk-6NHKLNFWB04bA3zsD0XIFbivIJOl6FjayuNGQygL6q757XCBvzrWCNM2MRHvgiEzjhGF8hEksJtrEAxQIDxD2c6VINFmIOveWMGzAkQEKO9C01al4vfIVqjQxALrdtpnhKXdKoc877H7ZvgKcVYM7VBhcqE"/>
+</div>
+<div class="flex items-center justify-center h-24 bg-white rounded-xl shadow-sm border border-outline-variant/10 p-4 hover:shadow-md transition-shadow">
+<img alt="Partner Logo" class="partner-logo max-h-12 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0ugoxtv-JOeTHTLQ5GeMzE72o2FuL9JrijDEBhTtlncConBAy9Xf8vGi2bt_n6XOtQAS_K__qt2ABhyKPFsGsyW8QFeZQJGa-CKVvlmO3blStaK4wnk-6NHKLNFWB04bA3zsD0XIFbivIJOl6FjayuNGQygL6q757XCBvzrWCNM2MRHvgiEzjhGF8hEksJtrEAxQIDxD2c6VINFmIOveWMGzAkQEKO9C01al4vfIVqjQxALrdtpnhKXdKoc877H7ZvgKcVYM7VBhcqE"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 pt-16 pb-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 px-12 py-16 max-w-7xl mx-auto">
+<div class="col-span-2 md:col-span-1">
+<div class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-6">智建系统建设</div>
+<p class="text-xs text-slate-500 mb-6 max-w-xs leading-relaxed">引领建筑数字化转型，构建万物智联的数字未来。我们致力于通过AI与大数据技术，重塑城市与生活的每一个细节。</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer transition-colors">public</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer transition-colors">language</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer transition-colors">alternate_email</span>
+</div>
+</div>
+<div>
+<h5 class="font-headline font-bold text-sm mb-6 uppercase tracking-wider">快捷链接</h5>
+<ul class="space-y-4">
+<li><a class="font-manrope text-xs text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-all inline-block" href="#">网站地图</a></li>
+<li><a class="font-manrope text-xs text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-all inline-block" href="#">加入我们</a></li>
+<li><a class="font-manrope text-xs text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-all inline-block" href="#">联系信息</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-headline font-bold text-sm mb-6 uppercase tracking-wider">法律条款</h5>
+<ul class="space-y-4">
+<li><a class="font-manrope text-xs text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-all inline-block" href="#">隐私政策</a></li>
+<li><a class="font-manrope text-xs text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-all inline-block" href="#">服务条款</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-headline font-bold text-sm mb-6 uppercase tracking-wider">联系我们</h5>
+<p class="font-manrope text-xs text-slate-500 leading-6">北京市朝阳区科技园C座<br/>Tel: 400-888-9999<br/>Email: contact@zhijian.com</p>
+<div class="mt-4 bg-white p-2 inline-block rounded shadow-sm">
+<img class="w-20 h-20" data-alt="Clean minimalist QR code graphic on a white background for digital scan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqAE5Ho5tf6_tV5aqj16KDl6QHlB5LKkk4AScwgz9Ao_iZw0HIF2QlOP7E3SbTCZvRDGP_Jf-7Cenv0ao3Geffvrqz9Sqe82vfFJ0ND3d0saXpHi9rcXMYtHRvyxYbhaqOPmbUrHGpNORO_V13-0HD2dwXHOSra1zQNW0frHMP75qmWGEajZWIPUaapxZhLtxDlOlhyGGO9l4gGzHPTR5uuc7c8NXKlLpsfLevvRlVJqYqVWxd0IbmrVTcvyDzJhoThvZr2ZqPxLA0"/>
+</div>
+</div>
+</div>
+<div class="px-12 mt-12 pt-8 border-t border-slate-200/50 max-w-7xl mx-auto text-center">
+<p class="font-manrope text-xs text-slate-500 opacity-80 hover:opacity-100 transition-opacity">© 2024 智建系统建设有限公司 版权所有</p>
+</div>
+</footer>
+</body></html>
