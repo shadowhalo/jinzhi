@@ -7,7 +7,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <div id="site-header"></div>
+  <!-- 引用公共头部 -->
+  <div id="site-header"></div>
+
+  <!-- 视频背景（轻量化，保持风格统一） -->
+  <div class="video-bg">
+    <video id="bgVideo" playsinline muted loop>
+      <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_083109_283f3553-e28f-428b-a723-d639c617eb2b.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+  </div>
 
   <main>
     <!-- 页面头部（面包屑+标题） -->
@@ -228,22 +237,24 @@
     </section>
   </main>
 
-  <!-- 复用原有页脚 -->
-
-      <div id="site-footer"></div>
-<script>
-  Promise.all([
-    fetch("./header.html").then(r => r.text()),
-    fetch("./footer.html").then(r => r.text())
-  ]).then(([headerHTML, footerHTML]) => {
-    document.getElementById("site-header").innerHTML = headerHTML;
-    document.getElementById("site-footer").innerHTML = footerHTML;
-  }).catch(err => {
-    console.error("引入 header/footer 失败：", err);
-  });
-</script>
+  <!-- 引用公共页脚 -->
+  <div id="site-footer"></div>
 
   <script src="script.js"></script>
+
+  <!-- 注入 header/footer（注意：id 中间是普通减号 - ） -->
+  <script>
+    Promise.all([
+      fetch("./header.html").then(r => r.text()),
+      fetch("./footer.html").then(r => r.text())
+    ]).then(([headerHTML, footerHTML]) => {
+      document.getElementById("site-header").innerHTML = headerHTML;
+      document.getElementById("site-footer").innerHTML = footerHTML;
+    }).catch(err => {
+      console.error("引入 header/footer 失败：", err);
+    });
+  </script>
+
   <!-- 列表页专属脚本 -->
   <script>
     // 视图切换
