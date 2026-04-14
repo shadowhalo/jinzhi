@@ -1,89 +1,52 @@
-    <footer class="w-full border-t border-slate-200 bg-slate-100">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 max-w-7xl mx-auto">
-            <div class="space-y-6">
-                <div class="text-xl font-bold text-slate-900">锦致科技</div>
-                <p class="text-slate-500 font-manrope text-sm leading-relaxed">通过智能基础设施和以人为本的设计，打造光明的未来。</p>
-                <div class="flex gap-4">
-                    <span class="material-symbols-outlined text-slate-400 hover:text-blue-600 cursor-pointer transition-colors">language</span>
-                    <span class="material-symbols-outlined text-slate-400 hover:text-blue-600 cursor-pointer transition-colors">hub</span>
-                    <span class="material-symbols-outlined text-slate-400 hover:text-blue-600 cursor-pointer transition-colors">public</span>
-                </div>
-            </div>
-            <div>
-                <h5 class="font-bold text-slate-900 mb-6 font-manrope">解决方案</h5>
-                <ul class="space-y-4 text-slate-500 text-sm font-manrope">
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">智慧旅游</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">农业科技系统</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">城市交通</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">可再生电网</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="font-bold text-slate-900 mb-6 font-manrope">公司信息</h5>
-                <ul class="space-y-4 text-slate-500 text-sm font-manrope">
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">关于我们</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">核心方法论</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">招贤纳士</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">新闻中心</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="font-bold text-slate-900 mb-6 font-manrope">相关资源</h5>
-                <ul class="space-y-4 text-slate-500 text-sm font-manrope">
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">行业白皮书</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">API 文档</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">可持续发展报告</a></li>
-                    <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">合作伙伴</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="border-t border-slate-200/60 py-8 px-8">
-            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="text-slate-500 font-manrope text-sm">© 2026 锦致科技 版权所有。</div>
-                <div class="flex flex-wrap justify-center gap-8 text-sm font-manrope">
-                    <a class="text-slate-500 hover:text-slate-900 hover:underline underline-offset-4 transition-colors" href="#">隐私政策</a>
-                    <a class="text-slate-500 hover:text-slate-900 hover:underline underline-offset-4 transition-colors" href="#">服务条款</a>
-                    <a class="text-slate-500 hover:text-slate-900 hover:underline underline-offset-4 transition-colors" href="#">Cookie 设置</a>
-                    <a class="text-slate-500 hover:text-slate-900 hover:underline underline-offset-4 transition-colors" href="#">联系我们</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-<script>
-    const drawer = document.getElementById('mobile-drawer');
-    const overlay = document.getElementById('menu-overlay');
-    const menuBtn = document.getElementById('menu-toggle-btn');
-    const closeBtn = document.getElementById('close-btn');
-
-    function openMenu() {
-        drawer.classList.remove('translate-x-full');
-        overlay.classList.remove('opacity-0', 'pointer-events-none');
-        overlay.classList.add('opacity-100');
-        
-        menuBtn.classList.add('hidden'); // 隐藏三横
-        closeBtn.classList.remove('hidden'); // 显示 X
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-        drawer.classList.add('translate-x-full');
-        overlay.classList.add('opacity-0', 'pointer-events-none');
-        overlay.classList.remove('opacity-100');
-        
-        menuBtn.classList.remove('hidden'); // 显示三横
-        closeBtn.classList.add('hidden'); // 隐藏 X
-        document.body.style.overflow = '';
-    }
-
-    // 补全缺失的toggleMobileMenu函数（避免JS报错）
-    function toggleMobileMenu() {
-        if (drawer.classList.contains('translate-x-full')) {
-            openMenu();
-        } else {
-            closeMenu();
-        }
-    }
-</script>
-</body>
-</html>
+<!-- footer.html -->
+<footer class="w-full border-t border-slate-200 bg-slate-100">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 max-w-7xl mx-auto">
+    <div class="space-y-6">
+      <div class="text-xl font-bold text-slate-900">锦致科技</div>
+      <p class="text-slate-500 font-manrope text-sm leading-relaxed">通过智能基础设施和以人为本的设计，打造光明的未来。</p>
+      <div class="flex gap-4">
+        <span class="material-symbols-outlined text-slate-400 hover:text-blue-600 cursor-pointer transition-colors">language</span>
+        <span class="material-symbols-outlined text-slate-400 hover:text-blue-600 cursor-pointer transition-colors">hub</span>
+        <span class="material-symbols-outlined text-slate-400 hover:text-blue-600 cursor-pointer transition-colors">public</span>
+      </div>
+    </div>
+    <div>
+      <h5 class="font-bold text-slate-900 mb-6 font-manrope">解决方案</h5>
+      <ul class="space-y-4 text-slate-500 text-sm font-manrope">
+        <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">智慧旅游</a></li>
+        <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">农业科技系统</a></li>
+        <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">城市交通</a></li>
+        <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">可再生电网</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="font-bold text-slate-900 mb-6 font-manrope">公司信息</h5>
+      <ul class="space-y-4 text-slate-500 text-sm font-manrope">
+        <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">关于我们</a></li>
+        <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">核心方法论</a></li>
+        <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">招贤纳士</a></li>
+        <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">新闻中心</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="font-bold text-slate-900 mb-6 font-manrope">相关资源</h5>
+      <ul class="space-y-4 text-slate-500 text-sm font-manrope">
+        <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">行业白皮书</a></li>
+        <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">API 文档</a></li>
+        <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">可持续发展报告</a></li>
+        <li><a class="hover:text-slate-900 transition-colors hover:underline underline-offset-4" href="#">合作伙伴</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-slate-200/60 py-8 px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-slate-500 font-manrope text-sm">© 2026 锦致科技 版权所有。</div>
+      <div class="flex flex-wrap justify-center gap-8 text-sm font-manrope">
+        <a class="text-slate-500 hover:text-slate-900 hover:underline underline-offset-4 transition-colors" href="#">隐私政策</a>
+        <a class="text-slate-500 hover:text-slate-900 hover:underline underline-offset-4 transition-colors" href="#">服务条款</a>
+        <a class="text-slate-500 hover:text-slate-900 hover:underline underline-offset-4 transition-colors" href="#">Cookie 设置</a>
+        <a class="text-slate-500 hover:text-slate-900 hover:underline underline-offset-4 transition-colors" href="#">联系我们</a>
+      </div>
+    </div>
+  </div>
+</footer>

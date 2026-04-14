@@ -1,12 +1,132 @@
-<!-- 引入公共头部 -->
-
-<script>
-fetch('header.html').then(r=>r.text()).then(h=>{
-  document.getElementById('header').innerHTML = h;
-});
-</script>
-<!-- 主体部分 -->
-    <main >
+<!DOCTYPE html>
+<html class="light" lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>锦致科技</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#7b9cff",
+                        "surface-bright": "#f5f7f9",
+                        "on-error-container": "#570008",
+                        "secondary-fixed": "#dcc9ff",
+                        "on-secondary-container": "#5b00c7",
+                        "on-primary-fixed-variant": "#00266e",
+                        "secondary-fixed-dim": "#d0b8ff",
+                        "outline": "#747779",
+                        "outline-variant": "#abadaf",
+                        "surface-container-low": "#eef1f3",
+                        "error": "#b31b25",
+                        "error-container": "#fb5151",
+                        "on-background": "#2c2f31",
+                        "tertiary-fixed": "#fe9cf4",
+                        "primary-dim": "#0046bb",
+                        "inverse-primary": "#618bff",
+                        "inverse-surface": "#0b0f10",
+                        "primary": "#0050d4",
+                        "on-tertiary-container": "#661466",
+                        "primary-container": "#7b9cff",
+                        "surface-container": "#e5e9eb",
+                        "on-primary-container": "#001e5a",
+                        "tertiary-dim": "#802d7d",
+                        "tertiary": "#8e3a8a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#702ae1",
+                        "on-tertiary-fixed-variant": "#711f6f",
+                        "on-tertiary": "#ffeef8",
+                        "surface-dim": "#d0d5d8",
+                        "tertiary-fixed-dim": "#ef8fe5",
+                        "on-surface": "#2c2f31",
+                        "on-secondary-fixed": "#430097",
+                        "primary-fixed-dim": "#658eff",
+                        "surface-tint": "#0050d4",
+                        "on-primary-fixed": "#000000",
+                        "secondary-dim": "#6411d5",
+                        "on-secondary-fixed-variant": "#6514d6",
+                        "error-dim": "#9f0519",
+                        "secondary-container": "#dcc9ff",
+                        "tertiary-container": "#fe9cf4",
+                        "inverse-on-surface": "#9a9d9f",
+                        "surface-container-highest": "#d9dde0",
+                        "surface-variant": "#d9dde0",
+                        "surface-container-high": "#dfe3e6",
+                        "on-error": "#ffefee",
+                        "on-secondary": "#f8f0ff",
+                        "on-tertiary-fixed": "#480049",
+                        "on-primary": "#f1f2ff",
+                        "surface": "#f5f7f9",
+                        "background": "#f5f7f9",
+                        "on-surface-variant": "#595c5e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        /* 核心修改：将视频改为浏览器背景固定 */
+        .video-bg {
+            position: fixed; /* 从absolute改为fixed */
+            top: 0;
+            left: 0;
+            width: 100vw; /* 改为视口宽度 */
+            height: 100vh; /* 改为视口高度 */
+            object-fit: cover;
+            z-index: -1; /* 层级改为-1，确保在所有内容下方 */
+        }
+        /* 新增：给第一个section加背景透明，避免遮挡视频 */
+        .hero-section {
+            background: transparent !important;
+        }
+        @media (max-width: 768px) {
+            main {
+                padding-top: 80px !important; /* 修复：从160px改为80px，减少移动端空白 */
+            }
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        @media (hover: none) {
+            .group:hover {
+                transform: none !important;
+            }
+            .group:hover .scale-110 {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+  
+ <div id="site-header"></div>
+    
+    <main class="pt-20">
         <!-- 核心修改：给第一个section添加hero-section类 -->
         <section class="hero-section relative min-h-[921px] flex items-center px-8 overflow-hidden bg-surface-bright">
             <video class="video-bg" autoplay muted loop playsinline>
@@ -218,10 +338,53 @@ fetch('header.html').then(r=>r.text()).then(h=>{
         </section>
     </main>
     
-<!-- 引入公共底部 -->
+      <div id="site-footer"></div>
+<script>
+  Promise.all([
+    fetch("./header.html").then(r => r.text()),
+    fetch("./footer.html").then(r => r.text())
+  ]).then(([headerHTML, footerHTML]) => {
+    document.getElementById("site-header").innerHTML = headerHTML;
+    document.getElementById("site-footer").innerHTML = footerHTML;
+  }).catch(err => {
+    console.error("引入 header/footer 失败：", err);
+  });
+</script>
 
 <script>
-fetch('footer.html').then(r=>r.text()).then(h=>{
-  document.getElementById('footer').innerHTML = h;
-});
+    const drawer = document.getElementById('mobile-drawer');
+    const overlay = document.getElementById('menu-overlay');
+    const menuBtn = document.getElementById('menu-toggle-btn');
+    const closeBtn = document.getElementById('close-btn');
+
+    function openMenu() {
+        drawer.classList.remove('translate-x-full');
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        overlay.classList.add('opacity-100');
+        
+        menuBtn.classList.add('hidden'); // 隐藏三横
+        closeBtn.classList.remove('hidden'); // 显示 X
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        drawer.classList.add('translate-x-full');
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+        overlay.classList.remove('opacity-100');
+        
+        menuBtn.classList.remove('hidden'); // 显示三横
+        closeBtn.classList.add('hidden'); // 隐藏 X
+        document.body.style.overflow = '';
+    }
+
+    // 补全缺失的toggleMobileMenu函数（避免JS报错）
+    function toggleMobileMenu() {
+        if (drawer.classList.contains('translate-x-full')) {
+            openMenu();
+        } else {
+            closeMenu();
+        }
+    }
 </script>
+</body>
+</html>
