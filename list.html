@@ -7,25 +7,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- 复用原有导航栏 -->
-  <nav class="main-nav">
-    <div class="nav-container">
-      <div class="logo">StruxureAI</div>
-      <div class="nav-links-wrapper">
-        <a href="#" class="nav-link active">解决方案</a>
-        <a href="#" class="nav-link">行业领域</a>
-        <a href="#" class="nav-link">技术</a>
-        <a href="#" class="nav-link">案例研究</a>
-      </div>
-      <div class="nav-actions">
-        <div class="search-box">
-          <span class="material-symbols-outlined search-icon">search</span>
-          <input type="text" placeholder="搜索解决方案..." class="search-input">
-        </div>
-        <button class="btn-primary nav-btn">开始使用</button>
-      </div>
-    </div>
-  </nav>
+  <!-- 替换为index一致的header嵌入方式 -->
+  <div id="site-header"></div>
+
   <!-- 视频背景（轻量化，保持风格统一） -->
   <div class="video-bg">
     <video id="bgVideo" playsinline muted loop>
@@ -242,7 +226,8 @@
       </div>
     </section>
   </main>
-  <!-- 复用原有页脚 -->
+  <!-- 替换为index一致的footer嵌入方式（此处先保留index同款占位符，需根据实际footer嵌入逻辑调整） -->
+  <!-- 注：若index的footer也有对应占位符（如<div id="site-footer"></div>），可替换此处原有footer代码 -->
   <footer>
     <div class="container footer-grid">
       <div>
