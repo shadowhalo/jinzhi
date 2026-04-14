@@ -1,38 +1,156 @@
-<!DOCTYPE html>
-<html class="light" lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solutions | StruxureAI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<main class="pt-20 pb-24 px-8 bg-slate-50 min-h-screen">
+  <!-- 页面标题区 -->
+  <div class="max-w-7xl mx-auto mb-12">
+    <nav class="text-sm text-slate-500 mb-4" aria-label="Breadcrumb">
+      <ol class="flex items-center space-x-2">
+        <li><a href="#" class="hover:text-blue-600 transition-colors">首页</a></li>
+        <li><span class="material-symbols-outlined text-xs">chevron_right</span></li>
+        <li class="text-slate-800 font-medium">解决方案</li>
+      </ol>
+    </nav>
+    <h1 class="text-4xl font-extrabold text-slate-900 mb-3">智能基础设施解决方案</h1>
+    <p class="text-slate-600 text-lg">为跨行业以人为本的生态系统赋能而打造</p>
+  </div>
 
-<div id="header"></div>
+  <!-- 筛选栏 -->
+  <div class="max-w-7xl mx-auto mb-10 bg-white rounded-lg shadow-sm p-6">
+    <div class="flex flex-wrap items-center gap-6">
+      <!-- 行业筛选 -->
+      <div class="flex items-center gap-2">
+        <label class="text-sm font-medium text-slate-700">行业</label>
+        <select class="px-4 py-2 border border-slate-200 rounded-md bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+          <option>全部行业</option>
+          <option>文旅</option>
+          <option>农业</option>
+          <option>社区</option>
+          <option>出行</option>
+        </select>
+      </div>
 
-<main class="pt-24 pb-20 px-8 max-w-7xl mx-auto">
-  <h1 class="text-4xl font-bold mb-10">Solutions</h1>
-  <div class="grid gap-6">
-    <div class="p-6 bg-white rounded-2xl shadow">
-      <h2 class="text-2xl font-bold mb-2">Grid Modernization</h2>
-      <p class="text-slate-600">AI-powered intelligent grid infrastructure for cities & enterprises.</p>
-      <a href="detail.html" class="text-blue-600 font-bold mt-4 inline-block">View Details →</a>
-    </div>
-    <div class="p-6 bg-white rounded-2xl shadow">
-      <h2 class="text-2xl font-bold mb-2">Digital Twin Ecosystems</h2>
-      <p class="text-slate-600">Virtual replicas of physical infrastructure for real-time simulation.</p>
-      <a href="detail.html" class="text-blue-600 font-bold mt-4 inline-block">View Details →</a>
+      <!-- 技术筛选 -->
+      <div class="flex items-center gap-2">
+        <label class="text-sm font-medium text-slate-700">技术</label>
+        <select class="px-4 py-2 border border-slate-200 rounded-md bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+          <option>全部技术</option>
+          <option>AI分析</option>
+          <option>物联网</option>
+          <option>机器学习</option>
+          <option>自动化</option>
+          <option>数据分析</option>
+        </select>
+      </div>
+
+      <!-- 排序方式 -->
+      <div class="flex items-center gap-2">
+        <label class="text-sm font-medium text-slate-700">排序方式</label>
+        <select class="px-4 py-2 border border-slate-200 rounded-md bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+          <option>精选推荐</option>
+          <option>最新发布</option>
+          <option>热度优先</option>
+        </select>
+      </div>
+
+      <!-- 视图切换 -->
+      <div class="ml-auto flex items-center gap-1 border border-slate-200 rounded-md overflow-hidden">
+        <button class="px-3 py-2 bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+          <span class="material-symbols-outlined text-sm">grid_view</span>
+        </button>
+        <button class="px-3 py-2 bg-white text-slate-600 hover:bg-slate-50 transition-colors">
+          <span class="material-symbols-outlined text-sm">view_list</span>
+        </button>
+      </div>
     </div>
   </div>
+
+  <!-- 解决方案卡片列表 -->
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- 卡片1：智慧目的地管理 -->
+    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+      <div class="relative h-48 overflow-hidden">
+        <img src="https://picsum.photos/id/1036/800/400" alt="智慧目的地管理" class="w-full h-full object-cover">
+        <span class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">文旅</span>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-bold text-slate-900 mb-2">智慧目的地管理</h3>
+        <p class="text-slate-600 text-sm mb-4">实时客流分析与个性化数字礼宾服务，助力构建可持续的旅游生态系统。</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded">AI分析</span>
+          <span class="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded">物联网</span>
+        </div>
+        <a href="#" class="text-blue-600 font-medium text-sm flex items-center hover:text-blue-800 transition-colors">
+          了解更多 <span class="material-symbols-outlined text-xs ml-1">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 卡片2：AI驱动的作物优化 -->
+    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+      <div class="relative h-48 overflow-hidden">
+        <img src="https://picsum.photos/id/292/800/400" alt="AI驱动的作物优化" class="w-full h-full object-cover">
+        <span class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">农业</span>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-bold text-slate-900 mb-2">AI驱动的作物优化</h3>
+        <p class="text-slate-600 text-sm mb-4">土壤健康监测与自动化灌溉网络，在减少资源浪费的同时最大化产量。</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded">机器学习</span>
+          <span class="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded">自动化</span>
+        </div>
+        <a href="#" class="text-blue-600 font-medium text-sm flex items-center hover:text-blue-800 transition-colors">
+          了解更多 <span class="material-symbols-outlined text-xs ml-1">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 卡片3：智能社区设计 -->
+    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+      <div class="relative h-48 overflow-hidden">
+        <img src="https://picsum.photos/id/1067/800/400" alt="智能社区设计" class="w-full h-full object-cover">
+        <span class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">社区</span>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-bold text-slate-900 mb-2">智能社区设计</h3>
+        <p class="text-slate-600 text-sm mb-4">融合可再生能源系统与公共空间优化，实现可持续的城市生活方式。</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded">物联网</span>
+          <span class="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded">数据分析</span>
+        </div>
+        <a href="#" class="text-blue-600 font-medium text-sm flex items-center hover:text-blue-800 transition-colors">
+          了解更多 <span class="material-symbols-outlined text-xs ml-1">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 卡片4：自适应交通管理 -->
+    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow lg:col-span-1 md:col-span-2 sm:col-span-1">
+      <div class="relative h-48 overflow-hidden">
+        <img src="https://picsum.photos/id/180/800/400" alt="自适应交通管理" class="w-full h-full object-cover">
+        <span class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">出行</span>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-bold text-slate-900 mb-2">自适应交通管理</h3>
+        <p class="text-slate-600 text-sm mb-4">实时交通流分析与信号优化，降低拥堵与排放。</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded">AI</span>
+          <span class="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded">物联网</span>
+        </div>
+        <a href="#" class="text-blue-600 font-medium text-sm flex items-center hover:text-blue-800 transition-colors">
+          了解更多 <span class="material-symbols-outlined text-xs ml-1">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 分页组件 -->
+  <div class="max-w-7xl mx-auto mt-12 flex justify-center items-center gap-2">
+    <button class="w-10 h-10 flex items-center justify-center border border-slate-200 rounded-md text-slate-400 hover:bg-slate-50 transition-colors disabled:opacity-50" disabled>
+      <span class="material-symbols-outlined text-sm">chevron_left</span>
+    </button>
+    <button class="w-10 h-10 flex items-center justify-center bg-blue-600 text-white rounded-md font-medium">1</button>
+    <button class="w-10 h-10 flex items-center justify-center border border-slate-200 rounded-md text-slate-700 hover:bg-slate-50 transition-colors">2</button>
+    <button class="w-10 h-10 flex items-center justify-center border border-slate-200 rounded-md text-slate-700 hover:bg-slate-50 transition-colors">3</button>
+    <button class="w-10 h-10 flex items-center justify-center border border-slate-200 rounded-md text-slate-700 hover:bg-slate-50 transition-colors">
+      <span class="material-symbols-outlined text-sm">chevron_right</span>
+    </button>
+  </div>
 </main>
-
-<div id="footer"></div>
-
-<script>
-  fetch('header.html').then(res => res.text()).then(data => document.getElementById('header').innerHTML = data);
-  fetch('footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
-</script>
-</body>
-</html>
