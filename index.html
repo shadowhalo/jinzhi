@@ -1,8 +1,9 @@
 <!-- 引入公共头部 -->
+
 <script>
-fetch('header.html')
-.then(res=>res.text())
-.then(html=>document.write(html))
+fetch('header.html').then(r=>r.text()).then(h=>{
+  document.getElementById('header').innerHTML = h;
+});
 </script>
 <!-- 主体部分 -->
     <main >
@@ -218,8 +219,9 @@ fetch('header.html')
     </main>
     
 <!-- 引入公共底部 -->
+
 <script>
-fetch('footer.html')
-.then(res=>res.text())
-.then(html=>document.write(html))
+fetch('footer.html').then(r=>r.text()).then(h=>{
+  document.getElementById('footer').innerHTML = h;
+});
 </script>
