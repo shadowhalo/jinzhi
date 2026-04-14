@@ -449,6 +449,45 @@ tailwind.config = {
 <div id="footer-container">
   <!-- 示例：<?php include 'footer.html'; ?> -->
 </div>
+<script >
+// 获取DOM元素
+const menuToggle = document.getElementById('menuToggle');
+const closeBtn = document.getElementById('closeBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const overlay = document.getElementById('overlay');
+
+// 初始化隐藏关闭按钮
+closeBtn.style.display = 'none';
+
+// 打开菜单
+menuToggle.addEventListener('click', function() {
+  mobileMenu.classList.add('open');
+  overlay.classList.add('show');
+  menuToggle.style.display = 'none'; // 隐藏汉堡按钮
+  closeBtn.style.display = 'flex';  // 显示关闭按钮（flex布局）
+  document.body.style.overflow = 'hidden'; // 禁止页面滚动
+});
+
+// 关闭菜单函数
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  overlay.classList.remove('show');
+  closeBtn.style.display = 'none';   // 隐藏关闭按钮
+  menuToggle.style.display = 'flex'; // 显示汉堡按钮
+  document.body.style.overflow = 'auto'; // 恢复页面滚动
+}
+
+// 绑定关闭事件
+closeBtn.addEventListener('click', closeMenu);
+overlay.addEventListener('click', closeMenu);
+
+// 窗口大小变化时重置菜单状态
+window.addEventListener('resize', function() {
+  if (window.innerWidth >= 768) { // md断点
+    closeMenu();
+  }
+});
+</script>
 
 </body>
 </html>
