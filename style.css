@@ -1,143 +1,39 @@
-/* 全局样式 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+const video = document.getElementById('bgVideo');
 
-html.light {
-  color-scheme: light;
-}
+// 页面加载完成后初始化视频
+window.addEventListener('DOMContentLoaded', () => {
+  initVideo();
+});
 
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f5f7f9;
-  color: #2c2f31;
-  padding-top: 80px;
-}
+function initVideo() {
+  if (!video) return;
 
-::selection {
-  background-color: #7b9cff;
-  color: #001e5a;
-}
+  // 强制静音、循环播放
+  video.muted = true;
+  video.loop = true;
+  
+  // 尝试自动播放，兼容不同浏览器
+  const playVideo = () => {
+    video.play().catch(err => {
+      console.log('自动播放受限，点击页面任意位置播放:', err);
+      // 点击页面后播放
+      document.addEventListener('click', () => {
+        video.play();
+      }, { once: true });
+    });
+  };
 
-a {
-  text-decoration: none;
-}
+  // 渐进式显示视频
+  let opacity = 0;
+  const fadeIn = () => {
+    opacity += 0.01;
+    video.style.opacity = opacity.toString();
+    if (opacity < 0.8) { // 最终透明度和CSS保持一致
+      requestAnimationFrame(fadeIn);
+    }
+  };
 
-button {
-  border: none;
-  cursor: pointer;
-}
-
-/* 导航栏 */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 50;
-  background: rgba(248, 250, 252, 0.7);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 32px;
-  max-width: 1280px;
-  margin: 0 auto;
-  font-family: 'Manrope', sans-serif;
-  font-weight: bold;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: 800;
-  background: linear-gradient(to right, #2563eb, #9333ea);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.pc-nav {
-  display: none;
-}
-
-.pc-nav a {
-  color: #64748b;
-  transition: color 0.3s;
-}
-
-.pc-nav a:hover {
-  color: #0f172a;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.search-btn {
-  color: #475569;
-  transition: opacity 0.3s;
-}
-
-.search-btn:hover {
-  opacity: 0.8;
-}
-
-.gradient-btn {
-  background: linear-gradient(to right, #0050d4, #702ae1);
-  color: white;
-  padding: 10px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.3s;
-  box-shadow: 0 10px 25px -5px rgba(0, 80, 212, 0.2);
-}
-
-.gradient-btn:hover {
-  opacity: 0.9;
-}
-
-.gradient-btn:active {
-  transform: scale(0.95);
-}
-
-.header-divider {
-  height: 1px;
-  background: rgba(226, 232, 240, 0.2);
-}
-
-/* 主内容通用 */
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 32px;
-}
-
-/* 页脚 */
-footer {
-  width: 100%;
-  border-top: 1px solid #e2e8f0;
-  background: #f1f5f9;
-  font-family: 'Manrope', sans-serif;
-  font-size: 14px;
-  margin-top: 80px;
-}
-
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-}
-
-/* 响应式 */
-@media (min-width: 768px) {
-  .pc-nav {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-  }
+  // 先播放，再淡入
+  playVideo();
+  fadeIn();
 }
