@@ -1,18 +1,147 @@
-<header>
-  <nav>
-    <div class="logo">StruxureAI</div>
+<!-- header.html -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+            "colors": {
+                "primary-fixed": "#7b9cff",
+                "surface-bright": "#f5f7f9",
+                "on-error-container": "#570008",
+                "secondary-fixed": "#dcc9ff",
+                "on-secondary-container": "#5b00c7",
+                "on-primary-fixed-variant": "#00266e",
+                "secondary-fixed-dim": "#d0b8ff",
+                "outline": "#747779",
+                "outline-variant": "#abadaf",
+                "surface-container-low": "#eef1f3",
+                "error": "#b31b25",
+                "error-container": "#fb5151",
+                "on-background": "#2c2f31",
+                "tertiary-fixed": "#fe9cf4",
+                "primary-dim": "#0046bb",
+                "inverse-primary": "#618bff",
+                "inverse-surface": "#0b0f10",
+                "primary": "#0050d4",
+                "on-tertiary-container": "#661466",
+                "primary-container": "#7b9cff",
+                "surface-container": "#e5e9eb",
+                "on-primary-container": "#001e5a",
+                "tertiary-dim": "#802d7d",
+                "tertiary": "#8e3a8a",
+                "surface-container-lowest": "#ffffff",
+                "secondary": "#702ae1",
+                "on-tertiary-fixed-variant": "#711f6f",
+                "on-tertiary": "#ffeef8",
+                "surface-dim": "#d0d5d8",
+                "tertiary-fixed-dim": "#ef8fe5",
+                "on-surface": "#2c2f31",
+                "on-secondary-fixed": "#430097",
+                "primary-fixed-dim": "#658eff",
+                "surface-tint": "#0050d4",
+                "on-primary-fixed": "#000000",
+                "secondary-dim": "#6411d5",
+                "on-secondary-fixed-variant": "#6514d6",
+                "error-dim": "#9f0519",
+                "secondary-container": "#dcc9ff",
+                "tertiary-container": "#fe9cf4",
+                "inverse-on-surface": "#9a9d9f",
+                "surface-container-highest": "#d9dde0",
+                "surface-variant": "#d9dde0",
+                "surface-container-high": "#dfe3e6",
+                "on-error": "#ffefee",
+                "on-secondary": "#f8f0ff",
+                "on-tertiary-fixed": "#480049",
+                "on-primary": "#f1f2ff",
+                "surface": "#f5f7f9",
+                "background": "#f5f7f9",
+                "on-surface-variant": "#595c5e"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+        },
+    }
+}
+</script>
+<style>
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.glass-nav {
+    backdrop-filter: blur(20px);
+}
+</style>
 
-    <div class="pc-nav">
-      <a href="list.html">Solutions</a>
-      <a href="#">Sectors</a>
-      <a href="#">Technology</a>
-      <a href="#">Case Studies</a>
-    </div>
+<header class="fixed top-0 w-full z-50 bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-sm dark:shadow-none">
+<nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto font-manrope font-bold tracking-tight">
+<div class="text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">StruxureAI</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 hover:text-slate-900 transition-colors" href="list.html">Solutions</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors" href="#">Sectors</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors" href="#">Technology</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors" href="#">Case Studies</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-slate-600 hover:opacity-80 transition-all duration-300">search</button>
+<a href="#" class="bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-2.5 rounded-lg font-semibold hover:opacity-90 transition-all duration-300 active:scale-95 shadow-lg shadow-primary/10 inline-block">Get Started</a>
+</div>
 
-    <div class="nav-right">
-      <button class="material-symbols-outlined search-btn">search</button>
-      <button class="gradient-btn">Get Started</button>
-    </div>
-  </nav>
-  <div class="header-divider"></div>
+<!-- 移动端菜单按钮 -->
+<button id="menu-toggle-btn" onclick="openMenu()" class="md:hidden flex flex-col justify-center items-center w-10 h-10 outline-none">
+  <span class="w-6 h-0.5 bg-slate-900 block mb-1.5"></span>
+  <span class="w-6 h-0.5 bg-slate-900 block mb-1.5"></span>
+  <span class="w-6 h-0.5 bg-slate-900 block"></span>
+</button>
+</nav>
+<div class="bg-slate-100 dark:bg-slate-800 h-[1px] opacity-20"></div>
 </header>
+
+<!-- 移动端关闭按钮 & 抽屉 & 遮罩 -->
+<button id="close-btn" onclick="closeMenu()" class="hidden fixed top-4 right-6 z-[200] w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-lg outline-none">
+  <span class="material-symbols-outlined text-slate-900 text-3xl">close</span>
+</button>
+<div id="mobile-drawer" class="fixed inset-y-0 right-0 w-64 bg-white shadow-2xl z-[150] transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+  <div class="p-8 pt-24 flex flex-col space-y-8">
+    <a class="text-xl font-bold text-slate-700 hover:text-blue-600" href="list.html">Solutions</a>
+    <a class="text-xl font-bold text-slate-700 hover:text-blue-600" href="#">Sectors</a>
+    <a class="text-xl font-bold text-slate-700 hover:text-blue-600" href="#">Technology</a>
+    <a class="text-xl font-bold text-slate-700 hover:text-blue-600" href="#">Case Studies</a>
+  </div>
+</div>
+<div id="menu-overlay" onclick="closeMenu()" class="fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-[140] md:hidden"></div>
+
+<script>
+const drawer = document.getElementById('mobile-drawer');
+const overlay = document.getElementById('menu-overlay');
+const menuBtn = document.getElementById('menu-toggle-btn');
+const closeBtn = document.getElementById('close-btn');
+
+function openMenu() {
+  drawer.classList.remove('translate-x-full');
+  overlay.classList.remove('opacity-0', 'pointer-events-none');
+  overlay.classList.add('opacity-100');
+  menuBtn.classList.add('hidden');
+  closeBtn.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  drawer.classList.add('translate-x-full');
+  overlay.classList.add('opacity-0', 'pointer-events-none');
+  overlay.classList.remove('opacity-100');
+  menuBtn.classList.remove('hidden');
+  closeBtn.classList.add('hidden');
+  document.body.style.overflow = '';
+}
+</script>
