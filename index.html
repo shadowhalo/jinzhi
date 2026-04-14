@@ -238,13 +238,8 @@ tailwind.config = {
   您的浏览器不支持视频播放
 </video>
 
-<!-- 引入头部导航（根据实际开发方式调整，如PHP用include、Vue用组件等） -->
-<!-- 示例：原生HTML可通过iframe或JS加载，这里直接嵌入示意 -->
-<div id="header-container">
-  <!-- 此处替换为实际引入header.html的方式，比如： -->
-  <!-- <?php include 'header.html'; ?> -->
-  <!-- 或通过JS动态加载，或框架的组件引入 -->
-</div>
+
+<div id="header-container"></div>
 
 <main class="pt-20">
 <!-- Hero Section -->
@@ -446,46 +441,72 @@ tailwind.config = {
 </main>
 
 <!-- 引入页脚（同理，根据开发方式调整引入方式） -->
-<div id="footer-container">
-  <!-- 示例：<?php include 'footer.html'; ?> -->
-</div>
-<script >
-// 获取DOM元素
-const menuToggle = document.getElementById('menuToggle');
-const closeBtn = document.getElementById('closeBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-const overlay = document.getElementById('overlay');
-
-// 初始化隐藏关闭按钮
-closeBtn.style.display = 'none';
-
-// 打开菜单
-menuToggle.addEventListener('click', function() {
-  mobileMenu.classList.add('open');
-  overlay.classList.add('show');
-  menuToggle.style.display = 'none'; // 隐藏汉堡按钮
-  closeBtn.style.display = 'flex';  // 显示关闭按钮（flex布局）
-  document.body.style.overflow = 'hidden'; // 禁止页面滚动
-});
-
-// 关闭菜单函数
-function closeMenu() {
-  mobileMenu.classList.remove('open');
-  overlay.classList.remove('show');
-  closeBtn.style.display = 'none';   // 隐藏关闭按钮
-  menuToggle.style.display = 'flex'; // 显示汉堡按钮
-  document.body.style.overflow = 'auto'; // 恢复页面滚动
+<div id="footer-container"></div>
+<script>
+// 加载 HTML 片段的通用函数
+async function loadHtmlFragment(elementId, filePath) {
+  try {
+    const response = await fetch(filePath);
+    if (!response.ok) throw new Error(`加载失败: ${filePath}`);
+    const html = await response.text();
+    document.getElementById(elementId).innerHTML = html;
+  } catch (error) {
+    console.error('加载片段出错:', error);
+  }
 }
 
-// 绑定关闭事件
-closeBtn.addEventListener('click', closeMenu);
-overlay.addEventListener('click', closeMenu);
+// 加载 header 和 footer
+loadHtmlFragment('header-container', 'header.html');
+loadHtmlFragment('footer-container', 'footer.html');
+</script>
 
-// 窗口大小变化时重置菜单状态
-window.addEventListener('resize', function() {
-  if (window.innerWidth >= 768) { // md断点
-    closeMenu();
+<!-- 移动端导航交互脚本（必须放在加载脚本之后） -->
+<script>
+// 等待 header 加载完成后再执行交互逻辑
+window.addEventListener('load', function() {
+  // 获取DOM元素
+  const menuToggle = document.getElementById('menuToggle');
+  const closeBtn = document.getElementById('closeBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('overlay');
+
+  // 防止元素未加载导致报错
+  if (!menuToggle || !closeBtn || !mobileMenu || !overlay) {
+    console.warn('导航元素未找到，请检查 header.html 是否正确加载');
+    return;
   }
+
+  // 初始化隐藏关闭按钮
+  closeBtn.style.display = 'none';
+
+  // 打开菜单
+  menuToggle.addEventListener('click', function() {
+    mobileMenu.classList.add('open');
+    overlay.classList.add('show');
+    menuToggle.style.display = 'none'; // 隐藏汉堡按钮
+    closeBtn.style.display = 'flex';  // 显示关闭按钮（flex布局）
+    document.body.style.overflow = 'hidden'; // 禁止页面滚动
+  });
+
+  // 关闭菜单函数
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    overlay.classList.remove('show');
+    closeBtn.style.display = 'none';   // 隐藏关闭按钮
+    menuToggle.style.display = 'flex'; // 显示汉堡按钮
+    document.body.style.overflow = 'auto'; // 恢复页面滚动
+  }
+
+  // 绑定关闭事件
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+
+  // 窗口大小变化时重置菜单状态
+  window.addEventListener('resize', function() {
+    if (window.innerWidth >= 768) { // md断点
+      closeMenu();
+    }
+  });
 });
 </script>
 
