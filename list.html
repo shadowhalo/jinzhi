@@ -410,6 +410,67 @@ body > div:last-child > div:last-child {
     font-size: 12px;
     color: #86909C;
 }
+/* ========== 新增/替换footer样式 - 修复排版 ========== */
+/* 匹配你页面的footer容器 */
+body > div:last-child {
+    width: 100%;
+    padding: 40px 24px 20px; /* 上下内边距更合理 */
+    background-color: #FFFFFF;
+    border-top: 1px solid #E5E6EB; /* 顶部分割线 */
+    margin-top: 60px; /* 和内容区拉开距离 */
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+/* footer内容容器 - 居中+分栏排版 */
+body > div:last-child > div {
+    max-width: 1200px;
+    margin: 0 auto; /* 整体居中 */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 自适应分栏 */
+    gap: 24px; /* 列间距 */
+    margin-bottom: 24px;
+}
+/* footer每个栏目标题 */
+body > div:last-child > div > div > div:first-child {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D2129;
+    margin-bottom: 16px; /* 和链接拉开距离 */
+}
+/* footer链接样式 */
+body > div:last-child > div a {
+    display: block;
+    font-size: 12px;
+    color: #0066FF;
+    text-decoration: none;
+    margin-bottom: 8px; /* 链接上下间距 */
+    line-height: 1.4;
+}
+body > div:last-child > div a:hover {
+    text-decoration: underline; /* hover加下划线 */
+}
+/* 版权信息行 */
+body > div:last-child > div:nth-last-child(2) {
+    max-width: 1200px;
+    margin: 0 auto 12px;
+    font-size: 12px;
+    color: #86909C;
+    text-align: center; /* 版权文字居中 */
+}
+/* 底部政策链接行 */
+body > div:last-child > div:last-child {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center; /* 政策链接居中 */
+}
+body > div:last-child > div:last-child a {
+    display: inline-block; /* 横向排列 */
+    margin: 0 8px; /* 左右间距 */
+    font-size: 12px;
+}
+/* 移除多余图标/文字样式（匹配你截图里的异常元素） */
+body > div:last-child > div > div > div:nth-child(2) {
+    display: none; /* 隐藏异常的图标行 */
+}
 </style>
 </head>
 <body>
