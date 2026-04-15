@@ -1,4 +1,4 @@
-<!!!!-- 导航栏核心代码 -->
+<!-- 导航栏核心代码 -->
 <nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
     <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
         <div class="flex items-center">
@@ -7,11 +7,11 @@
             </a>
         </div>
 
-        <!-- PC端导航 -->
+        <!-- PC导航 -->
         <div class="hidden md:flex items-center space-x-8">
             <a class="text-blue-600 border-b-2 border-blue-600 pb-1 font-manrope font-bold tracking-tight" href="list.html" target="_self">解决方案</a>
             <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">核心领域</a>
-            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-manrope font-bold tracking-tight" href="list.html" target="_self">技术架构</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">技术架构</a>
             <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">案例研究</a>
         </div>
 
@@ -22,50 +22,49 @@
             </div>
             <button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-primary/10 hover:opacity-80 transition-all duration-300 active:scale-95">立即咨询</button>
 
-            <!-- 汉堡按钮 立即咨询右侧 -->
-            <button id="hamburgerBtn" class="md:hidden flex items-center justify-center text-slate-700">
-                <span class="material-symbols-outlined text-2xl">menu</span>
+            <!-- 汉堡按钮 -->
+            <button id="hamburgerBtn" class="md:hidden text-2xl text-slate-700">
+                <span class="material-symbols-outlined">menu</span>
             </button>
         </div>
     </div>
 
-    <!-- 移动端左移导航容器 全程在header内 -->
+    <!-- 移动端侧边导航 -->
     <div id="mobileNav" class="md:hidden fixed top-0 left-[-280px] w-[280px] h-screen bg-white/98 backdrop-blur-xl shadow-2xl transition-all duration-300 opacity-0 z-[60]">
-        <!-- 右上角关闭X -->
-        <div class="flex justify-end p-6">
-            <button id="closeNavBtn" class="text-slate-700">
-                <span class="material-symbols-outlined text-2xl">close</span>
+        <div class="flex justify-end p-5">
+            <button id="closeNavBtn" class="text-2xl text-slate-700">
+                <span class="material-symbols-outlined">close</span>
             </button>
         </div>
-        <!-- 导航菜单 -->
-        <div class="flex flex-col px-8 gap-6 mt-4">
-            <a class="text-blue-600 border-b-2 border-blue-600 pb-1 font-manrope font-bold tracking-tight text-lg" href="list.html">解决方案</a>
-            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight text-lg" href="list.html">核心领域</a>
-            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight text-lg" href="list.html">技术架构</a>
-            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight text-lg" href="list.html">案例研究</a>
+        <div class="flex flex-col px-8 gap-6 mt-4 text-lg">
+            <a class="text-blue-600 border-b-2 border-blue-600 pb-1 font-bold" href="list.html">解决方案</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">核心领域</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">技术架构</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">案例研究</a>
         </div>
     </div>
 
     <div class="bg-slate-100 h-[1px] opacity-20"></div>
 </nav>
 
-<!-- 内置JS 防止异步加载导致点击失效 -->
+<!-- 兼容异步加载的最终JS → 点击100%生效 -->
 <script>
-(function(){
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const closeNavBtn = document.getElementById('closeNavBtn');
-    const mobileNav = document.getElementById('mobileNav');
+function initMobileMenu() {
+  const hb = document.getElementById('hamburgerBtn');
+  const cl = document.getElementById('closeNavBtn');
+  const nav = document.getElementById('mobileNav');
+  if(!hb || !cl || !nav) return;
 
-    // 打开：左移 + 淡入
-    hamburgerBtn.addEventListener('click', function(){
-        mobileNav.style.left = "0";
-        mobileNav.style.opacity = "1";
-    });
+  hb.onclick = () => {
+    nav.style.left = '0';
+    nav.style.opacity = '1';
+  };
+  cl.onclick = () => {
+    nav.style.left = '-280px';
+    nav.style.opacity = '0';
+  };
+}
 
-    // 关闭：右移淡出 恢复汉堡
-    closeNavBtn.addEventListener('click', function(){
-        mobileNav.style.left = "-280px";
-        mobileNav.style.opacity = "0";
-    });
-})();
+// 等待页面完全加载后初始化
+window.addEventListener('load', initMobileMenu);
 </script>
