@@ -326,9 +326,23 @@ z-index: 1;
 <div id="footer-container"></div>
 
 <script>
-fetch('header.html').then(res=>res.text()).then(html=>{
-document.getElementById('header-container').innerHTML = html;
+document.addEventListener('DOMContentLoaded', function() {
+  const hb = document.getElementById('hamburgerBtn');
+  const cl = document.getElementById('closeNavBtn');
+  const nav = document.getElementById('mobileNav');
+
+  hb.addEventListener('click', () => {
+    nav.style.left = '0';
+    nav.style.opacity = '1';
+  });
+
+  cl.addEventListener('click', () => {
+    nav.style.left = '-280px';
+    nav.style.opacity = '0';
+  });
 });
+
+// 加载底部
 fetch('footer.html').then(res=>res.text()).then(html=>{
 document.getElementById('footer-container').innerHTML = html;
 });
