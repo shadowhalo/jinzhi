@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>智能基础设施解决方案</title>
-<!-- 2. 引入Material Symbols图标 -->
+<!-- 引入Material Symbols图标 -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-<!-- 3. 主页面样式（仅保留你要求的修改，恢复所有默认样式） -->
 <style>
 /* 全局样式 + 基础自适应 */
 * {
@@ -28,12 +27,11 @@ body {
     padding: 48px 24px;
 }
 
-/* 面包屑 - 恢复默认左对齐（取消居中） */
+/* 面包屑 - 左对齐 */
 .breadcrumb {
     font-size: 14px;
     color: #666;
     margin-bottom: 24px;
-    /* 移除text-align: center; 恢复默认左对齐 */
 }
 .breadcrumb a {
     color: #0066FF;
@@ -44,23 +42,21 @@ body {
     color: #999;
 }
 
-/* 页面标题 - 恢复默认左对齐（取消居中），仅保留自适应字号 */
+/* 页面标题 - 左对齐 + 自适应字号 */
 .page-title {
     font-size: clamp(28px, 4vw, 40px);
     font-weight: 700;
     color: #1D2129;
     margin-bottom: 16px;
     letter-spacing: -0.5px;
-    /* 移除text-align: center; 恢复默认左对齐 */
 }
 .page-subtitle {
     font-size: clamp(14px, 1.5vw, 16px);
     color: #4E5969;
     margin-bottom: 32px;
-    /* 移除text-align: center; 恢复默认左对齐 */
 }
 
-/* 分割线 - 仅保留你要求的：通栏打通页面（100%宽度） */
+/* 通栏分割线 */
 .divider-full {
     width: 100%;
     height: 1px;
@@ -68,14 +64,14 @@ body {
     margin: 0 auto 16px auto;
 }
 
-/* 视图切换容器 - 仅保留你要求的：右对齐 */
+/* 视图切换容器 - 右对齐 */
 .view-toggle-wrapper {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto 40px auto;
     padding: 0 24px;
     display: flex;
-    justify-content: flex-end; /* 仅这行是你要求的右对齐 */
+    justify-content: flex-end;
 }
 .view-toggle {
     display: flex;
@@ -104,10 +100,10 @@ body {
     color: #FFFFFF;
 }
 
-/* 网格视图 - 仅保留你要求的：图片高度190px + 自适应布局 */
+/* 网格视图 - 190px图片 + 自适应 */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 自适应布局 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: clamp(20px, 3vw, 32px);
     max-width: 1200px;
     margin: 0 auto;
@@ -121,9 +117,9 @@ body {
 }
 .card-img-box-grid {
     position: relative;
-    height: 190px; /* 仅这行是你要求的图片高度190px */
+    height: 190px;
     overflow: hidden;
-    border-radius: 16px 16px 16px 16px;
+    border-radius: 16px 16px 0 0;
 }
 .card-img-grid {
     width: 100%;
@@ -179,15 +175,14 @@ body {
     font-weight: 500;
 }
 
-/* 列表视图 - 仅保留自适应布局，无多余修改 */
+/* 列表视图 - 自适应 */
 .card-list {
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
-    display: none;
 }
 .solution-card-list {
     background-color: #FFFFFF;
@@ -207,7 +202,7 @@ body {
 .card-img-box-list {
     width: 100%;
     max-width: 280px;
-    height: 190px; /* 同步190px，无多余修改 */
+    height: 190px;
     overflow: hidden;
     border-radius: 16px;
     flex-shrink: 0;
@@ -275,7 +270,7 @@ body {
     font-weight: 500;
 }
 
-/* 响应式适配 - 仅保留你要求的：全站自适应，无多余修改 */
+/* 响应式适配 */
 @media (max-width: 768px) {
     .container {
         padding: 32px 16px;
@@ -299,6 +294,10 @@ body {
         display: inline-block;
         margin-bottom: 12px;
     }
+    /* 移动端footer分2列 */
+    #footerContainer .footer-columns {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
 }
 @media (max-width: 480px) {
     .container {
@@ -315,45 +314,44 @@ body {
         height: 32px;
     }
     .card-img-box-grid {
-        height: 160px; /* 移动端适配，无多余修改 */
+        height: 160px;
+    }
+    /* 移动端footer分1列 */
+    #footerContainer .footer-columns {
+        grid-template-columns: 1fr !important;
     }
 }
 
-/* 匹配你页面的header原生结构 - 锦致科技+导航 */
-body > div:first-child {
+/* ========== Header 样式（无外部文件依赖） ========== */
+#headerContainer {
     padding: 16px 20px;
     margin-bottom: 24px;
 }
-/* 锦致科技文字样式 */
-body > div:first-child > div:first-child {
+.header-logo {
     font-size: 20px;
     font-weight: 700;
     color: #1D2129;
     margin-bottom: 12px;
 }
-/* 桌面导航链接样式 */
-body > div:first-child > div:nth-child(2) {
-    margin-bottom: 8px;
-}
-body > div:first-child > div:nth-child(2) a {
+.header-nav-desktop a {
     color: #0066FF;
     text-decoration: none;
     margin-right: 16px;
     font-size: 14px;
 }
-body > div:first-child > div:nth-child(2) a:hover {
+.header-nav-desktop a:hover {
     text-decoration: underline;
 }
-/* 移动端菜单按钮 */
-body > div:first-child > button {
+.header-menu-btn {
     font-size: 20px;
     border: none;
     background: none;
     cursor: pointer;
-    margin-bottom: 8px;
+    margin-top: 8px;
+    display: none; /* 桌面端隐藏移动端菜单 */
 }
-/* 移动端侧边导航 */
-body > div:nth-child(2) {
+/* 移动端导航（默认隐藏） */
+.header-nav-mobile {
     position: fixed;
     top: 0;
     left: 0;
@@ -366,136 +364,133 @@ body > div:nth-child(2) {
     transform: translateX(-100%);
     transition: transform 0.3s ease;
 }
-body > div:nth-child(2).active {
+.header-nav-mobile.active {
     transform: translateX(0);
 }
-/* 移动端关闭按钮 */
-body > div:nth-child(2) > button {
+.header-nav-mobile .close-btn {
     font-size: 20px;
     border: none;
     background: none;
     cursor: pointer;
     margin-bottom: 16px;
 }
-/* 移动端导航链接 */
-body > div:nth-child(2) > div a {
+.header-nav-mobile a {
     display: block;
     color: #0066FF;
     text-decoration: none;
     margin: 8px 0;
     font-size: 16px;
 }
-body > div:nth-child(2) > div a:hover {
+.header-nav-mobile a:hover {
     text-decoration: underline;
 }
-/* Footer样式 */
-body > div:last-child {
+/* 移动端显示菜单按钮 */
+@media (max-width: 768px) {
+    .header-nav-desktop {
+        display: none;
+    }
+    .header-menu-btn {
+        display: block;
+    }
+}
+
+/* ========== Footer 样式（无外部文件依赖） ========== */
+#footerContainer {
     width: 100%;
-    padding: 32px 20px 20px;
+    padding: 40px 24px 20px;
     background: #FFFFFF;
     border-top: 1px solid #E5E6EB;
-    margin-top: 48px;
-    text-align: center;
-}
-body > div:last-child > div:first-child {
-    margin-bottom: 12px;
-}
-body > div:last-child > div:first-child a {
-    color: #0066FF;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 12px;
-}
-body > div:last-child > div:last-child {
-    font-size: 12px;
-    color: #86909C;
-}
-/* ========== 新增/替换footer样式 - 修复排版 ========== */
-/* 匹配你页面的footer容器 */
-body > div:last-child {
-    width: 100%;
-    padding: 40px 24px 20px; /* 上下内边距更合理 */
-    background-color: #FFFFFF;
-    border-top: 1px solid #E5E6EB; /* 顶部分割线 */
-    margin-top: 60px; /* 和内容区拉开距离 */
+    margin-top: 60px;
     font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
 }
-/* footer内容容器 - 居中+分栏排版 */
-body > div:last-child > div {
+#footerContainer .footer-inner {
     max-width: 1200px;
-    margin: 0 auto; /* 整体居中 */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 自适应分栏 */
-    gap: 24px; /* 列间距 */
-    margin-bottom: 24px;
+    margin: 0 auto;
 }
-/* footer每个栏目标题 */
-body > div:last-child > div > div > div:first-child {
+/* footer分栏 */
+#footerContainer .footer-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+}
+/* 栏目标题 */
+#footerContainer .footer-column-title {
     font-size: 14px;
     font-weight: 600;
     color: #1D2129;
-    margin-bottom: 16px; /* 和链接拉开距离 */
+    margin-bottom: 16px;
 }
-/* footer链接样式 */
-body > div:last-child > div a {
+/* 栏目链接 */
+#footerContainer .footer-column a {
     display: block;
     font-size: 12px;
     color: #0066FF;
     text-decoration: none;
-    margin-bottom: 8px; /* 链接上下间距 */
+    margin-bottom: 8px;
     line-height: 1.4;
 }
-body > div:last-child > div a:hover {
-    text-decoration: underline; /* hover加下划线 */
+#footerContainer .footer-column a:hover {
+    text-decoration: underline;
 }
-/* 版权信息行 */
-body > div:last-child > div:nth-last-child(2) {
-    max-width: 1200px;
-    margin: 0 auto 12px;
+/* 版权信息 */
+#footerContainer .copyright {
     font-size: 12px;
     color: #86909C;
-    text-align: center; /* 版权文字居中 */
+    text-align: center;
+    margin-bottom: 12px;
 }
-/* 底部政策链接行 */
-body > div:last-child > div:last-child {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center; /* 政策链接居中 */
+/* 政策链接 */
+#footerContainer .policy-links {
+    text-align: center;
 }
-body > div:last-child > div:last-child a {
-    display: inline-block; /* 横向排列 */
-    margin: 0 8px; /* 左右间距 */
+#footerContainer .policy-links a {
+    display: inline-block;
     font-size: 12px;
+    color: #0066FF;
+    text-decoration: none;
+    margin: 0 8px;
 }
-/* 移除多余图标/文字样式（匹配你截图里的异常元素） */
-body > div:last-child > div > div > div:nth-child(2) {
-    display: none; /* 隐藏异常的图标行 */
+#footerContainer .policy-links a:hover {
+    text-decoration: underline;
 }
 </style>
 </head>
 <body>
-<!-- 预留header位置 -->
-<div id="headerContainer"></div>
+<!-- Header（内置完整结构，无外部文件依赖） -->
+<div id="headerContainer">
+    <div class="header-logo">锦致科技</div>
+    <div class="header-nav-desktop">
+        <a href="#">解决方案</a>
+        <a href="#">核心领域</a>
+        <a href="#">技术架构</a>
+        <a href="#">案例研究</a>
+    </div>
+    <button class="header-menu-btn" id="menuBtn">☰</button>
+    <!-- 移动端导航 -->
+    <div class="header-nav-mobile" id="navMobile">
+        <button class="close-btn" id="closeBtn">×</button>
+        <a href="#">解决方案</a>
+        <a href="#">核心领域</a>
+        <a href="#">技术架构</a>
+        <a href="#">案例研究</a>
+    </div>
+</div>
 
-<!-- 主内容（完全保留原始结构，无任何多余修改） -->
+<!-- 主内容 -->
 <main>
     <div class="container">
-        <!-- 面包屑（恢复原始左对齐） -->
         <div class="breadcrumb">
             <a href="#">首页</a>
             <span>></span>
             <span>解决方案</span>
         </div>
-
-        <!-- 页面标题（恢复原始左对齐） -->
         <h1 class="page-title">智能基础设施解决方案</h1>
         <p class="page-subtitle">为跨行业以人为本的生态系统赋能而打造</p>
     </div>
 
-    <!-- 分割线 - 仅保留你要求的：通栏打通页面 -->
     <div class="divider-full"></div>
     
-    <!-- 视图切换容器 - 仅保留你要求的：右对齐 -->
     <div class="view-toggle-wrapper">
         <div class="view-toggle">
             <button class="view-btn active" data-view="grid">
@@ -507,9 +502,7 @@ body > div:last-child > div > div > div:nth-child(2) {
         </div>
     </div>
 
-    <!-- 网格视图 - 仅保留你要求的：图片高度190px + 自适应 -->
     <div class="card-grid" id="gridView">
-        <!-- 卡片1：智慧目的地管理（结构无任何修改） -->
         <div class="solution-card-grid">
             <div class="card-img-box-grid">
                 <span class="card-tag-grid">文旅</span>
@@ -526,7 +519,6 @@ body > div:last-child > div > div > div:nth-child(2) {
             </div>
         </div>
 
-        <!-- 卡片2：AI驱动的作物优化（结构无任何修改） -->
         <div class="solution-card-grid">
             <div class="card-img-box-grid">
                 <span class="card-tag-grid">农业</span>
@@ -543,7 +535,6 @@ body > div:last-child > div > div > div:nth-child(2) {
             </div>
         </div>
 
-        <!-- 卡片3：智能社区设计（结构无任何修改） -->
         <div class="solution-card-grid">
             <div class="card-img-box-grid">
                 <span class="card-tag-grid">社区</span>
@@ -561,9 +552,7 @@ body > div:last-child > div > div > div:nth-child(2) {
         </div>
     </div>
 
-    <!-- 列表视图（结构无任何修改） -->
     <div class="card-list" id="listView">
-        <!-- 卡片1：智慧目的地管理 -->
         <div class="solution-card-list">
             <div class="card-img-box-list">
                 <img src="https://picsum.photos/280/190?random=1" alt="智慧目的地管理" class="card-img-list">
@@ -582,7 +571,6 @@ body > div:last-child > div > div > div:nth-child(2) {
             </div>
         </div>
 
-        <!-- 卡片2：AI驱动的作物优化 -->
         <div class="solution-card-list">
             <div class="card-img-box-list">
                 <img src="https://picsum.photos/280/190?random=2" alt="AI驱动的作物优化" class="card-img-list">
@@ -601,7 +589,6 @@ body > div:last-child > div > div > div:nth-child(2) {
             </div>
         </div>
 
-        <!-- 卡片3：智能社区设计 -->
         <div class="solution-card-list">
             <div class="card-img-box-list">
                 <img src="https://picsum.photos/280/190?random=3" alt="智能社区设计" class="card-img-list">
@@ -622,95 +609,74 @@ body > div:last-child > div > div > div:nth-child(2) {
     </div>
 </main>
 
-<!-- 预留footer位置 -->
-<div id="footerContainer"></div>
+<!-- Footer（内置完整结构，无外部文件依赖） -->
+<div id="footerContainer">
+    <div class="footer-inner">
+        <div class="footer-columns">
+            <div class="footer-column">
+                <div class="footer-column-title">解决方案</div>
+                <a href="#">智慧旅游</a>
+                <a href="#">农业科技系统</a>
+                <a href="#">城市交通</a>
+                <a href="#">可再生电网</a>
+            </div>
+            <div class="footer-column">
+                <div class="footer-column-title">公司信息</div>
+                <a href="#">关于我们</a>
+                <a href="#">核心方法论</a>
+                <a href="#">招贤纳士</a>
+                <a href="#">新闻中心</a>
+            </div>
+            <div class="footer-column">
+                <div class="footer-column-title">相关资源</div>
+                <a href="#">行业白皮书</a>
+                <a href="#">API 文档</a>
+                <a href="#">可持续发展报告</a>
+                <a href="#">合作伙伴</a>
+            </div>
+        </div>
+        <div class="copyright">© 2024 锦致科技. 版权所有。</div>
+        <div class="policy-links">
+            <a href="#">隐私政策</a>
+            <a href="#">服务条款</a>
+            <a href="#">Cookie 设置</a>
+            <a href="#">联系我们</a>
+        </div>
+    </div>
+</div>
 
-<!-- 交互逻辑（仅保留必要功能，无任何多余修改） -->
 <script>
-// 1. 加载header/footer的核心函数
-async function loadHtmlFragment(elementId, filePath) {
-    try {
-        const response = await fetch(filePath);
-        if (!response.ok) throw new Error(`加载${filePath}失败，状态码：${response.status}`);
-        const html = await response.text();
-        document.getElementById(elementId).innerHTML = html;
-        
-        // 加载完成后初始化导航交互
-        if (elementId === 'headerContainer') {
-            initHeaderNav();
-        }
-    } catch (error) {
-        console.error('加载失败:', error);
-        // 降级处理
-        if (elementId === 'headerContainer') {
-            document.getElementById('headerContainer').innerHTML = `
-                <header style="padding:20px;border-bottom:1px solid #E5E6EB;background:#fff;">
-                    <div style="max-width:1200px;margin:0 auto;">
-                        <a href="#" style="font-size:20px;font-weight:700;color:#1D2129;text-decoration:none;">锦致科技</a>
-                    </div>
-                </header>
-            `;
-        }
-        if (elementId === 'footerContainer') {
-            document.getElementById('footerContainer').innerHTML = `
-                <footer style="padding:40px 24px 20px;background:#fff;border-top:1px solid #E5E6EB;margin-top:60px;">
-                    <div style="max-width:1200px;margin:0 auto;text-align:center;">
-                        <div style="font-size:12px;color:#86909C;margin-top:20px;">© 2025 锦致科技 版权所有</div>
-                    </div>
-                </footer>
-            `;
-        }
-    }
-}
+// 1. 移动端导航交互
+const menuBtn = document.getElementById('menuBtn');
+const closeBtn = document.getElementById('closeBtn');
+const navMobile = document.getElementById('navMobile');
 
-// 2. 初始化header导航交互
-function initHeaderNav() {
-    const menuBtn = document.getElementById('menuBtn');
-    const closeBtn = document.getElementById('closeBtn');
-    const navMobile = document.getElementById('navMobile');
-    
-    if (menuBtn && closeBtn && navMobile) {
-        menuBtn.addEventListener('click', () => {
-            navMobile.classList.add('active');
-        });
-        closeBtn.addEventListener('click', () => {
-            navMobile.classList.remove('active');
-        });
-    }
-}
-
-// 3. 加载header和footer
-window.addEventListener('DOMContentLoaded', async () => {
-    await loadHtmlFragment('headerContainer', 'header.html');
-    await loadHtmlFragment('footerContainer', 'footer.html');
-    initViewToggle();
+menuBtn.addEventListener('click', () => {
+    navMobile.classList.add('active');
+});
+closeBtn.addEventListener('click', () => {
+    navMobile.classList.remove('active');
 });
 
-// 4. 视图切换逻辑（仅保留核心功能，无多余修改）
-function initViewToggle() {
-    const viewBtns = document.querySelectorAll('.view-btn');
-    const gridView = document.getElementById('gridView');
-    const listView = document.getElementById('listView');
+// 2. 视图切换逻辑
+const viewBtns = document.querySelectorAll('.view-btn');
+const gridView = document.getElementById('gridView');
+const listView = document.getElementById('listView');
 
-    viewBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            viewBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            const viewType = btn.getAttribute('data-view');
-            if (viewType === 'grid') {
-                gridView.style.display = 'grid';
-                listView.style.display = 'none';
-            } else {
-                gridView.style.display = 'none';
-                listView.style.display = 'flex';
-            }
-        });
+viewBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        viewBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        if (btn.getAttribute('data-view') === 'grid') {
+            gridView.style.display = 'grid';
+            listView.style.display = 'none';
+        } else {
+            gridView.style.display = 'none';
+            listView.style.display = 'flex';
+        }
     });
-}
-
-// 5. 窗口大小变化适配（仅保留核心功能）
-window.addEventListener('resize', () => {});
+});
 </script>
 </body>
 </html>
