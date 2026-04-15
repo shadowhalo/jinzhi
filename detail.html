@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>智慧景区解决方案 - 锦致科技</title>
+    <!-- 基础样式/依赖引入（保留，保证整体样式） -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#000000",
+                        "on-primary": "#f1f2ff",
+                        "secondary-container": "#dcc9ff",
+                        "error-container": "#fb5151",
+                        "on-tertiary-container": "#661466",
+                        "primary": "#0050d4",
+                        "on-surface-variant": "#595c5e",
+                        "surface-container-highest": "#d9dde0",
+                        "secondary": "#702ae1",
+                        "tertiary-fixed": "#fe9cf4",
+                        "on-surface": "#2c2f31",
+                        "on-secondary-fixed-variant": "#6514d6",
+                        "surface-container-high": "#dfe3e6",
+                        "on-tertiary": "#ffeef8",
+                        "surface-tint": "#0050d4",
+                        "primary-container": "#7b9cff",
+                        "inverse-surface": "#0b0f10",
+                        "tertiary": "#8e3a8a",
+                        "on-tertiary-fixed": "#480049",
+                        "secondary-dim": "#6411d5",
+                        "on-secondary-fixed": "#430097",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#abadaf",
+                        "primary-fixed-dim": "#658eff",
+                        "inverse-primary": "#618bff",
+                        "inverse-on-surface": "#9a9d9f",
+                        "outline": "#747779",
+                        "secondary-fixed": "#dcc9ff",
+                        "tertiary-container": "#fe9cf4",
+                        "surface-bright": "#f5f7f9",
+                        "tertiary-fixed-dim": "#ef8fe5",
+                        "on-tertiary-fixed-variant": "#711f6f",
+                        "on-primary-fixed-variant": "#00266e",
+                        "primary-fixed": "#7b9cff",
+                        "on-primary-container": "#001e5a",
+                        "surface-container": "#e5e9eb",
+                        "primary-dim": "#0046bb",
+                        "background": "#f5f7f9",
+                        "tertiary-dim": "#802d7d",
+                        "surface-dim": "#d0d5d8",
+                        "on-background": "#2c2f31",
+                        "secondary-fixed-dim": "#d0b8ff",
+                        "error-dim": "#9f0519",
+                        "surface-variant": "#d9dde0",
+                        "on-secondary-container": "#5b00c7",
+                        "on-secondary": "#f8f0ff",
+                        "error": "#b31b25",
+                        "on-error-container": "#570008",
+                        "on-error": "#ffefee",
+                        "surface": "#f5f7f9",
+                        "surface-container-low": "#eef1f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+    <!-- 导航栏占位容器 -->
+    <div id="header-container"></div>
+
+    <!-- 核心业务内容（保留原页面main部分） -->
+    <main class="bg-white min-h-screen pt-24">
+        <article class="max-w-4xl mx-auto px-6 py-16 md:py-24">
+            <header class="mb-12">
+                <div class="flex items-center gap-2 text-primary font-semibold mb-4 tracking-wider uppercase text-sm">
+                    <span>行业深度报告</span>
+                    <span class="w-8 h-px bg-primary/30"></span>
+                    <span>2024</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-on-surface leading-tight mb-6">
+                    智慧景区全域数字化转型：构建未来旅游生态体系
+                </h1>
+                <div class="flex items-center gap-4 text-outline mb-12">
+                    <div class="flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-base">calendar_today</span>
+                        <span class="text-sm">2024年5月20日</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-base">person</span>
+                        <span class="text-sm">锦致科技 行业研究院</span>
+                    </div>
+                </div>
+            </header>
+            <div class="space-y-8 text-on-surface-variant leading-relaxed text-lg">
+                <p>
+                    随着数字化浪潮的持续推进，传统旅游景区正面临着前所未有的转型压力。智慧景区不仅是技术的堆砌，更是对旅游资源、游客体验和运营管理的深度重构。锦致科技致力于通过物联网、大数据和人工智能技术，为景区提供从基础设施到顶层设计的全方位解决方案。
+                </p>
+                <p>
+                    在基础设施层面，我们构建了基于数字孪生技术的景区数字底座。通过高精度三维建模，景区管理者可以在虚拟世界中实时监控客流分布、环境指标及安防状态。这种“虚实结合”的管理模式，极大地提升了景区的应急处理能力和运营效率。
+                </p>
+                <figure class="my-12">
+                    <div class="aspect-video rounded-xl overflow-hidden bg-surface-container shadow-lg">
+                        <img class="w-full h-full object-cover" data-alt="wide cinematic shot of a modern scenic nature park with integrated smart technology digital kiosks and subtle futuristic infrastructure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADr36BMgaVGw9FcS7fNJoMznJIX6TfTgb9XOQK50IFKcL1NAEbaeWD70ntekAhyE4P02KQDQdwG0d2cXQaWw7S_Us2Cg7KC8QXziVzutFW_L3NfNZGvWnytiaEByWaQOxN1l-knfYCxZ8oYLpjLnFd87FdnBefNCwgDvM-UioBC57LKRrFcaIgMYz-U4CDM4mdE2dCEbNRNt6J8ugnyryv2pKxYYEdXNR7unguXe-hlB0p7cZg8adNDHR5fkYmeyGKNGgSSBV2bCdH"/>
+                    </div>
+                    <figcaption class="text-center text-sm text-outline mt-4 italic">图1：智慧景区全景数字化监控中心示意图</figcaption>
+                </figure>
+                <h2 class="text-2xl font-bold text-on-surface mt-12 mb-4">核心应用场景：智慧服务与精细化运营</h2>
+                <p>
+                    对于游客而言，智慧化的体验从入园前就已经开始。通过集成AR导览、智能无感支付和精准客流预测，游客可以避开高峰时段，享受更流畅的游玩过程。锦致科技推出的“游中助手”不仅能提供个性化的路线推荐，还能实时反馈排队时间，显著提升了游客满意度。
+                </p>
+                <p>
+                    在运营端，大数据的价值得以充分释放。通过对游客画像和消费行为的深度分析，景区可以进行精准的市场营销和资源分配。例如，基于位置的服务（LBS）可以向特定区域的游客推送餐饮或文创产品的优惠信息，实现存量流量的高效转化。
+                </p>
+                <figure class="my-12">
+                    <div class="aspect-video rounded-xl overflow-hidden bg-surface-container shadow-lg">
+                        <img class="w-full h-full object-cover" data-alt="hand holding a high-end smartphone displaying a complex augmented reality park map with 3D terrain and interactive icons in a lush forest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_Ud9z5ZxjZFkxYxcFNP3SXpoSPGr3WVULQQcDyVRIw832xHZwiF_VXE2wX8HtRR2X8hQDfWx6SLpRR6QiAh-VPYov94n7qjbnCrzgJPFyx1bg-CYFcTfmddG_RRtUBTVsRTdDTkFNY_DadzMNAd2feX1bu5RD6A0gW7BqGsLuDVmjMACcEufA6Ec0HGINhS1_9ss8gT8-ah8nEcpCjNHiqpJfAEZZdu8pSNVxd5ggV2avv74H2uaBVh1Nmms7ZJPRDnCESpSq2smx"/>
+                    </div>
+                    <figcaption class="text-center text-sm text-outline mt-4 italic">图2：基于增强现实（AR）的景区智慧导览系统</figcaption>
+                </figure>
+                <h2 class="text-2xl font-bold text-on-surface mt-12 mb-4">未来展望：生态化与可持续发展</h2>
+                <p>
+                    未来的智慧景区将不再是孤立的信息孤岛，而是与周边乡村振兴、城市交通紧密结合的综合体。锦致科技正积极探索“景区+乡村”的协同发展模式，通过数字化手段将景区流量引流至周边村落，带动当地农特产品销售和高端民宿发展。
+                </p>
+                <p>
+                    同时，绿色低碳也将成为智慧景区的重要评价指标。我们的解决方案集成了环境动态监测系统，能够自动调节照明、灌溉等能耗设施，在提升智慧化水平的同时，守护景区的绿水青山。
+                </p>
+                <div class="bg-surface-container-low p-8 rounded-xl mt-16 border-l-4 border-primary">
+                    <h3 class="font-bold text-on-surface mb-2">关于锦致科技</h3>
+                    <p class="text-base">
+                        锦致科技（Jinzhi Technology）是国内领先的数字化解决方案提供商，专注于智慧景区、数字孪生及乡村振兴领域。我们通过领先的技术实力，为行业客户创造长期的数字化价值。
+                    </p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- 页脚占位容器 -->
+    <div id="footer-container"></div>
+
+    <!-- 引入header和footer的JS逻辑 -->
+    <script>
+        // 加载公共头部
+        fetch('header.html')
+            .then(response => {
+                if (!response.ok) throw new Error('Header加载失败');
+                return response.text();
+            })
+            .then(html => {
+                document.getElementById('header-container').innerHTML = html;
+            })
+            .catch(error => console.error('加载头部出错：', error));
+
+        // 加载公共底部
+        fetch('footer.html')
+            .then(response => {
+                if (!response.ok) throw new Error('Footer加载失败');
+                return response.text();
+            })
+            .then(html => {
+                document.getElementById('footer-container').innerHTML = html;
+            })
+            .catch(error => console.error('加载底部出错：', error));
+    </script>
+</body>
+</html>
