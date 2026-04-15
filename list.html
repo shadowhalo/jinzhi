@@ -318,65 +318,97 @@ body {
         height: 160px; /* 移动端适配，无多余修改 */
     }
 }
-/*头尾样式*/
-/* Header基础样式 - 还原截图中的布局和样式 */
-header {
-    width: 100%;
-    padding: 10px 0;
-    margin-bottom: 20px;
+
+/* 匹配你页面的header原生结构 - 锦致科技+导航 */
+body > div:first-child {
+    padding: 16px 20px;
+    margin-bottom: 24px;
 }
-/* 桌面导航样式 */
-.nav-desktop {
-    margin: 10px 0;
+/* 锦致科技文字样式 */
+body > div:first-child > div:first-child {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1D2129;
+    margin-bottom: 12px;
 }
-.nav-desktop a {
-    color: #0000EE;
+/* 桌面导航链接样式 */
+body > div:first-child > div:nth-child(2) {
+    margin-bottom: 8px;
+}
+body > div:first-child > div:nth-child(2) a {
+    color: #0066FF;
+    text-decoration: none;
+    margin-right: 16px;
+    font-size: 14px;
+}
+body > div:first-child > div:nth-child(2) a:hover {
     text-decoration: underline;
-    margin-right: 8px;
-    font-size: 16px;
 }
 /* 移动端菜单按钮 */
-.menu-btn {
-    background: none;
-    border: none;
+body > div:first-child > button {
     font-size: 20px;
+    border: none;
+    background: none;
     cursor: pointer;
-    padding: 0;
-    margin: 5px 0;
+    margin-bottom: 8px;
 }
 /* 移动端侧边导航 */
-.nav-mobile {
+body > div:nth-child(2) {
     position: fixed;
     top: 0;
     left: 0;
-    background: #fff;
-    padding: 10px;
+    width: 280px;
+    height: 100vh;
+    background: #FFFFFF;
+    padding: 20px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
     z-index: 999;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
 }
-.close-btn {
-    background: none;
-    border: none;
+body > div:nth-child(2).active {
+    transform: translateX(0);
+}
+/* 移动端关闭按钮 */
+body > div:nth-child(2) > button {
     font-size: 20px;
+    border: none;
+    background: none;
     cursor: pointer;
-    padding: 0;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
 }
-.nav-mobile-list a {
+/* 移动端导航链接 */
+body > div:nth-child(2) > div a {
     display: block;
-    color: #0000EE;
-    text-decoration: underline;
-    margin: 5px 0;
+    color: #0066FF;
+    text-decoration: none;
+    margin: 8px 0;
     font-size: 16px;
 }
-/* Footer基础样式 */
-footer {
+body > div:nth-child(2) > div a:hover {
+    text-decoration: underline;
+}
+/* Footer样式 */
+body > div:last-child {
     width: 100%;
-    padding: 20px 0;
-    border-top: 1px solid #eee;
-    margin-top: 40px;
+    padding: 32px 20px 20px;
+    background: #FFFFFF;
+    border-top: 1px solid #E5E6EB;
+    margin-top: 48px;
     text-align: center;
+}
+body > div:last-child > div:first-child {
+    margin-bottom: 12px;
+}
+body > div:last-child > div:first-child a {
+    color: #0066FF;
+    text-decoration: none;
+    margin: 0 10px;
     font-size: 12px;
-    color: #666;
+}
+body > div:last-child > div:last-child {
+    font-size: 12px;
+    color: #86909C;
 }
 </style>
 </head>
