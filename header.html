@@ -7,7 +7,6 @@
             </a>
         </div>
 
-        <!-- PC导航 -->
         <div class="hidden md:flex items-center space-x-8">
             <a class="text-blue-600 border-b-2 border-blue-600 pb-1 font-manrope font-bold tracking-tight" href="list.html" target="_self">解决方案</a>
             <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">核心领域</a>
@@ -23,16 +22,16 @@
             <button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-primary/10 hover:opacity-80 transition-all duration-300 active:scale-95">立即咨询</button>
 
             <!-- 汉堡按钮 -->
-            <button id="hamburgerBtn" class="md:hidden text-2xl text-slate-700">
+            <button onclick="openMenu()" class="md:hidden text-2xl text-slate-700">
                 <span class="material-symbols-outlined">menu</span>
             </button>
         </div>
     </div>
 
-    <!-- 移动端侧边导航 -->
+    <!-- 侧边导航 -->
     <div id="mobileNav" class="md:hidden fixed top-0 left-[-280px] w-[280px] h-screen bg-white/98 backdrop-blur-xl shadow-2xl transition-all duration-300 opacity-0 z-[60]">
         <div class="flex justify-end p-5">
-            <button id="closeNavBtn" class="text-2xl text-slate-700">
+            <button onclick="closeMenu()" class="text-2xl text-slate-700">
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
@@ -47,24 +46,18 @@
     <div class="bg-slate-100 h-[1px] opacity-20"></div>
 </nav>
 
-<!-- 兼容异步加载的最终JS → 点击100%生效 -->
 <script>
-function initMobileMenu() {
-  const hb = document.getElementById('hamburgerBtn');
-  const cl = document.getElementById('closeNavBtn');
-  const nav = document.getElementById('mobileNav');
-  if(!hb || !cl || !nav) return;
+var mobileNav;
 
-  hb.onclick = () => {
-    nav.style.left = '0';
-    nav.style.opacity = '1';
-  };
-  cl.onclick = () => {
-    nav.style.left = '-280px';
-    nav.style.opacity = '0';
-  };
+function openMenu() {
+    mobileNav = document.getElementById('mobileNav');
+    mobileNav.style.left = "0";
+    mobileNav.style.opacity = "1";
 }
 
-// 等待页面完全加载后初始化
-window.addEventListener('load', initMobileMenu);
+function closeMenu() {
+    mobileNav = document.getElementById('mobileNav');
+    mobileNav.style.left = "-280px";
+    mobileNav.style.opacity = "0";
+}
 </script>
