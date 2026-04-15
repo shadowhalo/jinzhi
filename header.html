@@ -1,57 +1,62 @@
-<!-- 导航栏核心代码（已加移动端汉堡菜单 + 侧滑） -->
+<!-- 导航栏核心代码 -->
 <nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
-  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-    <div class="flex items-center">
-      <img alt="锦致科技 Logo" class="h-8 md:h-10 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uhS-l0bg_9iNsBC2MYfQXWSrItk7HcQ78uZ_MdWM1i49suXdCOCHDAUn2DQgENXG59Qr9cUIhBtjFre5_Vccr_3yrf15joef0dcQpuJRu23iNlnaTrOpExSzk0NC4E1SbxeRAjzLaMqmgelGs2ItSNq0EPkJEeIPmLKl18z8_rqVs_O-_jyqdWf2iT64s9vmbRKjSOWIeG95rDRCIWMyilrxi1tI1JLMrmXeKJuvc5uC05-cCOBGwKjFG-49CP2jdkP50lMRXUTfcw"/>
+    <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto relative">
+        <div class="flex items-center">
+            <a href="index.html" target="_self"><img alt="锦致科技 Logo" class="h-8 md:h-10 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uhS-l0bg_9iNsBC2MYfQXWSrItk7HcQ78uZ_MdWM1i49suXdCOCHDAUn2DQgENXG59Qr9cUIhBtjFre5_Vccr_3yrf15joef0dcQpuJRu23iNlnaTrOpExSzk0NC4E1SbxeRAjzLaMqmgelGs2ItSNq0EPkJEeIPmLKl18z8_rqVs_O-_jyqdWf2iT64s9vmbRKjSOWIeG95rDRCIWMyilrxi1tI1JLMrmXeKJuvc5uC05-cCOBGwKjFG-49CP2jdkP50lMRXUTfcw"/></a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+            <a class="text-blue-600 border-b-2 border-blue-600 pb-1 font-manrope font-bold tracking-tight" href="list.html" target="_self">解决方案</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">核心领域</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">技术架构</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">案例研究</a>
+        </div>
+        <div class="flex items-center gap-6">
+            <div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/15">
+                <span class="material-symbols-outlined text-outline text-sm">search</span>
+                <input class="bg-transparent border-none focus:ring-0 text-sm w-40 placeholder:text-outline-variant" placeholder="搜索洞察..." type="text"/>
+            </div>
+            <button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-primary/10 hover:opacity-80 transition-all duration-300 active:scale-95">立即咨询</button>
+            
+            <!-- 移动端汉堡菜单按钮 -->
+            <button id="menuBtn" class="md:hidden text-2xl text-slate-700">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+
+        <!-- 移动端侧边导航菜单 -->
+        <div id="mobileMenu" class="fixed top-0 right-[-280px] w-[280px] h-screen bg-white/95 backdrop-blur-xl shadow-xl p-6 transition-all duration-300 z-[60] md:hidden">
+            <!-- 关闭按钮 -->
+            <button id="closeBtn" class="absolute top-5 right-5 text-2xl text-slate-700">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+
+            <!-- 菜单内容 -->
+            <div class="flex flex-col space-y-6 mt-16">
+                <a class="text-blue-600 font-bold text-lg" href="list.html">解决方案</a>
+                <a class="text-slate-600 hover:text-blue-600 transition-colors text-lg" href="list.html">核心领域</a>
+                <a class="text-slate-600 hover:text-blue-600 transition-colors text-lg" href="list.html">技术架构</a>
+                <a class="text-slate-600 hover:text-blue-600 transition-colors text-lg" href="list.html">案例研究</a>
+            </div>
+        </div>
     </div>
-
-    <!-- PC端菜单 -->
-    <div class="hidden md:flex items-center space-x-8">
-      <a class="text-blue-600 border-b-2 border-blue-600 pb-1 font-manrope font-bold tracking-tight" href="#">解决方案</a>
-      <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="#">核心领域</a>
-      <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="#">技术架构</a>
-      <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="#">案例研究</a>
-    </div>
-
-    <div class="flex items-center gap-6">
-      <div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/15">
-        <span class="material-symbols-outlined text-outline text-sm">search</span>
-        <input class="bg-transparent border-none focus:ring-0 text-sm w-40 placeholder:text-outline-variant" placeholder="搜索洞察..." type="text"/>
-      </div>
-      <button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-primary/10 hover:opacity-80 transition-all duration-300 active:scale-95">立即咨询</button>
-
-      <!-- 移动端汉堡按钮 -->
-      <button id="menuBtn" class="md:hidden text-2xl text-slate-700">☰</button>
-    </div>
-  </div>
-
-  <!-- 移动端侧滑菜单 -->
-  <div id="mobileMenu" class="fixed top-0 right-[-100%] w-[280px] h-full bg-white shadow-2xl p-6 transition-all duration-300 z-50">
-    <!-- 关闭按钮 X -->
-    <button id="closeBtn" class="absolute top-5 right-5 text-2xl text-slate-700">✕</button>
-
-    <!-- 移动端菜单内容 -->
-    <div class="mt-16 flex flex-col space-y-5 text-lg">
-      <a class="text-blue-600 font-bold" href="#">解决方案</a>
-      <a class="text-slate-700" href="#">核心领域</a>
-      <a class="text-slate-700" href="#">技术架构</a>
-      <a class="text-slate-700" href="#">案例研究</a>
-    </div>
-  </div>
-
-  <!-- 菜单控制JS -->
-  <script>
-    const menuBtn = document.getElementById('menuBtn')
-    const closeBtn = document.getElementById('closeBtn')
-    const mobileMenu = document.getElementById('mobileMenu')
-
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.style.right = '0'
-    })
-    closeBtn.addEventListener('click', () => {
-      mobileMenu.style.right = '-100%'
-    })
-  </script>
-
-  <div class="bg-slate-100 h-[1px] opacity-20"></div>
+    <div class="bg-slate-100 h-[1px] opacity-20"></div>
 </nav>
+
+<script>
+// 移动端菜单交互逻辑
+document.addEventListener('DOMContentLoaded', function() {
+    const menuBtn = document.getElementById('menuBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    // 打开菜单
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.style.right = '0';
+    });
+    
+    // 关闭菜单
+    closeBtn.addEventListener('click', () => {
+        mobileMenu.style.right = '-280px';
+    });
+});
+</script>
