@@ -1,3 +1,4 @@
+<!-- 导航栏核心代码 - 已优化：右侧滑入滑出 + 纯白不透明背景 -->
 <nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
     <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
         <div class="flex items-center">
@@ -6,6 +7,7 @@
             </a>
         </div>
 
+        <!-- 桌面端导航 -->
         <div class="hidden md:flex items-center space-x-8">
             <a class="text-blue-600 border-b-2 border-blue-600 pb-1 font-manrope font-bold tracking-tight" href="list.html" target="_self">解决方案</a>
             <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">核心领域</a>
@@ -13,6 +15,7 @@
             <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">案例研究</a>
         </div>
 
+        <!-- 右侧搜索 + 按钮 + 汉堡菜单 -->
         <div class="flex items-center gap-6">
             <div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/15">
                 <span class="material-symbols-outlined text-outline text-sm">search</span>
@@ -20,20 +23,23 @@
             </div>
             <button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-primary/10 hover:opacity-80 transition-all duration-300 active:scale-95">立即咨询</button>
 
+            <!-- 移动端汉堡按钮 -->
             <button id="hamburgerBtn" class="md:hidden text-2xl text-slate-700">
                 <span class="material-symbols-outlined">menu</span>
             </button>
         </div>
     </div>
 
-    <div id="mobileNav" class="md:hidden fixed top-0 left-[-280px] w-[280px] h-screen bg-white/98 backdrop-blur-xl shadow-2xl transition-all duration-300 opacity-0 z-[60]">
+    <!-- 移动端侧边导航菜单 - 优化：右侧滑入滑出 + 纯白不透明 -->
+    <div id="mobileNav" class="md:hidden fixed top-0 right-[-280px] w-[280px] h-screen bg-white shadow-2xl transition-all duration-300 opacity-0 z-[9999]">
         <div class="flex justify-end p-5">
             <button id="closeNavBtn" class="text-2xl text-slate-700">
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
         <div class="flex flex-col px-8 gap-6 mt-4 text-lg">
-            <a class="text-blue-600 border-b-2 border-blue-600 pb-1 font-bold" href="list.html">解决方案</a>
+            <!-- 已统一样式：无蓝色、无边框、和其他菜单完全一致 -->
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">解决方案</a>
             <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">核心领域</a>
             <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">技术架构</a>
             <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">案例研究</a>
@@ -42,3 +48,24 @@
 
     <div class="bg-slate-100 h-[1px] opacity-20"></div>
 </nav>
+
+<script>
+// 移动端菜单交互：右侧滑入滑出 + 淡入淡出
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const closeNavBtn = document.getElementById('closeNavBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    // 打开菜单：从右侧滑入
+    hamburgerBtn?.addEventListener('click', function () {
+        mobileNav.style.right = '0';
+        mobileNav.style.opacity = '1';
+    });
+
+    // 关闭菜单：从右侧滑出
+    closeNavBtn?.addEventListener('click', function () {
+        mobileNav.style.right = '-280px';
+        mobileNav.style.opacity = '0';
+    });
+});
+</script>
