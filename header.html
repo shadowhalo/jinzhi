@@ -1,4 +1,4 @@
-<!-- 导航栏核心代码 - 独立引入版 -->
+<!-- 导航栏核心代码 - 最终修复版 -->
 <nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
     <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
         <div class="flex items-center">
@@ -7,6 +7,7 @@
             </a>
         </div>
 
+        <!-- 桌面端导航 -->
         <div class="hidden md:flex items-center space-x-8">
             <a class="text-blue-600 border-b-2 border-blue-600 pb-1 font-manrope font-bold tracking-tight" href="list.html" target="_self">解决方案</a>
             <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">核心领域</a>
@@ -14,19 +15,20 @@
             <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">案例研究</a>
         </div>
 
+        <!-- 右侧功能区 -->
         <div class="flex items-center gap-6">
             <div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/15">
                 <span class="material-symbols-outlined text-outline text-sm">search</span>
                 <input class="bg-transparent border-none focus:ring-0 text-sm w-40 placeholder:text-outline-variant" placeholder="搜索洞察..." type="text"/>
             </div>
             <button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-primary/10 hover:opacity-80 transition-all duration-300 active:scale-95">立即咨询</button>
-
             <button id="hamburgerBtn" class="md:hidden text-2xl text-slate-700">
                 <span class="material-symbols-outlined">menu</span>
             </button>
         </div>
     </div>
 
+    <!-- 移动端菜单：右侧滑入 + 纯白不透明 -->
     <div id="mobileNav" class="md:hidden fixed top-0 right-[-280px] w-[280px] h-screen bg-white shadow-2xl transition-all duration-300 opacity-0 z-[9999]">
         <div class="flex justify-end p-5">
             <button id="closeNavBtn" class="text-2xl text-slate-700">
@@ -44,23 +46,4 @@
     <div class="bg-slate-100 h-[1px] opacity-20"></div>
 </nav>
 
-<script>
-setTimeout(() => {
-    const hBtn = document.getElementById('hamburgerBtn');
-    const cBtn = document.getElementById('closeNavBtn');
-    const mNav = document.getElementById('mobileNav');
-    
-    if(hBtn && mNav) {
-        hBtn.onclick = () => {
-            mNav.style.right = "0";
-            mNav.style.opacity = "1";
-        };
-    }
-    if(cBtn && mNav) {
-        cBtn.onclick = () => {
-            mNav.style.right = "-280px";
-            mNav.style.opacity = "0";
-        };
-    }
-}, 300);
-</script>
+<!-- header 内部不写任何 JS！全部交给 index 控制 -->
