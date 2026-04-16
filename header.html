@@ -1,4 +1,4 @@
-<!-- 导航栏核心代码 - 全页面通用最终版 -->
+<!-- 导航栏核心代码 - 全页面最终修复版 -->
 <nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
     <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
         <div class="flex items-center">
@@ -43,34 +43,33 @@
         </div>
     </div>
     <div class="bg-slate-100 h-[1px] opacity-20"></div>
-</nav>
+</nav
 
+<!-- ====================== 合并后的终极JS ====================== -->
 <script>
-// 终极兼容版：等待页面完全加载 + 元素存在后再绑定菜单
-function initMenu() {
-  const check = setInterval(() => {
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const closeNavBtn = document.getElementById('closeNavBtn');
-    const mobileNav = document.getElementById('mobileNav');
+// 自动等待DOM加载完成，再绑定菜单（全自动，无需调用）
+document.addEventListener('DOMContentLoaded', function() {
+    // 循环检测，直到菜单元素出现再绑定（解决异步加载问题）
+    const timer = setInterval(() => {
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const closeNavBtn = document.getElementById('closeNavBtn');
+        const mobileNav = document.getElementById('mobileNav');
 
-    if (hamburgerBtn && closeNavBtn && mobileNav) {
-      clearInterval(check);
+        if (hamburgerBtn && closeNavBtn && mobileNav) {
+            clearInterval(timer);
 
-      // 打开菜单：右侧左滑
-      hamburgerBtn.onclick = function () {
-        mobileNav.style.right = "0";
-        mobileNav.style.opacity = "1";
-      };
+            // 打开菜单
+            hamburgerBtn.onclick = function () {
+                mobileNav.style.right = "0";
+                mobileNav.style.opacity = "1";
+            };
 
-      // 关闭菜单：右侧滑出
-      closeNavBtn.onclick = function () {
-        mobileNav.style.right = "-280px";
-        mobileNav.style.opacity = "0";
-      };
-    }
-  }, 100);
-}
-
-// 页面加载完成后初始化
-window.addEventListener('DOMContentLoaded', initMenu);
+            // 关闭菜单
+            closeNavBtn.onclick = function () {
+                mobileNav.style.right = "-280px";
+                mobileNav.style.opacity = "0";
+            };
+        }
+    }, 80);
+});
 </script>
