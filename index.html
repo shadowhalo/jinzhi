@@ -325,14 +325,5 @@ z-index: 1;
 
 <!-- 公共底部 -->
 <div id="footer-container"></div>
-
-<script>
-fetch('header.html').then(res=>res.text()).then(html=>{
-document.getElementById('header-container').innerHTML = html;
-});
-fetch('footer.html').then(res=>res.text()).then(html=>{
-document.getElementById('footer-container').innerHTML = html;
-});
-</script>
 </body>
 </html>
