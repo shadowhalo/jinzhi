@@ -1,9 +1,9 @@
-<!-- 导航栏核心代码 - 最终无敌版 -->
+<!-- 导航栏核心代码 - 零错误最终版 -->
 <nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
     <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
         <div class="flex items-center">
             <a href="index.html" target="_self">
-                <img alt="锦致科技 Logo" class="h-8 md:h-10 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uhS-l0bg_9iNsBC2MYfQXWSrItk7HcQ78uZ_MdWM1i49suXdCOCHDAUn2DQgENXG59Qr9cUIhBtjFre5_Vccr_3yrf15joef0dcQpuJRu23iNlnaTrOpExSzk0NC4E1SbxeRAjzLaMqmgelGs2ItSNq0EPkJEeIPmLKl18z8_rqVs_O-_jyqdWf2iT64s9vmbRKjSOWIeG95rDRCIWMyilrxi1tI1JLMrmXeKJuvc5uC05-cCOBGwJzLaMqmgelGs2ItSNq0EPkJEeIPmLKl18z8_rqVs_O-_jyqdWf2iT64s9vmbRKjSOWIeG95rDRCIWMyilrxi1tI1JLMrmXeKJuvc5uC05-cCOBGw"/>
+                <img alt="锦致科技 Logo" class="h-8 md:h-10 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uhS-l0bg_9iNsBC2MYfQXWSrItk7HcQ78uZ_MdWM1i49suXdCOCHDAUn2DQgENXG59Qr9cUIhBtjFre5_Vccr_3yrf15joef0dcQpuJRu23iNlnaTrOpExSzk0NC4E1SbxeRAjzLaMqmgelGs2ItSNq0EPkJEeIPmLKl18z8_rqVs_O-_jyqdWf2iT64s9vmbRKjSOWIeG95rDRCIWMyilrxi1tI1JLMrmXeKJuvc5uC05-cCOBGw">
             </a>
         </div>
 
@@ -17,10 +17,12 @@
         <div class="flex items-center gap-6">
             <div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/15">
                 <span class="material-symbols-outlined text-outline text-sm">search</span>
-                <input class="bg-transparent border-none focus:ring-0 text-sm w-40 placeholder:text-outline-variant" placeholder="搜索洞察..." type="text"/>
+                <input class="bg-transparent border-none focus:ring-0 text-sm w-40 placeholder:text-outline-variant" placeholder="搜索洞察..." type="text">
             </div>
             <button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-primary/10 hover:opacity-80 transition-all duration-300 active:scale-95">立即咨询</button>
-            <button class="md:hidden text-2xl text-slate-700" onclick="openMenu()">
+            
+            <!-- 直接行内点击，永远有效 -->
+            <button class="md:hidden text-2xl text-slate-700" onclick="document.getElementById('mobileNav').style.right='0';document.getElementById('mobileNav').style.opacity='1'">
                 <span class="material-symbols-outlined">menu</span>
             </button>
         </div>
@@ -28,7 +30,7 @@
 
     <div id="mobileNav" class="md:hidden fixed top-0 right-[-280px] w-[280px] h-screen bg-white shadow-2xl transition-all duration-300 opacity-0 z-[9999]">
         <div class="flex justify-end p-5">
-            <button class="text-2xl text-slate-700" onclick="closeMenu()">
+            <button class="text-2xl text-slate-700" onclick="document.getElementById('mobileNav').style.right='-280px';document.getElementById('mobileNav').style.opacity='0'">
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
@@ -42,16 +44,4 @@
     <div class="bg-slate-100 h-[1px] opacity-20"></div>
 </nav>
 
-<script>
-// 最稳定写法：全局函数 + 行内点击，永远不失效
-function openMenu() {
-  const m = document.getElementById('mobileNav');
-  m.style.right = '0';
-  m.style.opacity = '1';
-}
-function closeMenu() {
-  const m = document.getElementById('mobileNav');
-  m.style.right = '-280px';
-  m.style.opacity = '0';
-}
-</script>
+<!-- 完全不需要外部 JS！！！ -->
