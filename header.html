@@ -1,28 +1,28 @@
-<!-- 导航栏核心代码 - 零错误最终版 -->
+<!-- 导航栏核心代码 - 独立引入版 -->
 <nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
     <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
         <div class="flex items-center">
             <a href="index.html" target="_self">
-                <img alt="锦致科技 Logo" class="h-8 md:h-10 w-auto" src="logo.png">
+                <img alt="锦致科技 Logo" class="h-8 md:h-10 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uhS-l0bg_9iNsBC2MYfQXWSrItk7HcQ78uZ_MdWM1i49suXdCOCHDAUn2DQgENXG59Qr9cUIhBtjFre5_Vccr_3yrf15joef0dcQpuJRu23iNlnaTrOpExSzk0NC4E1SbxeRAjzLaMqmgelGs2ItSNq0EPkJEeIPmLKl18z8_rqVs_O-_jyqdWf2iT64s9vmbRKjSOWIeG95rDRCIWMyilrxi1tI1JLMrmXeKJuvc5uC05-cCOBGwKjFG-49CP2jdkP50lMRXUTfcw"/>
             </a>
         </div>
 
         <div class="hidden md:flex items-center space-x-8">
-            <a class="text-blue-600 border-b-2 border-blue-600 pb-1 font-manrope font-bold tracking-tight" href="list.html" target="_self">解决方案</a>
-            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">核心领域</a>
-            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">技术架构</a>
-            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">案例研究</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">核心业务</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">解决方案</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">产学研究</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">主要产品</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">合作伙伴</a>
         </div>
 
         <div class="flex items-center gap-6">
             <div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/15">
                 <span class="material-symbols-outlined text-outline text-sm">search</span>
-                <input class="bg-transparent border-none focus:ring-0 text-sm w-40 placeholder:text-outline-variant" placeholder="搜索洞察..." type="text">
+                <input class="bg-transparent border-none focus:ring-0 text-sm w-40 placeholder:text-outline-variant" placeholder="搜索洞察..." type="text"/>
             </div>
             <button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-primary/10 hover:opacity-80 transition-all duration-300 active:scale-95">立即咨询</button>
-            
-            <!-- 直接行内点击，永远有效 -->
-            <button class="md:hidden text-2xl text-slate-700" onclick="document.getElementById('mobileNav').style.right='0';document.getElementById('mobileNav').style.opacity='1'">
+
+            <button id="hamburgerBtn" class="md:hidden text-2xl text-slate-700">
                 <span class="material-symbols-outlined">menu</span>
             </button>
         </div>
@@ -30,18 +30,39 @@
 
     <div id="mobileNav" class="md:hidden fixed top-0 right-[-280px] w-[280px] h-screen bg-white shadow-2xl transition-all duration-300 opacity-0 z-[9999]">
         <div class="flex justify-end p-5">
-            <button class="text-2xl text-slate-700" onclick="document.getElementById('mobileNav').style.right='-280px';document.getElementById('mobileNav').style.opacity='0'">
+            <button id="closeNavBtn" class="text-2xl text-slate-700">
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
         <div class="flex flex-col px-8 gap-6 mt-4 text-lg">
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">核心业务</a>
             <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">解决方案</a>
-            <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">核心领域</a>
-            <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">技术架构</a>
-            <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">案例研究</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">产学研究</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">主要产品</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">合作伙伴</a>
         </div>
     </div>
+
     <div class="bg-slate-100 h-[1px] opacity-20"></div>
 </nav>
 
-<!-- 完全不需要外部 JS！！！ -->
+<script>
+setTimeout(() => {
+    const hBtn = document.getElementById('hamburgerBtn');
+    const cBtn = document.getElementById('closeNavBtn');
+    const mNav = document.getElementById('mobileNav');
+    
+    if(hBtn && mNav) {
+        hBtn.onclick = () => {
+            mNav.style.right = "0";
+            mNav.style.opacity = "1";
+        };
+    }
+    if(cBtn && mNav) {
+        cBtn.onclick = () => {
+            mNav.style.right = "-280px";
+            mNav.style.opacity = "0";
+        };
+    }
+}, 300);
+</script>
