@@ -1,4 +1,4 @@
-<!-- 导航栏核心代码 - 独立引入版 -->
+<!-- 导航栏核心代码 - 直接写死（不再异步加载） -->
 <nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
     <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
         <div class="flex items-center">
@@ -17,7 +17,6 @@
 
         <div class="flex items-center gap-6">
             <button id="consultBtn" class="bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-primary/10 hover:opacity-80 transition-all duration-300 active:scale-95">立即咨询</button>
-
             <button id="hamburgerBtn" class="md:hidden text-2xl text-slate-700">
                 <span class="material-symbols-outlined">menu</span>
             </button>
@@ -38,7 +37,6 @@
             <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">合作伙伴</a>
         </div>
     </div>
-
     <div class="bg-slate-100 h-[1px] opacity-20"></div>
 </nav>
 
@@ -58,9 +56,9 @@
 </div>
 
 <script>
-// 所有功能统一在页面完全加载后执行（部署后必用！）
-document.addEventListener('DOMContentLoaded', function() {
-    // ========== 汉堡菜单 ==========
+// 所有功能只写在这里，不改动其他任何地方！
+window.onload = function(){
+    // 汉堡菜单
     const hBtn = document.getElementById('hamburgerBtn');
     const cBtn = document.getElementById('closeNavBtn');
     const mNav = document.getElementById('mobileNav');
@@ -78,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    // ========== 咨询弹窗 ==========
+    // 咨询弹窗
     const consultBtn = document.getElementById('consultBtn');
     const consultModal = document.getElementById('consultModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
@@ -100,5 +98,5 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-});
+}
 </script>
