@@ -56,47 +56,40 @@
 </div>
 
 <script>
-function initHeader() {
-    setTimeout(() => {
-        const hBtn = document.getElementById('hamburgerBtn');
-        const cBtn = document.getElementById('closeNavBtn');
-        const mNav = document.getElementById('mobileNav');
-        const consultBtn = document.getElementById('consultBtn');
-        const consultModal = document.getElementById('consultModal');
-        const closeModalBtn = document.getElementById('closeModalBtn');
+// 最简单、最稳定、一定能绑定上
+document.addEventListener('DOMContentLoaded', function() {
+  initHeaderEvents();
+});
 
-        if (hBtn && mNav) {
-            hBtn.onclick = () => {
-                mNav.style.right = '0';
-                mNav.style.opacity = '1';
-            };
-        }
-        if (cBtn && mNav) {
-            cBtn.onclick = () => {
-                mNav.style.right = '-280px';
-                mNav.style.opacity = '0';
-            };
-        }
+function initHeaderEvents() {
+  const hBtn = document.getElementById('hamburgerBtn');
+  const cBtn = document.getElementById('closeNavBtn');
+  const mNav = document.getElementById('mobileNav');
+  const consultBtn = document.getElementById('consultBtn');
+  const consultModal = document.getElementById('consultModal');
+  const closeModalBtn = document.getElementById('closeModalBtn');
 
-        if (consultBtn && consultModal) {
-            consultBtn.onclick = () => {
-                consultModal.classList.remove('opacity-0', 'pointer-events-none');
-            };
-        }
-        if (closeModalBtn && consultModal) {
-            closeModalBtn.onclick = () => {
-                consultModal.classList.add('opacity-0', 'pointer-events-none');
-            };
-        }
-        if (consultModal) {
-            consultModal.onclick = (e) => {
-                if (e.target === consultModal) {
-                    consultModal.classList.add('opacity-0', 'pointer-events-none');
-                }
-            };
-        }
-    }, 50);
+  // 汉堡菜单
+  hBtn?.addEventListener('click', () => {
+    mNav.style.right = '0';
+    mNav.style.opacity = '1';
+  });
+  cBtn?.addEventListener('click', () => {
+    mNav.style.right = '-280px';
+    mNav.style.opacity = '0';
+  });
+
+  // 咨询弹窗
+  consultBtn?.addEventListener('click', () => {
+    consultModal.classList.remove('opacity-0', 'pointer-events-none');
+  });
+  closeModalBtn?.addEventListener('click', () => {
+    consultModal.classList.add('opacity-0', 'pointer-events-none');
+  });
+  consultModal?.addEventListener('click', (e) => {
+    if (e.target === consultModal) {
+      consultModal.classList.add('opacity-0', 'pointer-events-none');
+    }
+  });
 }
-
-initHeader();
 </script>
