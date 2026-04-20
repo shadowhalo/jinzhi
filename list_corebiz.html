@@ -89,13 +89,12 @@ background: rgba(245, 247, 249, 0.7);
 backdrop-filter: blur(20px);
 -webkit-backdrop-filter: blur(20px);
 }
-/* 筛选按钮基础样式 */
-.filter-btn {
-@apply px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all;
-}
-/* 筛选按钮激活状态样式 */
-.filter-btn.active {
-@apply bg-surface-container-lowest text-primary font-semibold shadow-sm;
+/* 选中状态样式（和原全部项目初始样式一致） */
+.filter-active {
+background-color: #ffffff !important;
+color: #0050d4 !important;
+font-weight: 600 !important;
+box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
 }
 </style>
 </head>
@@ -126,12 +125,12 @@ backdrop-filter: blur(20px);
 <!-- Filter & View Toggle Bar -->
 <section class="flex flex-col md:flex-row justify-between items-center bg-surface-container-low p-2 rounded-xl mb-12 gap-4">
 <div class="flex flex-wrap gap-2">
-<!-- 统一所有筛选按钮的基础样式，通过active类控制选中状态 -->
-<button class="filter-btn active" data-category="all">全部项目</button>
-<button class="filter-btn" data-category="文旅">文旅</button>
-<button class="filter-btn" data-category="农业">农业</button>
-<button class="filter-btn" data-category="社区">社区</button>
-<button class="filter-btn" data-category="工业">工业</button>
+<!-- 仅修改：给按钮加统一标识，全部项目初始加选中样式 -->
+<button id="btn-all" class="px-6 py-2 bg-surface-container-lowest text-primary font-semibold rounded-lg shadow-sm filter-active" data-category="all">全部项目</button>
+<button class="px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="文旅">文旅</button>
+<button class="px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="农业">农业</button>
+<button class="px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="社区">社区</button>
+<button class="px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="工业">工业</button>
 </div>
 </section>
 <!-- Solution Grid -->
@@ -283,27 +282,42 @@ img.className = 'card-image overflow-hidden relative w-full md:w-[40%] shrink-0 
 });
 }
 
-// 筛选功能逻辑
+// 筛选功能逻辑（核心修改：精准控制样式切换）
 document.addEventListener('DOMContentLoaded', function() {
     // 获取所有筛选按钮和卡片
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    const filterButtons = document.querySelectorAll('[data-category]');
     const solutionCards = document.querySelectorAll('.solution-card');
+    const btnAll = document.getElementById('btn-all'); // 定位全部项目按钮
     
+    // 按钮默认样式模板（未选中样式）
+    const defaultBtnStyle = {
+        all: 'px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all',
+        active: 'px-6 py-2 bg-surface-container-lowest text-primary font-semibold rounded-lg shadow-sm'
+    };
+
     // 为每个筛选按钮添加点击事件
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // 移除所有按钮的激活状态
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // 为当前点击的按钮添加激活状态
-            this.classList.add('active');
+            // 1. 重置所有按钮为未选中样式
+            filterButtons.forEach(btn => {
+                // 全部项目按钮单独重置
+                if (btn === btnAll) {
+                    btn.className = defaultBtnStyle.all;
+                    btn.classList.remove('filter-active');
+                } else {
+                    // 其他按钮保持原有未选中样式
+                    btn.className = defaultBtnStyle.all;
+                }
+            });
+
+            // 2. 设置当前点击按钮为选中样式
+            this.className = defaultBtnStyle.active;
+            this.classList.add('filter-active');
             
-            // 获取当前选中的分类
+            // 3. 筛选卡片逻辑（保持不变）
             const selectedCategory = this.getAttribute('data-category');
-            
-            // 筛选卡片
             solutionCards.forEach(card => {
                 const cardCategory = card.getAttribute('data-category');
-                // 如果是全部项目，或者分类匹配，则显示卡片，否则隐藏
                 if (selectedCategory === 'all' || cardCategory === selectedCategory) {
                     card.style.display = 'flex';
                 } else {
