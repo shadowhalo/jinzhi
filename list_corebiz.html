@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head>
+<html lang="zh-CN">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -88,11 +89,17 @@ background: rgba(245, 247, 249, 0.7);
 backdrop-filter: blur(20px);
 -webkit-backdrop-filter: blur(20px);
 }
+/* 筛选按钮激活状态样式 */
+.filter-btn.active {
+background-color: #ffffff !important;
+color: #0050d4 !important;
+font-weight: 600 !important;
+}
 </style>
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-primary/20">
 
-<!-- 公共头部 -->
+<!！-- 公共头部 -->
 <div id="header-container"></div>
 
 <main class="pt-32 pb-24 max-w-7xl mx-auto px-8">
@@ -117,17 +124,18 @@ backdrop-filter: blur(20px);
 <!-- Filter & View Toggle Bar -->
 <section class="flex flex-col md:flex-row justify-between items-center bg-surface-container-low p-2 rounded-xl mb-12 gap-4">
 <div class="flex flex-wrap gap-2">
-<button class="px-6 py-2 bg-surface-container-lowest text-primary font-semibold rounded-lg shadow-sm">全部项目</button>
-<button class="px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all">文旅</button>
-<button class="px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all">农业</button>
-<button class="px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all">社区</button>
-<button class="px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all">工业</button>
+<!-- 为每个筛选按钮添加统一类名和data属性 -->
+<button class="filter-btn px-6 py-2 bg-surface-container-lowest text-primary font-semibold rounded-lg shadow-sm active" data-category="all">全部项目</button>
+<button class="filter-btn px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="文旅">文旅</button>
+<button class="filter-btn px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="农业">农业</button>
+<button class="filter-btn px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="社区">社区</button>
+<button class="filter-btn px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="工业">工业</button>
 </div>
 </section>
 <!-- Solution Grid -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="solutions-container">
-<!-- Card 1 -->
-<article class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col">
+<!-- Card 1 - 文旅 -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col" data-category="文旅">
 <div class="card-image aspect-video overflow-hidden relative w-full shrink-0 transition-all duration-500">
 <a href="detail.html" target="_self"><img alt="Scenic area management" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="cbiztour.jpg"/></a>
 <div class="absolute top-4 left-4 bg-primary px-3 py-1 rounded-md text-white text-xs font-bold">文旅</div>
@@ -148,8 +156,8 @@ backdrop-filter: blur(20px);
 </a>
 </div>
 </article>
-<!-- Card 2 -->
-<article class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col">
+<!-- Card 2 - 文旅 -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col" data-category="文旅">
 <div class="card-image aspect-video overflow-hidden relative w-full shrink-0 transition-all duration-500">
 <img alt="AI Crop Optimization" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="cbizone.jpg"/>
 <div class="absolute top-4 left-4 bg-primary px-3 py-1 rounded-md text-white text-xs font-bold">文旅</div>
@@ -169,8 +177,8 @@ backdrop-filter: blur(20px);
 </a>
 </div>
 </article>
-<!-- Card 3 -->
-<article class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col">
+<!-- Card 3 - 文旅 (文化归类到文旅) -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col" data-category="文旅">
 <div class="card-image aspect-video overflow-hidden relative w-full shrink-0 transition-all duration-500">
 <img alt="Smart Community" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="cbizmusum.jpg"/>
 <div class="absolute top-4 left-4 bg-primary px-3 py-1 rounded-md text-white text-xs font-bold">文化</div>
@@ -183,7 +191,7 @@ backdrop-filter: blur(20px);
 <div class="flex flex-wrap gap-2 mb-8">
 <span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-wider">文化云</span>
 <span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-wider">文化空间</span>
-	<span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-wider">文化场馆</span>
+<span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-wider">文化场馆</span>
 </div>
 <a class="inline-flex items-center gap-2 text-primary font-bold text-sm group/link" href="#">
 了解更多 
@@ -191,8 +199,8 @@ backdrop-filter: blur(20px);
 </a>
 </div>
 </article>
-<!-- Card 4 -->
-<article class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col">
+<!-- Card 4 - 社区 -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col" data-category="社区">
 <div class="card-image aspect-video overflow-hidden relative w-full shrink-0 transition-all duration-500">
 <img alt="Digital Twin Industry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="cbizpark.jpg"/>
 <div class="absolute top-4 left-4 bg-primary px-3 py-1 rounded-md text-white text-xs font-bold">社区</div>
@@ -212,8 +220,8 @@ backdrop-filter: blur(20px);
 </a>
 </div>
 </article>
-<!-- Card 1 -->
-<article class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col">
+<!-- Card 5 - 农业 -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col" data-category="农业">
 <div class="card-image aspect-video overflow-hidden relative w-full shrink-0 transition-all duration-500">
 <a href="detail.html" target="_self"><img alt="Scenic area management" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="cbizagru.jpg"/></a>
 <div class="absolute top-4 left-4 bg-primary px-3 py-1 rounded-md text-white text-xs font-bold">农业</div>
@@ -226,7 +234,7 @@ backdrop-filter: blur(20px);
 <div class="flex flex-wrap gap-2 mb-8">
 <span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-wider">智慧农业</span>
 <span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-wider">数字乡村</span>
-	<span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-wider">产业运营</span>
+<span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-wider">产业运营</span>
 </div>
 <a class="inline-flex items-center gap-2 text-primary font-bold text-sm group/link" href="detail.html">
 了解更多 
@@ -272,5 +280,37 @@ cardImages.forEach(img => {
 img.className = 'card-image overflow-hidden relative w-full md:w-[40%] shrink-0 transition-all duration-500 min-h-[250px]';
 });
 }
+
+// 新增筛选功能逻辑
+document.addEventListener('DOMContentLoaded', function() {
+    // 获取所有筛选按钮和卡片
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const solutionCards = document.querySelectorAll('.solution-card');
+    
+    // 为每个筛选按钮添加点击事件
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // 移除所有按钮的激活状态
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // 为当前点击的按钮添加激活状态
+            this.classList.add('active');
+            
+            // 获取当前选中的分类
+            const selectedCategory = this.getAttribute('data-category');
+            
+            // 筛选卡片
+            solutionCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                // 如果是全部项目，或者分类匹配，则显示卡片，否则隐藏
+                if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
 </script>
-</body></html>
+</body>
+</html>
