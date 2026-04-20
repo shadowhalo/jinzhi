@@ -56,44 +56,53 @@
 </div>
 
 <script>
-// 脚本只写在这里，不改动任何其他地方
-document.addEventListener('DOMContentLoaded', function () {
-  const hBtn = document.getElementById('hamburgerBtn');
-  const cBtn = document.getElementById('closeNavBtn');
-  const mNav = document.getElementById('mobileNav');
-  const consultBtn = document.getElementById('consultBtn');
-  const consultModal = document.getElementById('consultModal');
-  const closeModalBtn = document.getElementById('closeModalBtn');
+// 监听DOM加载完成 + 确保元素存在后执行
+function initHeaderEvents() {
+    const hBtn = document.getElementById('hamburgerBtn');
+    const cBtn = document.getElementById('closeNavBtn');
+    const mNav = document.getElementById('mobileNav');
+    const consultBtn = document.getElementById('consultBtn');
+    const consultModal = document.getElementById('consultModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
 
-  if (hBtn && mNav) {
-    hBtn.onclick = () => {
-      mNav.style.right = '0';
-      mNav.style.opacity = '1';
-    };
-  }
-  if (cBtn && mNav) {
-    cBtn.onclick = () => {
-      mNav.style.right = '-280px';
-      mNav.style.opacity = '0';
-    };
-  }
+    // 移动端菜单
+    if (hBtn && mNav) {
+        hBtn.onclick = () => {
+            mNav.style.right = '0';
+            mNav.style.opacity = '1';
+        };
+    }
+    if (cBtn && mNav) {
+        cBtn.onclick = () => {
+            mNav.style.right = '-280px';
+            mNav.style.opacity = '0';
+        };
+    }
 
-  if (consultBtn && consultModal) {
-    consultBtn.onclick = () => {
-      consultModal.classList.remove('opacity-0', 'pointer-events-none');
-    };
-  }
-  if (closeModalBtn && consultModal) {
-    closeModalBtn.onclick = () => {
-      consultModal.classList.add('opacity-0', 'pointer-events-none');
-    };
-  }
-  if (consultModal) {
-    consultModal.onclick = (e) => {
-      if (e.target === consultModal) {
-        consultModal.classList.add('opacity-0', 'pointer-events-none');
-      }
-    };
-  }
-});
+    // 咨询弹窗
+    if (consultBtn && consultModal) {
+        consultBtn.onclick = () => {
+            consultModal.classList.remove('opacity-0', 'pointer-events-none');
+        };
+    }
+    if (closeModalBtn && consultModal) {
+        closeModalBtn.onclick = () => {
+            consultModal.classList.add('opacity-0', 'pointer-events-none');
+        };
+    }
+    if (consultModal) {
+        consultModal.onclick = (e) => {
+            if (e.target === consultModal) {
+                consultModal.classList.add('opacity-0', 'pointer-events-none');
+            }
+        };
+    }
+}
+
+// 异步加载兼容方案
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeaderEvents);
+} else {
+    initHeaderEvents();
+}
 </script>
