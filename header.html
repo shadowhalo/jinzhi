@@ -18,56 +18,84 @@
         <div class="flex items-center gap-6">
             
             <button id="openModal" class="bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-primary/10 hover:opacity-80 transition-all duration-300 active:scale-95">立即咨询</button>
-
-<!-- 咨询弹窗（彻底修复居中问题） -->
-<div id="consultModal" class="fixed top-0 left-0 w-full h-full z-[9999] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
-  <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-[400px] relative scale-95 transition-transform duration-300" style="position: absolute !important; top: 550% !important; left: 50% !important; transform: translate(-50%, -50%) scale(0.95) !important;">
-    <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl">&times;</button>
-    <div class="text-center">
-      <h3 class="text-lg font-bold text-gray-800 mb-2">了解更多详情</h3>
-      <p class="text-gray-500 mb-6">添加销售微信咨询</p>
-      <img src="index.png" alt="微信二维码" class="w-[330px] h-[330px] mx-auto rounded-lg object-cover">
+            
+<!-- 咨询弹窗（部署环境专用修复版） -->
+<div id="consultModal" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; z-index: 999 !important; display: flex !important; align-items: center !important; justify-content: center !important; background: rgba(0,0,0,0.5) !important; backdrop-filter: blur(4px) !important; opacity: 0 !important; pointer-events: none !important; transition: opacity 0.3s ease !important;">
+  <!-- 弹窗主体 -->
+  <div style="position: relative !important; width: 100% !important; max-width: 320px !important; background: white !important; border-radius: 16px !important; padding: 24px !important; box-shadow: 0 8px 32px rgba(0,0,0,0.15) !important; transform: scale(0.95) !important; transition: transform 0.3s ease !important; z-index: 1000 !important;">
+    <button id="closeModal" style="position: absolute !important; top: 12px !important; right: 12px !important; font-size: 20px !important; color: #9ca3af !important; background: none !important; border: none !important; cursor: pointer !important; padding: 4px !important; line-height: 1 !important;">×</button>
+    <div style="text-align: center !important;">
+      <h3 style="font-size: 18px !important; font-weight: 700 !important; color: #1f2937 !important; margin-bottom: 8px !important;">了解更多详情</h3>
+      <p style="font-size: 14px !important; color: #6b7280 !important; margin-bottom: 24px !important;">添加销售微信咨询</p>
+      <!-- 替换成你的二维码地址 -->
+      <img src="https://picsum.photos/220/220" alt="微信二维码" style="width: 220px !important; height: 220px !important; margin: 0 auto !important; border-radius: 8px !important; object-fit: cover !important;">
     </div>
   </div>
 </div>
 
+<!-- 修复汉堡导航+弹窗冲突的JS -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+// 等页面完全加载后执行，避免和导航JS冲突
+window.onload = function() {
+  // 弹窗核心逻辑
   const modal = document.getElementById('consultModal');
   const openBtn = document.getElementById('openModal');
   const closeBtn = document.getElementById('closeModal');
-
+  
+  // 容错：元素不存在则不执行，避免报错影响导航
   if (!modal || !openBtn || !closeBtn) return;
 
   // 打开弹窗
-  openBtn.addEventListener('click', function() {
+  openBtn.addEventListener('click', function(e) {
+    // 阻止事件冒泡，避免触发导航的点击事件
+    e.stopPropagation();
+    // 锁定body但不影响导航
     document.body.style.overflow = 'hidden';
-    modal.classList.add('opacity-100', 'pointer-events-auto');
-    modal.querySelector('div').style.transform = 'translate(-50%, -50%) scale(1) !important';
+    document.body.style.paddingRight = '0px'; // 修复滚动条偏移
+    modal.style.opacity = '1';
+    modal.style.pointerEvents = 'auto';
+    modal.querySelector('div').style.transform = 'scale(1)';
   });
 
   // 关闭弹窗
-  function closeModal() {
+  function closeModal(e) {
+    if (e) e.stopPropagation();
     document.body.style.overflow = '';
-    modal.classList.remove('opacity-100', 'pointer-events-auto');
-    modal.querySelector('div').style.transform = 'translate(-50%, -50%) scale(0.95) !important';
+    document.body.style.paddingRight = '';
+    modal.style.opacity = '0';
+    modal.style.pointerEvents = 'none';
+    modal.querySelector('div').style.transform = 'scale(0.95)';
   }
 
+  // 关闭按钮+蒙层点击关闭
   closeBtn.addEventListener('click', closeModal);
   modal.addEventListener('click', function(e) {
     if (e.target === modal) closeModal();
   });
 
-  // 兼容窗口缩放
-  window.addEventListener('resize', function() {
-    if (modal.classList.contains('opacity-100')) {
-      const modalContent = modal.querySelector('div');
-      modalContent.style.top = '50% !important';
-      modalContent.style.left = '50% !important';
-      modalContent.style.transform = 'translate(-50%, -50%) scale(1) !important';
+  // ESC键关闭
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.style.opacity === '1') {
+      closeModal();
     }
   });
-});
+
+  // 修复窗口缩放时弹窗居中
+  window.addEventListener('resize', function() {
+    if (modal.style.opacity === '1') {
+      modal.style.display = 'flex';
+      modal.querySelector('div').style.transform = 'scale(1)';
+    }
+  });
+
+  // 修复汉堡导航：确保导航层级高于弹窗蒙层，低于弹窗主体
+  const navElements = document.querySelectorAll('header, .glass-nav, [class*="nav"]');
+  navElements.forEach(el => {
+    if (el.style.zIndex === '') {
+      el.style.zIndex = '998'; // 导航层级998 < 弹窗蒙层999 < 弹窗主体1000
+    }
+  });
+};
 </script>
 
             <button id="hamburgerBtn" class="md:hidden text-2xl text-slate-700">
