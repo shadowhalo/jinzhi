@@ -1,4 +1,3 @@
-<!-- 导航栏（直接写死，不再异步加载） -->
 <nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
     <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
         <div class="flex items-center">
@@ -40,7 +39,6 @@
     <div class="bg-slate-100 h-[1px] opacity-20"></div>
 </nav>
 
-<!-- 咨询弹窗 -->
 <div id="consultModal" class="fixed inset-0 z-[9999] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
     <div class="relative bg-white rounded-2xl shadow-2xl p-8 w-full max-w-sm mx-4 text-center">
@@ -56,40 +54,51 @@
 </div>
 
 <script>
-// 最简单、最稳定、一定能绑定上
-document.addEventListener('DOMContentLoaded', function() {
-  initHeaderEvents();
-});
+function initHeader() {
+  const bind = () => {
+    const hBtn = document.getElementById('hamburgerBtn');
+    const cBtn = document.getElementById('closeNavBtn');
+    const mNav = document.getElementById('mobileNav');
+    const consultBtn = document.getElementById('consultBtn');
+    const consultModal = document.getElementById('consultModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
 
-function initHeaderEvents() {
-  const hBtn = document.getElementById('hamburgerBtn');
-  const cBtn = document.getElementById('closeNavBtn');
-  const mNav = document.getElementById('mobileNav');
-  const consultBtn = document.getElementById('consultBtn');
-  const consultModal = document.getElementById('consultModal');
-  const closeModalBtn = document.getElementById('closeModalBtn');
-
-  // 汉堡菜单
-  hBtn?.addEventListener('click', () => {
-    mNav.style.right = '0';
-    mNav.style.opacity = '1';
-  });
-  cBtn?.addEventListener('click', () => {
-    mNav.style.right = '-280px';
-    mNav.style.opacity = '0';
-  });
-
-  // 咨询弹窗
-  consultBtn?.addEventListener('click', () => {
-    consultModal.classList.remove('opacity-0', 'pointer-events-none');
-  });
-  closeModalBtn?.addEventListener('click', () => {
-    consultModal.classList.add('opacity-0', 'pointer-events-none');
-  });
-  consultModal?.addEventListener('click', (e) => {
-    if (e.target === consultModal) {
-      consultModal.classList.add('opacity-0', 'pointer-events-none');
+    if (hBtn && mNav) {
+      hBtn.onclick = () => {
+        mNav.style.right = '0';
+        mNav.style.opacity = '1';
+      };
     }
-  });
+    if (cBtn && mNav) {
+      cBtn.onclick = () => {
+        mNav.style.right = '-280px';
+        mNav.style.opacity = '0';
+      };
+    }
+    if (consultBtn && consultModal) {
+      consultBtn.onclick = () => {
+        consultModal.classList.remove('opacity-0', 'pointer-events-none');
+      };
+    }
+    if (closeModalBtn && consultModal) {
+      closeModalBtn.onclick = () => {
+        consultModal.classList.add('opacity-0', 'pointer-events-none');
+      };
+    }
+    if (consultModal) {
+      consultModal.onclick = (e) => {
+        if (e.target === consultModal) {
+          consultModal.classList.add('opacity-0', 'pointer-events-none');
+        }
+      };
+    }
+  };
+
+  if (document.getElementById('hamburgerBtn')) {
+    bind();
+  } else {
+    setTimeout(initHeader, 50);
+  }
 }
+initHeader();
 </script>
