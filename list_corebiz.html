@@ -89,18 +89,11 @@ background: rgba(245, 247, 249, 0.7);
 backdrop-filter: blur(20px);
 -webkit-backdrop-filter: blur(20px);
 }
-/* 选中状态样式（和原全部项目初始样式一致） */
-.filter-active {
-background-color: #ffffff !important;
-color: #0050d4 !important;
-font-weight: 600 !important;
-box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
-}
 </style>
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-primary/20">
 
-<!-- 公共头部 -->
+<!！-- 公共头部 -->
 <div id="header-container"></div>
 
 <main class="pt-32 pb-24 max-w-7xl mx-auto px-8">
@@ -125,17 +118,17 @@ box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
 <!-- Filter & View Toggle Bar -->
 <section class="flex flex-col md:flex-row justify-between items-center bg-surface-container-low p-2 rounded-xl mb-12 gap-4">
 <div class="flex flex-wrap gap-2">
-<!-- 仅修改：给按钮加统一标识，全部项目初始加选中样式 -->
-<button id="btn-all" class="px-6 py-2 bg-surface-container-lowest text-primary font-semibold rounded-lg shadow-sm filter-active" data-category="all">全部项目</button>
-<button class="px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="文旅">文旅</button>
-<button class="px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="农业">农业</button>
-<button class="px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="社区">社区</button>
-<button class="px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="工业">工业</button>
+<!-- 完全恢复你最初的按钮样式，仅加data-category -->
+<button id="btn-all" class="px-6 py-2 bg-surface-container-lowest text-primary font-semibold rounded-lg shadow-sm" data-category="all">全部项目</button>
+<button class="filter-btn px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="文旅">文旅</button>
+<button class="filter-btn px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="农业">农业</button>
+<button class="filter-btn px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="社区">社区</button>
+<button class="filter-btn px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="工业">工业</button>
 </div>
 </section>
 <!-- Solution Grid -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="solutions-container">
-<!-- Card 1 - 文旅 -->
+<!-- Card 1 -->
 <article class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col" data-category="文旅">
 <div class="card-image aspect-video overflow-hidden relative w-full shrink-0 transition-all duration-500">
 <a href="detail.html" target="_self"><img alt="Scenic area management" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="cbiztour.jpg"/></a>
@@ -157,7 +150,7 @@ box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
 </a>
 </div>
 </article>
-<!-- Card 2 - 文旅 -->
+<!-- Card 2 -->
 <article class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col" data-category="文旅">
 <div class="card-image aspect-video overflow-hidden relative w-full shrink-0 transition-all duration-500">
 <img alt="AI Crop Optimization" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="cbizone.jpg"/>
@@ -178,7 +171,7 @@ box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
 </a>
 </div>
 </article>
-<!-- Card 3 - 文旅 (文化归类到文旅) -->
+<!-- Card 3 -->
 <article class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col" data-category="文旅">
 <div class="card-image aspect-video overflow-hidden relative w-full shrink-0 transition-all duration-500">
 <img alt="Smart Community" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="cbizmusum.jpg"/>
@@ -192,7 +185,7 @@ box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
 <div class="flex flex-wrap gap-2 mb-8">
 <span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-wider">文化云</span>
 <span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-wider">文化空间</span>
-<span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-wider">文化场馆</span>
+	<span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-wider">文化场馆</span>
 </div>
 <a class="inline-flex items-center gap-2 text-primary font-bold text-sm group/link" href="#">
 了解更多 
@@ -200,7 +193,7 @@ box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
 </a>
 </div>
 </article>
-<!-- Card 4 - 社区 -->
+<!-- Card 4 -->
 <article class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col" data-category="社区">
 <div class="card-image aspect-video overflow-hidden relative w-full shrink-0 transition-all duration-500">
 <img alt="Digital Twin Industry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="cbizpark.jpg"/>
@@ -221,7 +214,7 @@ box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
 </a>
 </div>
 </article>
-<!-- Card 5 - 农业 -->
+<!-- Card 5 -->
 <article class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col" data-category="农业">
 <div class="card-image aspect-video overflow-hidden relative w-full shrink-0 transition-all duration-500">
 <a href="detail.html" target="_self"><img alt="Scenic area management" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="cbizagru.jpg"/></a>
@@ -235,7 +228,7 @@ box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
 <div class="flex flex-wrap gap-2 mb-8">
 <span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-wider">智慧农业</span>
 <span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-wider">数字乡村</span>
-<span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-wider">产业运营</span>
+	<span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-bold uppercase rounded-full tracking-wider">产业运营</span>
 </div>
 <a class="inline-flex items-center gap-2 text-primary font-bold text-sm group/link" href="detail.html">
 了解更多 
@@ -259,7 +252,7 @@ fetch('footer.html').then(res=>res.text()).then(html=>{
 document.getElementById('footer-container').innerHTML = html;
 });
 
-// 原有布局切换逻辑
+// 原有布局切换逻辑（完全不动）
 const container = document.getElementById('solutions-container');
 const cards = document.querySelectorAll('.solution-card');
 const cardImages = document.querySelectorAll('.card-image');
@@ -282,43 +275,31 @@ img.className = 'card-image overflow-hidden relative w-full md:w-[40%] shrink-0 
 });
 }
 
-// 筛选功能逻辑（核心修改：精准控制样式切换）
+// 仅修复交互逻辑，不修改任何样式
 document.addEventListener('DOMContentLoaded', function() {
-    // 获取所有筛选按钮和卡片
-    const filterButtons = document.querySelectorAll('[data-category]');
-    const solutionCards = document.querySelectorAll('.solution-card');
-    const btnAll = document.getElementById('btn-all'); // 定位全部项目按钮
-    
-    // 按钮默认样式模板（未选中样式）
-    const defaultBtnStyle = {
-        all: 'px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all',
-        active: 'px-6 py-2 bg-surface-container-lowest text-primary font-semibold rounded-lg shadow-sm'
-    };
+    const btnAll = document.getElementById('btn-all');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const allBtns = document.querySelectorAll('[data-category]');
+    const cards = document.querySelectorAll('.solution-card');
 
-    // 为每个筛选按钮添加点击事件
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // 1. 重置所有按钮为未选中样式
-            filterButtons.forEach(btn => {
-                // 全部项目按钮单独重置
-                if (btn === btnAll) {
-                    btn.className = defaultBtnStyle.all;
-                    btn.classList.remove('filter-active');
-                } else {
-                    // 其他按钮保持原有未选中样式
-                    btn.className = defaultBtnStyle.all;
-                }
+    // 按钮的「选中」和「未选中」样式，完全和你最初的一致
+    const activeStyle = "px-6 py-2 bg-surface-container-lowest text-primary font-semibold rounded-lg shadow-sm";
+    const inactiveStyle = "px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all";
+
+    // 给所有按钮加点击事件
+    allBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // 1. 先把所有按钮重置为未选中样式
+            allBtns.forEach(b => {
+                b.className = inactiveStyle;
             });
+            // 2. 再给当前点击的按钮设置选中样式
+            this.className = activeStyle;
 
-            // 2. 设置当前点击按钮为选中样式
-            this.className = defaultBtnStyle.active;
-            this.classList.add('filter-active');
-            
-            // 3. 筛选卡片逻辑（保持不变）
-            const selectedCategory = this.getAttribute('data-category');
-            solutionCards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-                if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+            // 3. 卡片筛选逻辑（保持不变）
+            const cat = this.dataset.category;
+            cards.forEach(card => {
+                if (cat === 'all' || card.dataset.category === cat) {
                     card.style.display = 'flex';
                 } else {
                     card.style.display = 'none';
@@ -328,5 +309,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-</body>
-</html>
+</body></html>
