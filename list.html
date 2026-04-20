@@ -92,7 +92,7 @@ backdrop-filter: blur(20px);
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-primary/20">
 
-<!-- 公共头部 -->
+<!-- 公1共头部 -->
 <div id="header-container"></div>
 
 <main class="pt-32 pb-24 max-w-7xl mx-auto px-8">
@@ -229,34 +229,25 @@ backdrop-filter: blur(20px);
 <div id="footer-container"></div>
 
 <script>
-fetch('header.html').then(res=>res.text()).then(html=>{
-document.getElementById('header-container').innerHTML = html;
-});
-fetch('footer.html').then(res=>res.text()).then(html=>{
-document.getElementById('footer-container').innerHTML = html;
-});
+function loadComponent(url, selector) {
+  fetch(url)
+    .then(res => res.text())
+    .then(html => {
+      const el = document.querySelector(selector);
+      el.innerHTML = html;
 
-// 原有布局切换逻辑
-const container = document.getElementById('solutions-container');
-const cards = document.querySelectorAll('.solution-card');
-const cardImages = document.querySelectorAll('.card-image');
-function setGridView() {
-container.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10';
-cards.forEach(card => {
-card.className = 'group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col';
-});
-cardImages.forEach(img => {
-img.className = 'card-image aspect-video overflow-hidden relative w-full shrink-0 transition-all duration-500';
-});
+      // 执行内部 script（关键！解决你所有问题的核心）
+      const scripts = el.querySelectorAll('script');
+      scripts.forEach(oldScript => {
+        const newScript = document.createElement('script');
+        newScript.textContent = oldScript.textContent;
+        document.body.appendChild(newScript);
+      });
+    });
 }
-function setListView() {
-container.className = 'flex flex-col gap-8';
-cards.forEach(card => {
-card.className = 'group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-transparent hover:border-primary/10 solution-card flex flex-col md:flex-row items-stretch';
-});
-cardImages.forEach(img => {
-img.className = 'card-image overflow-hidden relative w-full md:w-[40%] shrink-0 transition-all duration-500 min-h-[250px]';
-});
-}
+
+// 所有页面都这样写
+loadComponent('header.html', '#header-container');
+loadComponent('footer.html', '#footer-container');
 </script>
 </body></html>
