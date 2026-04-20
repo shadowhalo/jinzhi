@@ -1,4 +1,4 @@
-<!!-- 导航栏核心代码 - 直接写死（不再异步加载） -->
+<!-- 导航栏（直接写死，不再异步加载） -->
 <nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
     <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
         <div class="flex items-center">
@@ -8,7 +8,7 @@
         </div>
 
         <div class="hidden md:flex items-center space-x-8">
-            <a class="text-slate-600 hover:(text-blue-600 underline) underline-offset-4 transition-colors font-manrope font-bold tracking-tight" href="list_corebiz.html" target="_self">核心业务</a>
+            <a class="text-slate-600 hover:(text-blue-600 underline) underline-offset-4 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">核心业务</a>
             <a class="text-slate-600 hover:(text-blue-600 underline) underline-offset-4 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">解决方案</a>
             <a class="text-slate-600 hover:(text-blue-600 underline) underline-offset-4 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">产学研究</a>
             <a class="text-slate-600 hover:(text-blue-600 underline) underline-offset-4 transition-colors font-manrope font-bold tracking-tight" href="list.html" target="_self">主要产品</a>
@@ -30,7 +30,7 @@
             </button>
         </div>
         <div class="flex flex-col px-8 gap-6 mt-4 text-lg">
-            <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list_corebiz.html">核心业务</a>
+            <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">核心业务</a>
             <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">解决方案</a>
             <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">产学研究</a>
             <a class="text-slate-600 hover:text-blue-600 transition-colors font-bold" href="list.html">主要产品</a>
@@ -56,47 +56,44 @@
 </div>
 
 <script>
-// 所有功能只写在这里，不改动其他任何地方！
-window.onload = function(){
-    // 汉堡菜单
-    const hBtn = document.getElementById('hamburgerBtn');
-    const cBtn = document.getElementById('closeNavBtn');
-    const mNav = document.getElementById('mobileNav');
-    
-    if(hBtn && mNav) {
-        hBtn.onclick = () => {
-            mNav.style.right = "0";
-            mNav.style.opacity = "1";
-        };
-    }
-    if(cBtn && mNav) {
-        cBtn.onclick = () => {
-            mNav.style.right = "-280px";
-            mNav.style.opacity = "0";
-        };
-    }
+// 脚本只写在这里，不改动任何其他地方
+document.addEventListener('DOMContentLoaded', function () {
+  const hBtn = document.getElementById('hamburgerBtn');
+  const cBtn = document.getElementById('closeNavBtn');
+  const mNav = document.getElementById('mobileNav');
+  const consultBtn = document.getElementById('consultBtn');
+  const consultModal = document.getElementById('consultModal');
+  const closeModalBtn = document.getElementById('closeModalBtn');
 
-    // 咨询弹窗
-    const consultBtn = document.getElementById('consultBtn');
-    const consultModal = document.getElementById('consultModal');
-    const closeModalBtn = document.getElementById('closeModalBtn');
+  if (hBtn && mNav) {
+    hBtn.onclick = () => {
+      mNav.style.right = '0';
+      mNav.style.opacity = '1';
+    };
+  }
+  if (cBtn && mNav) {
+    cBtn.onclick = () => {
+      mNav.style.right = '-280px';
+      mNav.style.opacity = '0';
+    };
+  }
 
-    if(consultBtn) {
-        consultBtn.addEventListener('click', () => {
-            consultModal.classList.remove('opacity-0', 'pointer-events-none');
-        });
-    }
-    if(closeModalBtn) {
-        closeModalBtn.addEventListener('click', () => {
-            consultModal.classList.add('opacity-0', 'pointer-events-none');
-        });
-    }
-    if(consultModal) {
-        consultModal.addEventListener('click', (e) => {
-            if(e.target === consultModal) {
-                consultModal.classList.add('opacity-0', 'pointer-events-none');
-            }
-        });
-    }
-}
+  if (consultBtn && consultModal) {
+    consultBtn.onclick = () => {
+      consultModal.classList.remove('opacity-0', 'pointer-events-none');
+    };
+  }
+  if (closeModalBtn && consultModal) {
+    closeModalBtn.onclick = () => {
+      consultModal.classList.add('opacity-0', 'pointer-events-none');
+    };
+  }
+  if (consultModal) {
+    consultModal.onclick = (e) => {
+      if (e.target === consultModal) {
+        consultModal.classList.add('opacity-0', 'pointer-events-none');
+      }
+    };
+  }
+});
 </script>
