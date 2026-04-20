@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700;0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
 tailwind.config = {
 darkMode: "class",
@@ -93,7 +93,7 @@ backdrop-filter: blur(20px);
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-primary/20">
 
-<!-- 公1共头部 -->
+<!-- 公共头部 -->
 <div id="header-container"></div>
 
 <main class="pt-32 pb-24 max-w-7xl mx-auto px-8">
@@ -244,14 +244,65 @@ backdrop-filter: blur(20px);
 <div id="footer-container"></div>
 
 <script>
+// 第一步：先加载头部/底部
 fetch('header.html').then(res=>res.text()).then(html=>{
-document.getElementById('header-container').innerHTML = html;
+  document.getElementById('header-container').innerHTML = html;
+  // 头部加载完成后，初始化头部事件
+  initHeader();
 });
 fetch('footer.html').then(res=>res.text()).then(html=>{
-document.getElementById('footer-container').innerHTML = html;
+  document.getElementById('footer-container').innerHTML = html;
 });
 
-// 原有布局切换逻辑（完全不动）
+// 第二步：头部事件初始化函数（原头部代码不动，直接复用）
+function initHeader() {
+  const bind = () => {
+    const hBtn = document.getElementById('hamburgerBtn');
+    const cBtn = document.getElementById('closeNavBtn');
+    const mNav = document.getElementById('mobileNav');
+    const consultBtn = document.getElementById('consultBtn');
+    const consultModal = document.getElementById('consultModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    if (hBtn && mNav) {
+      hBtn.onclick = () => {
+        mNav.style.right = '0';
+        mNav.style.opacity = '1';
+      };
+    }
+    if (cBtn && mNav) {
+      cBtn.onclick = () => {
+        mNav.style.right = '-280px';
+        mNav.style.opacity = '0';
+      };
+    }
+    if (consultBtn && consultModal) {
+      consultBtn.onclick = () => {
+        consultModal.classList.remove('opacity-0', 'pointer-events-none');
+      };
+    }
+    if (closeModalBtn && consultModal) {
+      closeModalBtn.onclick = () => {
+        consultModal.classList.add('opacity-0', 'pointer-events-none');
+      };
+    }
+    if (consultModal) {
+      consultModal.onclick = (e) => {
+        if (e.target === consultModal) {
+          consultModal.classList.add('opacity-0', 'pointer-events-none');
+        }
+      };
+    }
+  };
+
+  if (document.getElementById('hamburgerBtn')) {
+    bind();
+  } else {
+    setTimeout(initHeader, 50);
+  }
+}
+
+// 第三步：原有布局切换逻辑（完全不动）
 const container = document.getElementById('solutions-container');
 const cards = document.querySelectorAll('.solution-card');
 const cardImages = document.querySelectorAll('.card-image');
@@ -274,42 +325,35 @@ img.className = 'card-image overflow-hidden relative w-full md:w-[40%] shrink-0 
 });
 }
 
-// 👇 仅新增默认选中「全部业务」逻辑，其余不动
+// 第四步：业务筛选逻辑（DOM加载完成后执行）
 document.addEventListener('DOMContentLoaded', function() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.solution-card');
-    // 找到「全部业务」按钮（第一个按钮）
     const allBtn = filterBtns[0];
 
-    // 保存两种样式的原始类名，直接用字符串切换，不改动任何结构
+    // 样式已改为py-4，和你修改的一致
     const styles = {
         active: 'px-6 py-4 bg-surface-container-lowest text-primary font-semibold rounded-lg shadow-sm',
         inactive: 'px-6 py-4 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all'
     };
 
-    // 🌟 核心新增：页面加载时默认选中「全部业务」
-    // 1. 所有按钮先设为未选中
+    // 初始化默认选中全部业务
     filterBtns.forEach(b => {
         b.className = styles.inactive;
     });
-    // 2. 给「全部业务」设置选中样式
     allBtn.className = styles.active;
-    // 3. 默认显示所有卡片（全部业务）
     cards.forEach(card => {
         card.style.display = 'flex';
     });
 
-    // 原有点击事件逻辑（完全不动）
+    // 业务筛选点击事件
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
-            // 1. 先把所有按钮恢复为未选中样式
             filterBtns.forEach(b => {
                 b.className = styles.inactive;
             });
-            // 2. 再给当前点击的按钮设置选中样式
             this.className = styles.active;
 
-            // 3. 卡片筛选逻辑（完全不变）
             const category = this.dataset.category;
             cards.forEach(card => {
                 if (category === 'all' || card.dataset.category === category) {
