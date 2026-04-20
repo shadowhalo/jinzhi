@@ -119,10 +119,10 @@ backdrop-filter: blur(20px);
 <section class="flex flex-col md:flex-row justify-between items-center bg-surface-container-low p-2 rounded-xl mb-12 gap-4">
 <div class="flex flex-wrap gap-2">
 <!-- 完全保留你最初的按钮 HTML，不做任何改动 -->
-<button class="filter-btn px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="all">全部项目</button>
-<button class="filter-btn px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="文旅">文旅</button>
-<button class="filter-btn px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="农业">农业</button>
-<button class="filter-btn px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="社区">园区</button>
+<button class="filter-btn px-6 py-4 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="all">全部业务</button>
+<button class="filter-btn px-6 py-4 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="文旅">文旅</button>
+<button class="filter-btn px-6 py-4 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="农业">农业</button>
+<button class="filter-btn px-6 py-4 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="社区">园区</button>
 </div>
 </section>
 <!-- Solution Grid -->
@@ -243,7 +243,6 @@ backdrop-filter: blur(20px);
 <!-- 公共底部 -->
 <div id="footer-container"></div>
 
-<script>
 fetch('header.html').then(res=>res.text()).then(html=>{
 document.getElementById('header-container').innerHTML = html;
 });
@@ -274,17 +273,32 @@ img.className = 'card-image overflow-hidden relative w-full md:w-[40%] shrink-0 
 });
 }
 
-// 👇 这次只在这里写 JS，**不动任何样式和HTML**
+// 按钮样式切换逻辑（新增默认选中全部业务）
 document.addEventListener('DOMContentLoaded', function() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.solution-card');
+    // 找到「全部业务」按钮（第一个按钮）
+    const allBtn = filterBtns[0];
 
-    // 保存两种样式的原始类名，直接用字符串切换，不改动任何结构
+    // 严格对应你要的样式：选中=白底色+蓝色字；未选中=无底色+灰色字
     const styles = {
-        active: 'px-6 py-2 bg-surface-container-lowest text-primary font-semibold rounded-lg shadow-sm',
-        inactive: 'px-6 py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all'
+        active: 'px-4 md:px-6 py-1.5 md:py-2 bg-surface-container-lowest text-primary font-semibold rounded-lg shadow-sm whitespace-nowrap',
+        inactive: 'px-4 md:px-6 py-1.5 md:py-2 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all whitespace-nowrap'
     };
 
+    // 🌟 核心新增：页面加载时默认选中「全部业务」
+    // 1. 所有按钮先设为未选中
+    filterBtns.forEach(b => {
+        b.className = styles.inactive;
+    });
+    // 2. 给「全部业务」设置选中样式
+    allBtn.className = styles.active;
+    // 3. 默认显示所有卡片（全部业务）
+    cards.forEach(card => {
+        card.style.display = 'flex';
+    });
+
+    // 点击事件逻辑（不变）
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
             // 1. 先把所有按钮恢复为未选中样式
@@ -306,5 +320,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-</script>
 </body></html>
