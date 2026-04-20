@@ -1,4 +1,4 @@
-<!!-- 导航栏核心代码 - 独立引入版 -->
+<!-- 导航栏核心代码 - 独立引入版 -->
 <nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
     <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
         <div class="flex items-center">
@@ -42,7 +42,7 @@
     <div class="bg-slate-100 h-[1px] opacity-20"></div>
 </nav>
 
-<!-- 咨询弹窗（放在 nav 外、不破坏结构） -->
+<!-- 咨询弹窗 -->
 <div id="consultModal" class="fixed inset-0 z-[9999] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
     <div class="relative bg-white rounded-2xl shadow-2xl p-8 w-full max-w-sm mx-4 text-center">
@@ -51,15 +51,16 @@
         </button>
         <h3 class="text-xl font-bold text-gray-800 mb-4">更多详情，请添加微信</h3>
         <div class="flex justify-center mb-4">
-            <img src="index.png" alt="微信二维码" class="w-48 h-48 object-cover rounded-lg border border-gray-200">
+            <img src="wechat-qrcode.png" alt="微信二维码" class="w-48 h-48 object-cover rounded-lg border border-gray-200">
         </div>
         <p class="text-gray-600 font-medium">或者搜索微信号 <span class="text-primary font-bold">XXXXXX</span></p>
     </div>
 </div>
 
 <script>
-// 汉堡菜单
-setTimeout(() => {
+// 所有功能统一在页面完全加载后执行（部署后必用！）
+document.addEventListener('DOMContentLoaded', function() {
+    // ========== 汉堡菜单 ==========
     const hBtn = document.getElementById('hamburgerBtn');
     const cBtn = document.getElementById('closeNavBtn');
     const mNav = document.getElementById('mobileNav');
@@ -76,20 +77,18 @@ setTimeout(() => {
             mNav.style.opacity = "0";
         };
     }
-}, 300);
 
-// 咨询弹窗
-document.addEventListener('DOMContentLoaded', () => {
+    // ========== 咨询弹窗 ==========
     const consultBtn = document.getElementById('consultBtn');
     const consultModal = document.getElementById('consultModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
 
-    if(consultBtn && consultModal) {
+    if(consultBtn) {
         consultBtn.addEventListener('click', () => {
             consultModal.classList.remove('opacity-0', 'pointer-events-none');
         });
     }
-    if(closeModalBtn && consultModal) {
+    if(closeModalBtn) {
         closeModalBtn.addEventListener('click', () => {
             consultModal.classList.add('opacity-0', 'pointer-events-none');
         });
