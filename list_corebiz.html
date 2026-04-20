@@ -117,10 +117,10 @@ backdrop-filter: blur(20px);
 <section class="flex flex-col md:flex-row justify-between items-center bg-surface-container-low p-2 rounded-xl mb-12 gap-4">
 <div class="flex flex-wrap gap-2">
 <!-- 完全保留你最初的按钮 HTML，不做任何改动 -->
-<button class="filter-btn px-6 py-4 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="all">全部业务</button>
-<button class="filter-btn px-6 py-4 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="文旅">文旅</button>
-<button class="filter-btn px-6 py-4 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="农业">农业</button>
-<button class="filter-btn px-6 py-4 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all" data-category="社区">园区</button>
+<button class="filter-btn p-4 bg-surface-container-lowest text-primary font-semibold rounded-xl shadow-sm transition-all" data-category="all">全部业务</button>
+<button class="filter-btn p-4 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-xl transition-all" data-category="文旅">文旅</button>
+<button class="filter-btn p-4 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-xl transition-all" data-category="农业">农业</button>
+<button class="filter-btn p-4 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-xl transition-all" data-category="社区">园区</button>
 </div>
 </section>
 <!-- Solution Grid -->
@@ -331,9 +331,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 样式已改为py-4，和你修改的一致
     const styles = {
-        active: 'bg-surface-container-lowest text-primary font-semibold rounded-lg shadow-sm',
-        inactive: 'hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-lg transition-all'
-    };
+    active: 'p-4 bg-surface-container-lowest text-primary font-semibold rounded-xl shadow-sm transition-all',
+    inactive: 'p-4 hover:bg-surface-container-lowest/50 text-on-surface-variant font-medium rounded-xl transition-all'
+};
 
     // 初始化默认选中全部业务
     filterBtns.forEach(b => {
