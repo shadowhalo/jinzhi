@@ -81,8 +81,9 @@ extend: {
 }
 </script>
 <style>
-body { font-family: 'Inter', sans-serif; }
-h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body,h1, h2, h3, h4 { font-family: 'PingFang SC', 'Microsoft Heiti', sans-serif; }
+ { font-family:'PingFang SC', 'Microsoft Heiti', sans-serif; }
 .material-symbols-outlined {
 font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
@@ -99,6 +100,8 @@ width: 100%;
 height: 100%;
 object-fit: cover;
 z-index: -1;
+  will-change: opacity; 
+  transform: translateZ(0); 
 }
 main, header, footer, section {
 position: relative;
@@ -474,7 +477,7 @@ z-index: 1;
   <!-- 原始渐变背景 + 底纹图片 -->
   <div class="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/90 opacity-100"></div>
   <div class="absolute top-0 left-0 w-full h-full opacity-10">
-    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsTT3XepYOBORbtWsJY5S4VTs6UFUKAFDiTn2Iya-AVCDNI95ijmRprKwLjSRknejPcmRLGdLiWPhT_mUBmCArHpRyHj49H-mn2jsTid9X_sm3pEztzbQeNLWXo0Pf60kdrkrP0zvNcBQuCmhvHOQyUomVc5VpTKymJfh-Gn-h7EgFxnoe1Vl_8jA6hsALzRa3tjZvAtdurs09naCvInH3g3Zm0n0K2YcN0cxnh2yCn9Pna7qt0LI4tZD7ZoArGOU5IC_UYx4QzKI1">
+    <img class="w-full h-full object-cover" src="img/contectbg.png">
   </div>
   <!-- 内容 -->
   <div class="relative z-10">
